@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import './SignupForm.css';
 
 const SignUpForm = () => {
-  const [errors, setErrors] = useState([]);
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [repeatPassword, setRepeatPassword] = useState('');
+  const [ errors, setErrors ] = useState([]);
+  const [ username, setUsername ] = useState('');
+  const [ email, setEmail ] = useState('');
+  const [ password, setPassword ] = useState('');
+  const [ repeatPassword, setRepeatPassword ] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+  const history = useHistory();
+
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -21,6 +24,25 @@ const SignUpForm = () => {
       }
     }
   };
+
+  // Error handling
+
+  useEffect(() => {
+    const errors = [];
+    const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+    if (!username) errors.push('Please provide a username');
+    if (username.length > 40) errors.push('Please provide a shorter username (40 chars or less).');
+    // NEED MINIMUM LENGTH SET <---------------
+    if (emailRegex.exec(email) === null) errors.push('Please provide a valid email.');
+    if (password.length < 8) errors.push('Please provide a password with 8 characters or more.');
+    // PASSWORD MAX IS 255 <------------
+    if (password !== repeatPassword) errors.push('Passwords do not match');
+
+    setErrors(errors);
+  }, [ username, email, password, repeatPassword ])
+
+
+
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -44,7 +66,7 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSignUp}>
-      <div>
+      <div className="display-errors">
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
         ))}
