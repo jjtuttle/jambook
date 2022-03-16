@@ -1,5 +1,5 @@
-from .db import db
-from datetime import datetime
+from app.models.db import db    # <- changed import from "from .db import db"
+from datetime import datetime   # Still same error from a top down.
 
 
 class Post(db.Model):
@@ -15,17 +15,17 @@ class Post(db.Model):
 
 
 # Relationships - one to many | user to posts
-user = db.relationship("User", back_populates="posts")
-likes = db.relationship("Like", back_populates="posts", cascade="all, delete")
-comments = db.relationship("Comment", back_populates="posts", cascade="all, delete")
+    users = db.relationship("User", back_populates="posts")
+    likes = db.relationship("Like", back_populates="posts", cascade="all, delete")
+    comments = db.relationship("Comment", back_populates="posts", cascade="all, delete")
 
 
-def to_dict(self):
-    return {
-        "id": self.id,
-        "owner_id": self.owner_id,
-        "body": self.body,
-        "created_at": self.created_at,
-        "updated_at": self.updated_at,
-        "owner": self.users.username
-    }
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "owner_id": self.owner_id,
+            "body": self.body,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
+            "owner": self.users.username
+        }

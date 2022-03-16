@@ -15,6 +15,7 @@ seed_commands = AppGroup('seed')
 def seed():
     seed_users()
     # Add other seed functions here
+
     seed_posts()
     seed_comments()
     seed_likes()

@@ -17,19 +17,19 @@ class Comment(db.Model):
 
 
 # Relationships
-users = db.relationship("User", back_populates="comments")
+    users = db.relationship("User", back_populates="comments")
 
-posts = db.relationship("Post", back_populates="comments")
+    posts = db.relationship("Post", back_populates="comments")
 
 
-def to_dict(self):
-    return {
-        "id": self.id,
-        "writer": self.writer,
-        "post_id": self.post_id,
-        "comment": self.comment,
-        "created_at": self.created_at,
-        "updated_at": self.updated_at,
-        "user": {self.users.id: self.users.to_dict()},
-        "owner": self.users.username
-    }
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "writer": self.writer,
+            "post_id": self.post_id,
+            "comment": self.comment,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
+            "user": {self.users.id: self.users.to_dict()},
+            "owner": self.users.username
+        }
