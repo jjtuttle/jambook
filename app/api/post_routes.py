@@ -1,7 +1,6 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, request
 from flask_login import login_required
-import psycopg2
-# //TODO:  need post form import to
+from app.forms.post_form import PostForm
 from app.models import Post, db
 from datetime import datetime
 
@@ -59,3 +58,30 @@ def get_one_post(postId):
     return {**one_post.to_dict()}
 
 # //todo ——————————————————————————————————————————————————————————————————————
+
+
+@post_routes.route('/<int:post>', methods=['PUT'])
+@login_required
+def update_post(postId):
+    form = PostForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        post = Post.query.get(postId)
+        post.body = form.data['body']
+        post.updated_at = datetime.now()
+
+        return {**post.to_dict()}
+    return {'errors': validation_errors_to_error_messages(form.errors)}
+
+
+# //todo ——————————————————————————————————————————————————————————————————————
+
+@post_routes.route('/<int:postId', methods=['DELETE'])
+@login_required
+def delete_post(postId):
+    post = Post.query.get(postId)
+    db.session.delete(post)
+    db.session.commit()
+
+    return {'id': postId}
