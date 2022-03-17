@@ -87,7 +87,7 @@ const LoginForm = () => {
             </div>
             {/***********  TAKE USER TO SIGNUP PAGE  ****************/}
             <div className="signup-btn">
-              <a href="/signup" exact={true} className="btn-create-new">
+              <a href="/sign-up" exact={true} className="btn-create-new">
                 Create new account
               </a>
             </div>
