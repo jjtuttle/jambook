@@ -10,7 +10,9 @@ ul li {
 }
 
 .nav-container {
-    background-color: green;
+    background-color: #2F3841;
+    height:60px;
+
 }
 
 .nav {
@@ -18,7 +20,7 @@ ul li {
 }
 
 .navbar {
-    background-color: grey;
+
 }
 
 .session-links  {

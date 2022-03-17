@@ -80,40 +80,40 @@ const SignUpForm = () => {
           </div>
 
           <div>
-            <label>User Name</label>
             <input className="signup-username-input"
               type='text'
               name='username'
+              placeholder="Username"
               onChange={updateUsername}
               value={username}
             ></input>
           </div>
 
           <div>
-            <label>Email</label>
             <input className="signup-email-input"
               type='text'
               name='email'
+              placeholder="Email"
               onChange={updateEmail}
               value={email}
             ></input>
           </div>
 
           <div>
-            <label>Password</label>
             <input className="signup-password-input"
               type='password'
               name='password'
+              placeholder="Password"
               onChange={updatePassword}
               value={password}
             ></input>
           </div>
 
           <div>
-            <label>Repeat Password</label>
             <input className="signup-confirm-password-input"
               type='password'
               name='repeat_password'
+              placeholder="Confirm Password"
               onChange={updateRepeatPassword}
               value={repeatPassword}
               required={true}
