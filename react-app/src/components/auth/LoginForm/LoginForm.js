@@ -36,7 +36,6 @@ const LoginForm = () => {
     setPassword(e.target.value);
   };
 
-
   if (user) {
     return <Redirect to='/' />;
   }
@@ -74,7 +73,10 @@ const LoginForm = () => {
             />
 
             <div className="login-btn">
-              <button type='submit'>Log In</button>
+              <button className='btn btn-login'
+                type='submit'>
+                Log In
+              </button>
             </div>
 
             <div className="demouser-btn">
@@ -85,11 +87,9 @@ const LoginForm = () => {
             </div>
             {/***********  TAKE USER TO SIGNUP PAGE  ****************/}
             <div className="signup-btn">
-
-              <button >
+              <a href="/signup" exact={true} className="btn-create-new">
                 Create new account
-              </button>
-
+              </a>
             </div>
 
           </div>

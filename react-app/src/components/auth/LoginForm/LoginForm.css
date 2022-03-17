@@ -8,7 +8,7 @@
     border-radius:15px;
     width: 300px;
     margin-left:200px;
-    background-color: green;
+    background-color: lightgrey;
     padding-left: 70px;
 
 }
@@ -49,7 +49,15 @@
 
 }
 
-/*****  DEFAULT style for buttons???  ****/
-.btn {
+.btn-create-new {
+    text-decoration: none;
+    background-color: #42B72A;
+    color:#fff;
+    padding: 5px 5px;
+    margin-top:25px;
+}
 
+.btn-create-new:hover {
+    background-color: #389a24;
+    cursor: pointer;
 }
