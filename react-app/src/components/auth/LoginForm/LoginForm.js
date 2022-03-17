@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, useHistory, Link } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../../store/session';
 import './LoginForm.css';
 
@@ -26,8 +26,6 @@ const LoginForm = () => {
     if (data) {
       setErrors(data);
     }
-
-    e.target.reset();
   };
 
   const updateEmail = (e) => {
@@ -37,6 +35,7 @@ const LoginForm = () => {
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
+
 
   if (user) {
     return <Redirect to='/' />;
@@ -86,9 +85,11 @@ const LoginForm = () => {
             </div>
             {/***********  TAKE USER TO SIGNUP PAGE  ****************/}
             <div className="signup-btn">
-              <Link to="/signup" exact={true}>
-                <button type="submit">Create new account</button>
-              </Link>
+
+              <button >
+                Create new account
+              </button>
+
             </div>
 
           </div>
