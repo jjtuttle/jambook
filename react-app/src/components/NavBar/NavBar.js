@@ -29,6 +29,7 @@ const NavBar = () => {
       </div>
     );
   }
+  // todo ————————————————————————————————————————————————————————————————————————
   return (
     <nav className="nav-container">
       <ul className="nav navbar">
