@@ -1,0 +1,55 @@
+
+.display-errors {
+    color: red;
+}
+
+.login-container {
+    border: solid 1px grey;
+    border-radius:15px;
+    width: 300px;
+    margin-left:200px;
+    background-color: green;
+    padding-left: 70px;
+
+}
+
+.form-container {
+
+}
+
+.login-form {
+
+}
+
+.email-input-wrapper {
+
+}
+
+.email-input {
+
+}
+
+.password-input-wrapper {
+
+}
+
+.password-input {
+
+}
+
+.login-btn {
+
+}
+
+.signup-btn {
+    
+}
+
+.log-out-btn {
+
+}
+
+/*****  DEFAULT style for buttons???  ****/
+.btn {
+
+}
