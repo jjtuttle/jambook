@@ -1,3 +1,10 @@
+
+
+ul li {
+    text-decoration: none;
+}
+
+
 .login-signup-links{
 
 }
@@ -14,8 +21,8 @@
     background-color: grey;
 }
 
-.session-links {
-
+.session-links  {
+    
 }
 
 
