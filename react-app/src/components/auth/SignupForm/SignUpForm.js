@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { signUp } from '../../../store/session';
 import './SignupForm.css';
 
@@ -12,7 +12,6 @@ const SignUpForm = () => {
   const [ repeatPassword, setRepeatPassword ] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  const history = useHistory();
 
 
   const onSignUp = async (e) => {
