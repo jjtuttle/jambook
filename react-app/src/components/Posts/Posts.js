@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPost, updatePost, getPosts } from '../../store/posts';
 import React from 'react';
-import match from '../../untils'
+import match from '../../utils/match';
 import './Posts.css';
 
 
