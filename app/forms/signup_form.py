@@ -19,11 +19,19 @@ def username_exists(form, field):
     if user:
         raise ValidationError('Username is already in use.')
 
+# //todo ——————————————————————————————————————————————————————————————————————
+# todo BE error validate message other than 'An error occurred. Please try again.
+
+
+def username_length_check(form, field):
+    username = field.database
+    if len(username) > 40 or len(username) < 3:
+        raise ValidationError('Username must be between 4 to 40 characters')
+
 
 class SignUpForm(FlaskForm):
     username = StringField('username', validators=[DataRequired(),
-                                                   username_exists, Length(
-        min=4, max=40,
-        message=('username must be between 4 to 40 characters'))])
+                                                   username_exists,
+                                                   username_length_check])
     email = StringField('email', validators=[DataRequired(), user_exists])
     password = StringField('password', validators=[DataRequired()])
