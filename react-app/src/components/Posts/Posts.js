@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPost, updatePost, getPosts } from '../../store/posts';
 import React from 'react';
+import match from '../../untils'
 import './Posts.css';
 
 
@@ -15,31 +16,26 @@ const PostForm = () => {
     // todo ————————————————————————————————————————————————————————————————————————
     const { postId } = useParams();
 
-
-    const owner_id = useSelector(state => state?.session?.user);
+    const sessionUser = useSelector(state => state?.session?.user);
 
     const [ body, setBody ] = useState('');
     const [ errors, setErrors ] = useState([]);
+
+    const matchUSerToOwner = match(sessionUser, postId);
 
     useEffect(() => {
         dispatch(getPosts(postId))
     }, [ dispatch, postId ]);
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const formData = new FormData();
-
-        formData.append('owner_id', owner_id);
-        formData.append('body', body);
-
-        const created = await dispatch(createPost(formData));
-        if (created?.errors) setErrors(created?.errors);
-        if (created?.id) {
-            history.pushState(`/posts/${created.id}`);
-            return created;
+        const payload = {
+            owner_id: sessionUser.id,
+            body
         }
-        return 'Failed to create post!';
+        dispatch(createPost(payload))
     }
 
     return (
@@ -72,6 +68,12 @@ const PostForm = () => {
                             {post?.body}
                         </li>
                     ))}
+                    <div className="errors">
+                        {errors?.length > 0 && errors?.map((error, id) => (
+                            <div key={id}>{error}</div>
+                        ))
+                        }
+                    </div>
                 </div>
             </div>
         </>

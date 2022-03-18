@@ -9,16 +9,16 @@ class Post(db.Model):
     owner_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     body = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime(), nullable=False,
-                        default=datetime.now())
+                           default=datetime.now())
     updated_at = db.Column(db.DateTime(), nullable=True,
-                        default=datetime.now())
-
+                           default=datetime.now())
 
     # Relationships - one to many | user to posts
     users = db.relationship("User", back_populates="posts")
-    likes = db.relationship("Like", back_populates="posts", cascade="all, delete")
-    comments = db.relationship("Comment", back_populates="posts", cascade="all, delete")
-
+    likes = db.relationship(
+        "Like", back_populates="posts", cascade="all, delete")
+    comments = db.relationship(
+        "Comment", back_populates="posts", cascade="all, delete")
 
     def to_dict(self):
         return {

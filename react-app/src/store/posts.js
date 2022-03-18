@@ -10,7 +10,12 @@ const DELETE_POST = 'post/delete';
 // ACTIONS
 // ===========================================================================
 
-const create = (posts) => ({ type: CREATE_POST, posts });
+const create = (posts) => {
+    console.log("POSTin ACTIONS........ ");
+    return {
+        type: CREATE_POST, posts
+    }
+};
 const getAll = (posts) => ({ type: GET_ALL_POST, posts });
 const getOne = (posts) => ({ type: GET_ONE_POST, posts });
 const update = (posts) => ({ type: UPDATE_POST, posts });
@@ -28,24 +33,16 @@ export const createPost = (posts) => async (dispatch) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ posts })
+        body: JSON.stringify(posts) //
     });
 
     if (response.ok) {
         const newPost = await response.json();
         dispatch(create(newPost));
-        return newPost;
+        // return 'failure'; // newPost
     }
     return response;
 };
-// const response = await fetch(`/api/posts/new`, { method: 'POST', body: JSON.stringify(post) });
-// console.log('THUNK POST ##################>>>>>>', response);
-// if (response.ok) {
-//     const newPost = await response.json();
-//     dispatch(create(newPost));
-//     console.log('THUNK newPost ##################>>>>>>', newPost);
-//     return newPost;
-// }
 
 
 export const getPosts = () => async (dispatch) => {
@@ -105,16 +102,13 @@ export const deletePost = (postId) => async (dispatch) => {
 const postReducer = (state = {}, action) => {
     switch (action.type) {
         case CREATE_POST: {
-            const newState = state;
+            const newState = { ...state };
             newState[ action.posts.id ] = action.posts;
-            console.log('reducer put post =========>>>>>', newState);
             return newState;
         };
         case GET_ALL_POST: {
             const newState = {};
-            console.log("reducer BEFORE forEach..................", newState);
             action.posts[ 'all_posts' ].forEach((post) => newState[ post.id ] = post);
-            console.log("reducer AFTER forEach..................", newState);
             return newState;
         };
         case GET_ONE_POST: {

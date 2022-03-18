@@ -51,9 +51,9 @@ function App() {
           <User />
         </ProtectedRoute>
 
-        <Route path='posts/:postId'>
+        {/* <Route path='posts/:postId'>
           <Post  />
-        </Route>
+        </Route> */}
 
         <ProtectedRoute path='/' exact={true} >
           {/* <h1>My Home Page</h1> */}
