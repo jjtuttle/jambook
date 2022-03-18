@@ -39,10 +39,11 @@ const PostForm = () => {
     }
 
     const handleDelete = async (postsId) => {
+        console.log("HANDLE DELETE ---------------", posts[0].id);
         await dispatch(deletePost(postsId));
     }
 
-    console.log("post username;;;;;;;", posts[0]?.owner);
+    // console.log("POST-ID for DELETE;;;;;;;", posts[0].id);
 
     return (
         <>
@@ -83,7 +84,7 @@ const PostForm = () => {
                             <div className="delete-btn-container">
                                 matchUserToOwner &&(
                                 <button className="btn btn-delete-post"
-                                    onClick={() => handleDelete(posts?.id)} >
+                                    onClick={() => handleDelete(posts[0]?.id)} >
                                     Delete
                                 </button>
                             </div>
