@@ -20,7 +20,8 @@ def validation_errors_to_error_messages(validation_errors):
 # //todo ——————————————————————————————————————————————————————————————————————
 
 
-@post_routes.route('/new', methods=['POST'])
+@post_routes.route('/api/posts/new', methods=['POST'])
+@login_required
 def create_post():
     form = PostForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -32,7 +33,6 @@ def create_post():
             created_at=datetime.now(),
             updated_at=datetime.now()
         )
-
         db.session.add(new_post)
         db.session.commit()
         return {**new_post.to_dict()}
@@ -42,8 +42,9 @@ def create_post():
 # //todo ——————————————————————————————————————————————————————————————————————
 
 
+# <int: postId >
 @post_routes.route('/all', methods=['GET'])
-def get_all_posts():
+def get_all_posts():  # get_all_posts(postId):
     all_posts = Post.query.all()
 
     return {'all_posts': [post.to_dict() for post in all_posts]}
@@ -77,7 +78,7 @@ def update_post(postId):
 
 # //todo ——————————————————————————————————————————————————————————————————————
 
-@post_routes.route('/<int:postId', methods=['DELETE'])
+@post_routes.route('/<int:postId>', methods=['DELETE'])
 @login_required
 def delete_post(postId):
     post = Post.query.get(postId)

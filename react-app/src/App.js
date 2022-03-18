@@ -9,8 +9,13 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import Homepage from './components/Homepage/Homepage';
+import Post from './components/Posts/Posts';
+
 
 function App() {
+
+
+  
   const [ loaded, setLoaded ] = useState(false);
   const dispatch = useDispatch();
 
@@ -46,10 +51,14 @@ function App() {
           <User />
         </ProtectedRoute>
 
+        <Route path='posts/:postId'>
+          <Post  />
+        </Route>
+
         <ProtectedRoute path='/' exact={true} >
           {/* <h1>My Home Page</h1> */}
           {/* <NavBar> */}
-            <Homepage />
+          <Homepage />
           {/* </NavBar> */}
         </ProtectedRoute>
 
