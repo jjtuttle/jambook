@@ -1,11 +1,11 @@
 import { useHistory, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createPost, updatePost, getPosts } from '../../store/posts';
+import { createPost, updatePost, getPosts, deletePost } from '../../store/posts';
 import React from 'react';
 import match from '../../utils/match';
 import './Posts.css';
-
+import avatar from '../../images/profile-icon.png';
 
 const PostForm = () => {
     const dispatch = useDispatch();
@@ -15,13 +15,13 @@ const PostForm = () => {
     const posts = Object.values(postsObj);
     // todo ————————————————————————————————————————————————————————————————————————
     const { postId } = useParams();
-
+    
     const sessionUser = useSelector(state => state?.session?.user);
 
     const [ body, setBody ] = useState('');
     const [ errors, setErrors ] = useState([]);
 
-    const matchUSerToOwner = match(sessionUser, postId);
+    const matchUserToOwner = match(sessionUser, postId);
 
     useEffect(() => {
         dispatch(getPosts(postId))
@@ -38,11 +38,18 @@ const PostForm = () => {
         dispatch(createPost(payload))
     }
 
+    const handleDelete = async (postsId) => {
+        await dispatch(deletePost(postsId));
+    }
+
+    console.log("post username;;;;;;;", posts[0]?.owner);
+
     return (
         <>
             <div>
                 <h1>** Posts **</h1>
                 <div className="form-container">
+                    {/* //! *************** From Starts *****************/}
                     <form className="form" onSubmit={handleSubmit}>
                         <textarea name="post"
                             id="" cols="30" rows="2"
@@ -56,6 +63,7 @@ const PostForm = () => {
                                 Post
                             </button>
                         </div>
+                        {/* //! *************** From Ends & Start Post Displays  *****************/}
                     </form>
                     <div className="post-container">
                         { }
@@ -63,11 +71,27 @@ const PostForm = () => {
                 </div>
                 <div className="posts-container">
                     <h1>Posts Wall</h1>
+
                     {posts?.map((post) => (
                         <li className={"posted-posts"} key={post?.id}>
+                            <div className="avatar">
+                                <img src={avatar} alt='avatar' style={{ width: '30px' }} />
+                                <span style={{ marginLeft: '10px', marginBottom: '25px' }}> {posts[ 0 ]?.owner}</span>
+                            </div>
                             {post?.body}
+
+                            <div className="delete-btn-container">
+                                matchUserToOwner &&(
+                                <button className="btn btn-delete-post"
+                                    onClick={() => handleDelete(posts?.id)} >
+                                    Delete
+                                </button>
+                            </div>
+                    })
                         </li>
                     ))}
+
+                    {/* //! *************** Display Errors *****************/}
                     <div className="errors">
                         {errors?.length > 0 && errors?.map((error, id) => (
                             <div key={id}>{error}</div>
