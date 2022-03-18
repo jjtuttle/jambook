@@ -39,7 +39,7 @@ export const createPost = (posts) => async (dispatch) => {
     if (response.ok) {
         const newPost = await response.json();
         dispatch(create(newPost));
-        // return 'failure'; // newPost
+        return 'failure'; // newPost
     }
     return response;
 };
@@ -84,6 +84,7 @@ export const updatePost = (payload) => async (dispatch) => { // (post, postId)
 
 
 export const deletePost = (postId) => async (dispatch) => {
+    console.log("AT DELETE THUNK............",postId); //! <--- undefined postId
     const response = await fetch(`/api/posts/${postId}`, { method: 'DELETE' });
 
     if (response.ok) {
@@ -113,17 +114,18 @@ const postReducer = (state = {}, action) => {
         };
         case GET_ONE_POST: {
             const newState = state;
-            newState[ action.post.id ] = action.post;
+            newState[ action.posts.id ] = action.post;
             return newState;
         };
         case UPDATE_POST: {
             const newState = state;
-            newState[ action.post.id ] = action.post;
+            newState[ action.posts.id ] = action.post;
             return newState;
         };
         case DELETE_POST: {
-            const newState = state;
-            delete newState[ action.post.id ];
+            const newState = {...state};
+            console.log("DELETE ACTION --------===>", newState);
+            delete newState[ action.posts.id ];
             return newState;
         };
         default:
