@@ -20,7 +20,7 @@ def validation_errors_to_error_messages(validation_errors):
 # //todo ——————————————————————————————————————————————————————————————————————
 
 
-@post_routes.route('/api/posts/new', methods=['POST'])
+@post_routes.route('/new', methods=['POST'])
 @login_required
 def create_post():
     form = PostForm()
@@ -37,7 +37,7 @@ def create_post():
         db.session.commit()
         return {**new_post.to_dict()}
 
-    return {'errors': validation_errors_to_error_messages(form.errors)}
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 # //todo ——————————————————————————————————————————————————————————————————————
 
