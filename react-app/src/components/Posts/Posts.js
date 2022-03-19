@@ -5,6 +5,7 @@ import { createPost, updatePost, getPosts, deletePost } from '../../store/posts'
 import React from 'react';
 import match from '../../utils/match';
 import './Posts.css';
+import EditPostsModal from '../EditPosts/EditPostsModal';
 import avatar from '../../images/profile-icon.png';
 
 const PostForm = () => {
@@ -15,7 +16,7 @@ const PostForm = () => {
     const posts = Object.values(postsObj);
     // todo ————————————————————————————————————————————————————————————————————————
     const { postId } = useParams();
-    
+
     const sessionUser = useSelector(state => state?.session?.user);
 
     const [ body, setBody ] = useState('');
@@ -42,7 +43,7 @@ const PostForm = () => {
         await dispatch(deletePost(postsId));
     }
 
-    // console.log("POST-ID for DELETE;;;;;;;", posts[0].id);
+    // console.log("POST-ID for DELETE;;;;;;;", posts[ 0 ].id);
 
     return (
         <>
@@ -80,14 +81,18 @@ const PostForm = () => {
                             </div>
                             {post?.body}
 
-                            <div className="delete-btn-container">
+                            {/* <div className="delete-btn-container">
                                 matchUserToOwner &&(
                                 <button className="btn btn-delete-post"
-                                    onClick={() => handleDelete(posts[0]?.id)} >
+                                    onClick={() => handleDelete(posts[ 0 ]?.id)} >
                                     Delete
                                 </button>
                             </div>
-                    })
+                    }) */}
+                            <div className="edit-posts-wrapper">
+                                <EditPostsModal post={post} postsId={post.id} />
+                                EDIT
+                            </div>
                         </li>
                     ))}
 

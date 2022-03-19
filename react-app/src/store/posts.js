@@ -66,7 +66,7 @@ export const getPost = (postId) => async (dispatch) => {
 
 
 export const updatePost = (payload) => async (dispatch) => { // (post, postId)
-    const response = await fetch(`/api/posts/${payload}`, { method: 'PUT', body: payload });
+    const response = await fetch(`/api/`, { method: 'PUT', body: payload });
 
     if (response.ok) {
         const updatedPost = await response.json();
@@ -117,7 +117,7 @@ const postReducer = (state = {}, action) => {
             return newState;
         };
         case DELETE_POST: {
-            const newState = { ...state };
+            const newState = state ;
             delete newState[ action.posts.id ];
             return newState;
         };
