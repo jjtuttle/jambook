@@ -10,12 +10,7 @@ const DELETE_POST = 'post/delete';
 // ACTIONS
 // ===========================================================================
 
-const create = (posts) => {
-    console.log("POSTin ACTIONS........ ");
-    return {
-        type: CREATE_POST, posts
-    }
-};
+const create = (posts) => ({ type: CREATE_POST, posts });
 const getAll = (posts) => ({ type: GET_ALL_POST, posts });
 const getOne = (posts) => ({ type: GET_ONE_POST, posts });
 const update = (posts) => ({ type: UPDATE_POST, posts });
@@ -84,7 +79,6 @@ export const updatePost = (payload) => async (dispatch) => { // (post, postId)
 
 
 export const deletePost = (postId) => async (dispatch) => {
-    console.log("AT DELETE THUNK............",postId); //! <--- undefined postId
     const response = await fetch(`/api/posts/${postId}`, { method: 'DELETE' });
 
     if (response.ok) {
@@ -123,8 +117,7 @@ const postReducer = (state = {}, action) => {
             return newState;
         };
         case DELETE_POST: {
-            const newState = {...state};
-            console.log("DELETE ACTION --------===>", newState);
+            const newState = { ...state };
             delete newState[ action.posts.id ];
             return newState;
         };

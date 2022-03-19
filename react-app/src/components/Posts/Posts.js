@@ -39,7 +39,6 @@ const PostForm = () => {
     }
 
     const handleDelete = async (postsId) => {
-        console.log("HANDLE DELETE ---------------", posts[0].id);
         await dispatch(deletePost(postsId));
     }
 
