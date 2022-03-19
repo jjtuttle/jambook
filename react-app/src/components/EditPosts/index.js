@@ -1,28 +1,30 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
-import { EditPosts, getPosts } from '../../store/posts';
+import { updatePost, getPosts } from '../../store/posts';
 
-const EditPosts = ({ closeModal, posts }) => {
+const EditPostsForm = ({ closeModal, posts }) => {
     const dispatch = useDispatch();
     const history = useHistory;
     const { postsId } = useParams();
-    const id = posts.id
 
-    console.log('id????????', id);
+
+    // console.log("POstsEditFtrom```````````````````", posts);
+    // const id = posts.id
+
 
     const [ body, setBody ] = useState('posts.body');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await dispatch(editPosts({
-            id,
+        await dispatch(updatePost({
+            // id,
             body,
         }));
         await dispatch(getPosts(postsId));
         closeModal();
-        return history.push(`/posts`);
+        // return history.push(`/`);
     }
 
     return (
@@ -47,4 +49,4 @@ const EditPosts = ({ closeModal, posts }) => {
 
 }
 
-export default EditPosts;
+export default EditPostsForm;
