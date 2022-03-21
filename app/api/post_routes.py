@@ -46,7 +46,7 @@ def create_post():
 @post_routes.route('/all', methods=['GET'])
 def get_all_posts():  # get_all_posts(postId):
     all_posts = Post.query.all()
-    print("all______posts", all_posts)
+    # print("all______posts", all_posts)
     return {'all_posts': [post.to_dict() for post in all_posts]}
 
 # //todo ——————————————————————————————————————————————————————————————————————
@@ -72,6 +72,8 @@ def update_post(postId):
         post.owner_id = form.data['owner_id']
         post.body = form.data['body']
         post.updated_at = datetime.now()
+
+        db.session.commit()
 
         return {**post.to_dict()}
     return {'errors': validation_errors_to_error_messages(form.errors)}

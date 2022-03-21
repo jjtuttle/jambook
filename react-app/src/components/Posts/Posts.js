@@ -83,22 +83,21 @@ const PostForm = () => {
                             </div>
                             {post?.body}
                             {/* //! *************** DELETE BUTTON *****************/}
+                                {matchUserToOwner && (
                             <div className="delete-posts-wrapper">
-                                matchUserToOwner &&(
-                                <button className="btn btn-delete-post"
-                                    onClick={() => handleDelete(post?.id)} >
-                                    Delete
-                                </button>
+                                    <button className="btn btn-delete-post"
+                                        onClick={() => handleDelete(post?.id)} >
+                                        Delete
+                                    </button>
                             </div>
                     )}
                             {/* //! *************** EDIT BUTTON *****************/}
                             <div className="edit-posts-wrapper">
                                 <EditPostsModal post={post} postsId={post.id} />
-                                EDIT
                             </div>
                         </li>
                     ))}
-
+{/* )} */}
                     {/* //! *************** Display Errors *****************/}
                     <div className="errors">
                         {errors?.length > 0 && errors?.map((error, id) => (
