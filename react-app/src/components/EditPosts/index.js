@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { updatePost, getPosts } from '../../store/posts';
 
@@ -8,20 +8,24 @@ const EditPostsForm = ({ closeModal, posts }) => {
     const history = useHistory;
     const { postsId } = useParams();
 
+    const sessionUser = useSelector(state => state?.session?.user);
 
-    // console.log("POstsEditFtrom```````````````````", posts);
-    // const id = posts.id
+    // console.log("POstsEditFtrom```````````````````", sessionUser.id);
+    const id = posts.id
 
 
-    const [ body, setBody ] = useState('posts.body');
+    const [ body, setBody ] = useState(posts.body);
 
+    //! EDIT
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         await dispatch(updatePost({
-            // id,
+            id,
+            owner_id: +sessionUser.id,
             body,
         }));
+
         await dispatch(getPosts(postsId));
         closeModal();
         // return history.push(`/`);

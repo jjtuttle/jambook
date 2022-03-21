@@ -1,5 +1,5 @@
 .posts-container {
-
+    
 }
 
 .posted-posts {
@@ -8,4 +8,19 @@
     border-radius: 8px;
     padding: 5px;
     margin: 5px;
+}
+
+.posted-posts {
+    /* color: #F0F2F5;
+    background-color:#2F3841 ; */
+    box-shadow: 0px 5px 17px -7px rgba(0,0,0,0.75);
+}
+
+.avatar > img{
+    background-color: #F0F2F5;
+    border-radius: 999px;
+}
+
+.post {
+    box-shadow: 0px 5px 17px -7px rgba(0,0,0,0.75);
 }

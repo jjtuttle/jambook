@@ -4,13 +4,13 @@ import * as sessionActions from '../../store/session';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
-  const [showMenu, setShowMenu] = useState(false);
-  
+  const [ showMenu, setShowMenu ] = useState(false);
+
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
   };
-  
+
   useEffect(() => {
     if (!showMenu) return;
 
@@ -19,9 +19,9 @@ function ProfileButton({ user }) {
     };
 
     document.addEventListener('click', closeMenu);
-  
+
     return () => document.removeEventListener("click", closeMenu);
-  }, [showMenu]);
+  }, [ showMenu ]);
 
   const logout = (e) => {
     e.preventDefault();
@@ -30,7 +30,18 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button onClick={openMenu}
+        style={{
+          backgroundColor: 'transparent',
+          color: 'white',
+          border: '1px solid white',
+          borderRadius: '8px',
+          fontWeight: '700',
+          fontSize: '14px',
+          height:'20px',
+          width:'40px'
+        }}
+      >
         <i className="fas fa-user-circle" />
       </button>
       {showMenu && (
@@ -38,7 +49,17 @@ function ProfileButton({ user }) {
           <li>{user.username}</li>
           <li>{user.email}</li>
           <li>
-            <button onClick={logout}>Log Out</button>
+            <button onClick={logout}
+              style={{
+                backgroundColor: 'transparent',
+                color: 'white',
+                border: '1px solid white',
+                borderRadius: '5px',
+                fontWeight: '700',
+                fontSize: '14px'
+              }}
+
+            >Log Out</button>
           </li>
         </ul>
       )}
