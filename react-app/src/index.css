@@ -10,3 +10,9 @@ a {
 li {
     list-style-type: none;
 }
+
+body {
+    background-color: #f1f2f5;
+    /* background-color: #23292F;
+    color: #F0F2F5; */
+}

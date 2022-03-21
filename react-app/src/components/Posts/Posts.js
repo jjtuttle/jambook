@@ -1,7 +1,7 @@
 import { useHistory, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createPost, updatePost, getPosts, deletePost } from '../../store/posts';
+import { createPost, getPosts, deletePost } from '../../store/posts';
 import React from 'react';
 import match from '../../utils/match';
 import './Posts.css';
@@ -28,7 +28,7 @@ const PostForm = () => {
         dispatch(getPosts(postId))
     }, [ dispatch, postId ]);
 
-
+    //!CREATE
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -37,10 +37,12 @@ const PostForm = () => {
             body
         }
         dispatch(createPost(payload))
+        setBody('');
     }
 
-    const handleDelete = async (postsId) => {
-        await dispatch(deletePost(postsId));
+    //! DELETE
+    const handleDelete = async (postId) => {
+        await dispatch(deletePost(postId));
     }
 
     // console.log("POST-ID for DELETE;;;;;;;", posts[ 0 ].id);
@@ -52,7 +54,7 @@ const PostForm = () => {
                 <div className="form-container">
                     {/* //! *************** From Starts *****************/}
                     <form className="form" onSubmit={handleSubmit}>
-                        <textarea name="post"
+                        <textarea className="post"
                             id="" cols="30" rows="2"
                             placeholder="Start a session..."
                             value={body}
@@ -77,18 +79,19 @@ const PostForm = () => {
                         <li className={"posted-posts"} key={post?.id}>
                             <div className="avatar">
                                 <img src={avatar} alt='avatar' style={{ width: '30px' }} />
-                                <span style={{ marginLeft: '10px', marginBottom: '25px' }}> {posts[ 0 ]?.owner}</span>
+                                <span style={{ marginLeft: '10px', marginBottom: '25px' }}> {post?.owner}</span>
                             </div>
                             {post?.body}
-
-                            {/* <div className="delete-btn-container">
+                            {/* //! *************** DELETE BUTTON *****************/}
+                            <div className="delete-posts-wrapper">
                                 matchUserToOwner &&(
                                 <button className="btn btn-delete-post"
-                                    onClick={() => handleDelete(posts[ 0 ]?.id)} >
+                                    onClick={() => handleDelete(post?.id)} >
                                     Delete
                                 </button>
                             </div>
-                    }) */}
+                    )}
+                            {/* //! *************** EDIT BUTTON *****************/}
                             <div className="edit-posts-wrapper">
                                 <EditPostsModal post={post} postsId={post.id} />
                                 EDIT

@@ -45,7 +45,6 @@ const Homepage = () => {
  
 
             <div>
-                <h1>** NEW HOMEPAGE **</h1>
                 <div className="create-post">
                     {/* <Post postId={postId} /> */}
                     <Post />

@@ -46,7 +46,7 @@ def create_post():
 @post_routes.route('/all', methods=['GET'])
 def get_all_posts():  # get_all_posts(postId):
     all_posts = Post.query.all()
-
+    print("all______posts", all_posts)
     return {'all_posts': [post.to_dict() for post in all_posts]}
 
 # //todo ——————————————————————————————————————————————————————————————————————
@@ -61,7 +61,7 @@ def get_one_post(postId):
 # //todo ——————————————————————————————————————————————————————————————————————
 
 
-@post_routes.route('/<int:post>', methods=['PUT'])
+@post_routes.route('/<int:postId>', methods=['PUT'])
 @login_required
 def update_post(postId):
     form = PostForm()
@@ -69,6 +69,7 @@ def update_post(postId):
 
     if form.validate_on_submit():
         post = Post.query.get(postId)
+        post.owner_id = form.data['owner_id']
         post.body = form.data['body']
         post.updated_at = datetime.now()
 
