@@ -15,17 +15,15 @@ class Comment(db.Model):
     updated_at = db.Column(db.DateTime(), nullable=False,
                            default=datetime.now())
 
-
     # Relationships
     users = db.relationship("User", back_populates="comments")
 
     posts = db.relationship("Post", back_populates="comments")
 
-
     def to_dict(self):
         return {
             "id": self.id,
-            "writer": self.writer,
+            "writer": self.writer_id,
             "post_id": self.post_id,
             "comment": self.comment,
             "created_at": self.created_at,
