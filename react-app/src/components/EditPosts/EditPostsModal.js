@@ -14,7 +14,6 @@ function EditPosts({ post }) {
     const writerId = post.owner_id;
     const matchingSessionToUser = match(sessionId, writerId);
 
-    // console.log('MODAL.........', post.id);
 
     return (
         matchingSessionToUser && (

@@ -9,9 +9,9 @@ import './Posts.css'
 const DeletePostButton = ({ post }) => { // singular props arg...
     const dispatch = useDispatch();
     const sessionId = useSelector(state => state?.session?.user?.id);
-    const writer_id = post.writer_id;
+    const owner_id = post.owner_id;
 
-    const matchingToSessionUser = match(sessionId, writer_id);
+    const matchingToSessionUser = match(sessionId, owner_id);
 
     //! DELETE
     const handleDelete = async (postId) => {

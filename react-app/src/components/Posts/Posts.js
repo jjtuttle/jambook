@@ -6,6 +6,7 @@ import React from 'react';
 import match from '../../utils/match';
 import './Posts.css';
 import EditPostsModal from '../EditPosts/EditPostsModal';
+import DeletePostButton from './DeletePostButton';
 import avatar from '../../images/profile-icon.png';
 
 const PostForm = () => {
@@ -66,47 +67,40 @@ const PostForm = () => {
                                 Post
                             </button>
                         </div>
-                        {/* //! *************** From Ends & Start Post Displays  *****************/}
                     </form>
-                    <div className="post-container">
-                        { }
-                    </div>
+                    {/* //! *************** From Ends & Start Post Displays  *****************/}
                 </div>
+
                 <div className="posts-container">
                     <h1>Posts Wall</h1>
-
-                    {posts?.map((post) => (
-                        <li className={"posted-posts"} key={post?.id}>
-                            <div className="avatar">
-                                <img src={avatar} alt='avatar' style={{ width: '30px' }} />
-                                <span style={{ marginLeft: '10px', marginBottom: '25px' }}> {post?.owner}</span>
-                            </div>
-                            {post?.body}
-                            {/* //! *************** DELETE BUTTON *****************/}
-                                {matchUserToOwner && (
-                            <div className="delete-posts-wrapper">
-                                    <button className="btn btn-delete-post"
-                                        onClick={() => handleDelete(post?.id)} >
-                                        Delete
-                                    </button>
-                            </div>
-                    )}
-                            {/* //! *************** EDIT BUTTON *****************/}
-                            <div className="edit-posts-wrapper">
-                                <EditPostsModal post={post} postsId={post.id} />
-                            </div>
-                        </li>
-                    ))}
-{/* )} */}
-                    {/* //! *************** Display Errors *****************/}
-                    <div className="errors">
-                        {errors?.length > 0 && errors?.map((error, id) => (
-                            <div key={id}>{error}</div>
-                        ))
-                        }
-                    </div>
+                    <ul>
+                        {posts?.map((post) => (
+                            <li className={"posted-posts"} key={post?.id}>
+                                <div className="avatar">
+                                    <img src={avatar} alt='avatar' style={{ width: '30px' }} />
+                                    <span style={{ marginLeft: '10px', marginBottom: '25px' }}> {post?.owner}</span>
+                                </div>
+                                <div className="post-body">
+                                    {post?.body}
+                                </div>
+                                < div className="edit-delete-post-wrapper">
+                                    <EditPostsModal post={post} postsId={post.id} />
+                                    <DeletePostButton post={post} />
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
-            </div>
+
+                {/* //! *************** Display Errors *****************/}
+                < div className="errors" >
+                    {errors?.length > 0 && errors?.map((error, id) => (
+                        <div key={id}>{error}</div>
+                    ))
+                    }
+                </div>
+
+            </div >
         </>
     );
 };
