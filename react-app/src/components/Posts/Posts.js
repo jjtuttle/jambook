@@ -7,6 +7,7 @@ import match from '../../utils/match';
 import './Posts.css';
 import EditPostsModal from '../EditPosts/EditPostsModal';
 import DeletePostButton from './DeletePostButton';
+import Comments from '../Comments/Comments'
 import avatar from '../../images/profile-icon.png';
 
 const PostForm = () => {
@@ -87,6 +88,9 @@ const PostForm = () => {
                                     <EditPostsModal post={post} postsId={post.id} />
                                     <DeletePostButton post={post} />
                                 </div>
+                                <div className="comments-container">
+                                    <Comments post={posts} />
+                                </div>
                             </li>
                         ))}
                     </ul>
@@ -106,3 +110,6 @@ const PostForm = () => {
 };
 
 export default PostForm;
+
+//!  get post timestamp and display nicely
+// <p>{new Date(created_at?.toDate()).toUTCString()}</p>
