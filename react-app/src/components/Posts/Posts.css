@@ -24,3 +24,7 @@
 .post {
     box-shadow: 0px 5px 17px -7px rgba(0,0,0,0.75);
 }
+
+.post-body {
+    /* background-color: lightgrey; */
+}

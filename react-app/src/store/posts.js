@@ -22,7 +22,7 @@ const destroy = (posts) => ({ type: DELETE_POST, posts });
 // ===========================================================================
 
 export const createPost = (posts) => async (dispatch) => {
-    // console.log("create post thunk", posts);
+
     const response = await fetch('/api/posts/new', {
         method: 'POST',
         headers: {
@@ -66,18 +66,18 @@ export const getPost = (postId) => async (dispatch) => {
 
 
 export const updatePost = (payload) => async (dispatch) => { // (post, postId)
-    console.log("update thunk:::", payload);
+
     const response = await fetch(`/api/posts/${payload.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
     });
-    console.log("THUNK response..........", response);
+
     if (response.ok) {
         const updatedPost = await response.json();
         dispatch(update(updatedPost));
         return updatedPost;
-    } 
+    }
 
 }
 
@@ -85,7 +85,7 @@ export const updatePost = (payload) => async (dispatch) => { // (post, postId)
 
 export const deletePost = (postId) => async (dispatch) => {
     const response = await fetch(`/api/posts/${postId}`, { method: 'DELETE' });
-   
+
     if (response.ok) {
         const postID = await response.json();
         dispatch(destroy(postID));
@@ -107,7 +107,7 @@ const postReducer = (state = {}, action) => {
             return newState;
         };
         case GET_ALL_POST: {
-            const newState = {...state};
+            const newState = { ...state };
             action.posts[ 'all_posts' ].forEach((post) => newState[ post.id ] = post);
             return newState;
         };
@@ -117,13 +117,12 @@ const postReducer = (state = {}, action) => {
             return newState;
         };
         case UPDATE_POST: {
-            const newState = {...state};
-            console.log("UPDATE REDUCER ------- >>", action.posts);
+            const newState = { ...state };
             newState[ action.posts.id ] = action.posts;
             return newState;
         };
         case DELETE_POST: {
-            const newState = {...state};
+            const newState = { ...state };
             delete newState[ action.posts.id ];
             return newState;
         };
