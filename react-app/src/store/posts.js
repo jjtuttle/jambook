@@ -113,7 +113,7 @@ const postReducer = (state = {}, action) => {
         };
         case GET_ONE_POST: {
             const newState = state;
-            newState[ action.posts.id ] = action.post;
+            newState[ action.posts.id ] = action.posts;
             return newState;
         };
         case UPDATE_POST: {
