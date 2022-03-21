@@ -35,7 +35,7 @@ const EditPostsForm = ({ closeModal, posts }) => {
         <div>
             <h1>Edit Posts</h1>
             <form className="edit-posts-form" onSubmit={handleSubmit}>
-                <textarea name="post"
+                <input name="post"
                     id="" cols="30" rows="2"
                     placeholder="Start a session..."
                     value={body}
