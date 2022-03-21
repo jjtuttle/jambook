@@ -30,3 +30,5 @@ const Comments = ({ post }) => {
 };
 
 export default Comments;
+
+//! git branch: render-comments-on-posts
