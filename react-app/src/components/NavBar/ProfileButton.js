@@ -39,9 +39,9 @@ function ProfileButton({ user }) {
           fontWeight: '700',
           fontSize: '14px',
           height:'20px',
-          width:'40px'
+          width:'80px'
         }}
-      >
+      > Click Me
         <i className="fas fa-user-circle" />
       </button>
       {showMenu && (
@@ -51,6 +51,7 @@ function ProfileButton({ user }) {
           <li>
             <button onClick={logout}
               style={{
+                position: 'absolute',
                 backgroundColor: 'transparent',
                 color: 'white',
                 border: '1px solid white',

@@ -8,11 +8,16 @@
     justify-content: space-evenly;
     align-items: center;
     height: 60px;
+
 }
 
 .profile-dropdown {
     position: absolute;
     color:white;
+    height: 20vh;
+    width: 30vw;
+    background-color: pink;
+
 }
 
 .fa .fa-user-circle {
