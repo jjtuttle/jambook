@@ -54,7 +54,7 @@ const PostForm = () => {
                 <div className="form-container">
                     {/* //! *************** From Starts *****************/}
                     <form className="form" onSubmit={handleSubmit}>
-                        <textarea className="post"
+                        <input className="post"
                             id="" cols="30" rows="2"
                             placeholder="Start a session..."
                             value={body}
