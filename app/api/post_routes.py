@@ -69,6 +69,7 @@ def update_post(postId):
 
     if form.validate_on_submit():
         post = Post.query.get(postId)
+        
         post.owner_id = form.data['owner_id']
         post.body = form.data['body']
         post.updated_at = datetime.now()
