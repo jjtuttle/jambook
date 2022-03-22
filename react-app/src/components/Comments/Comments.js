@@ -9,19 +9,28 @@ import './Comments.css';
 
 
 // todo ————————————————————————————————————————————————————————————————————————
-const Comments = ({ post }) => {
+const Comments = (posts) => {
     const dispatch = useDispatch();
-    // const commentsObj = useSelector((state) => Object.values(state?.commentReducer));
-    const comments = [''];
+    const commentsObj = useSelector((state) => state?.commentReducer);
+    const comments = [ '' ];
 
-    // console.log("COMMENTSSSSS________------->>", commentsObj);
+    const p = Object.values(posts)
+
+    useEffect(() => {
+        dispatch(getComment(posts))
+    }, [ dispatch, posts ])
+
+    const [ comment, setComment ] = useState('')
+
+    console.log("POSTsssss in Comments Comp....", p);
+    // console.log("COMMENTSSSSS________------->>", posts);
 
     return (
         <div className="post-comment-container">
             <ul className="post-comment">
                 {comments?.map(comment => (
                     < li className={'comment'} key={comment?.id}>
-                        {comment?.comment}
+                        [comment]  {comment?.comment}
                     </li>
                 ))}
             </ul>
