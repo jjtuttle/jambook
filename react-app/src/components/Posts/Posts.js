@@ -10,13 +10,15 @@ import DeletePostButton from './DeletePostButton';
 import Comments from '../Comments/Comments'
 import avatar from '../../images/profile-icon.png';
 
+import { Avatar, IconButton } from "@material-ui/core";
+
 const PostForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    // todo ————————————————————————————————————————————————————————————————————————
+    
     const postsObj = useSelector(state => state?.posts);
     const posts = Object.values(postsObj);
-    // todo ————————————————————————————————————————————————————————————————————————
+
     const { postId } = useParams();
 
     const sessionUser = useSelector(state => state?.session?.user);
@@ -26,9 +28,27 @@ const PostForm = () => {
 
     const matchUserToOwner = match(sessionUser, postId);
 
+    // todo ————————————————————————————————————————————————————————————————————————
+    //! NEED TO GAVE ERROR HANDLING FOR SUBMIT POST **
+    console.log('TEST BODY in post', body);
+
+    useEffect(() => {
+        const errors = [];
+        if (body === null) errors.push("Cannot submit an empty post.");
+        // more error handling for Post Component
+
+        setErrors(errors);
+    }, [ body ])
+    // todo ————————————————————————————————————————————————————————————————————————
+
+
     useEffect(() => {
         dispatch(getPosts(postId))
     }, [ dispatch, postId ]);
+
+
+
+
 
     //!CREATE
     const handleSubmit = async (e) => {
@@ -53,6 +73,13 @@ const PostForm = () => {
         <>
             <div>
                 <h1>** Posts **</h1>
+                {/* //! *************** Display Errors *****************/}
+                < div className="errors" style={{ color: 'red' }}>
+                    {errors?.length > 0 && errors?.map((error, id) => (
+                        <div key={id}>{error}</div>
+                    ))
+                    }
+                </div>
                 <div className="form-container">
                     {/* //! *************** From Starts *****************/}
                     <form className="form" onSubmit={handleSubmit}>
@@ -61,10 +88,10 @@ const PostForm = () => {
                             placeholder="Start a session..."
                             value={body}
                             onChange={(e) => setBody(e.target.value)}
-                            style={{ borderRadius: '5px' }}
+                            style={{ borderRadius: '5px', border: 'none' }}
                         />
                         <div className="button">
-                            <button type="submit">
+                            <button className="btn btn-post" type="submit">
                                 Post
                             </button>
                         </div>
@@ -96,13 +123,7 @@ const PostForm = () => {
                     </ul>
                 </div>
 
-                {/* //! *************** Display Errors *****************/}
-                < div className="errors" >
-                    {errors?.length > 0 && errors?.map((error, id) => (
-                        <div key={id}>{error}</div>
-                    ))
-                    }
-                </div>
+
 
             </div >
         </>
