@@ -15,7 +15,7 @@ import { Avatar, IconButton } from "@material-ui/core";
 const PostForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    
+
     const postsObj = useSelector(state => state?.posts);
     const posts = Object.values(postsObj);
 
@@ -30,7 +30,7 @@ const PostForm = () => {
 
     // todo ————————————————————————————————————————————————————————————————————————
     //! NEED TO GAVE ERROR HANDLING FOR SUBMIT POST **
-    console.log('TEST BODY in post', body);
+    // console.log('TEST BODY in post', body);
 
     useEffect(() => {
         const errors = [];
@@ -62,7 +62,7 @@ const PostForm = () => {
         await dispatch(deletePost(postId));
     }
 
-    console.log("POSTs in Post Comp......;;;;;;;", posts);
+    console.log("POSTs in Post Comp......;;;;;;;", postId);
 
     return (
         <>
@@ -77,16 +77,19 @@ const PostForm = () => {
                 <div className="form-container">
                     {/* //! *************** From Starts *****************/}
                     <form className="form" onSubmit={handleSubmit}>
-                        <input className="post"
-                            id="" cols="30" rows="2"
-                            placeholder="What's on your mind?"
-                            value={body}
-                            onChange={(e) => setBody(e.target.value)}
-                            style={{ borderRadius: '5px', border: 'none',
-                            outlineWidth:'0', width:'260px', height:'30px'
-                         }}
-                        />
-                        <div className="form-submit-btn-container">
+                        <div className="form--top">
+                            <input className="post"
+                                id="" cols="30" rows="2"
+                                placeholder="What's on your mind?"
+                                value={body}
+                                onChange={(e) => setBody(e.target.value)}
+                                style={{
+                                    borderRadius: '5px', border: 'none',
+                                    outlineWidth: '0', width: '260px', height: '30px'
+                                }}
+                            />
+                        </div>
+                        <div className="form--bottom">
                             <button className="btn btn-post" type="submit">
                                 Post
                             </button>
@@ -97,8 +100,10 @@ const PostForm = () => {
 
                 <div className="posts-container">
                     <h1>Posts Wall</h1>
+
                     <ul>
                         {posts?.map((post) => (
+
                             <li className={"posted-posts"} key={post?.id}>
                                 <div className="avatar">
                                     <img src={avatar} alt='avatar' style={{ width: '30px' }} />
@@ -107,12 +112,13 @@ const PostForm = () => {
                                 <div className="post-body">
                                     {post?.body}
                                 </div>
+
                                 < div className="edit-delete-post-wrapper">
                                     <EditPostsModal post={post} postsId={post.id} />
                                     <DeletePostButton post={post} />
                                 </div>
                                 <div className="comments-container">
-                                    <Comments post={posts} />
+                                    <Comments post={post} />
                                 </div>
                             </li>
                         ))}

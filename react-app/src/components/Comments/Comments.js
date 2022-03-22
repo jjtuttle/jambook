@@ -5,32 +5,39 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createComment, getComment, deleteComment } from '../../store/comments';
 import match from '../../utils/match';
 import './Comments.css';
+import { CommentOutlined } from '@material-ui/icons';
 
 
 
 // todo ————————————————————————————————————————————————————————————————————————
-const Comments = (posts) => {
+const Comments = ({post}) => {
     const dispatch = useDispatch();
-    const commentsObj = useSelector((state) => state?.commentReducer);
-    const comments = [ '' ];
+    const sessionUser = useSelector(state => state?.session?.user);
 
-    const p = Object.values(posts)
+    // const commentsObj = useSelector(state => state?.commentReducer);
+    // const comments = Object.values(commentsObj)
+    // const comments = [''];
+
 
     useEffect(() => {
-        dispatch(getComment(posts))
-    }, [ dispatch, posts ])
+        dispatch(getComment(post.id))
+      
+        // if(comment) {
+        //     console.log("GETTER for Comments......----->>>", comment);
+        // }
+    }, [ dispatch, post.id ])
 
-    const [ comment, setComment ] = useState('')
-
-    console.log("POSTsssss in Comments Comp....", p);
-    // console.log("COMMENTSSSSS________------->>", posts);
+    const [ comments, setComments ] = useState([1,2,3])  // current comments for DB
+    const [comment, setComment] = useState('');         // create a new comment
+    
+    console.log("POSTsssss in Comments Comp....", post);
 
     return (
         <div className="post-comment-container">
             <ul className="post-comment">
-                {comments?.map(comment => (
-                    < li className={'comment'} key={comment?.id}>
-                        [comment]  {comment?.comment}
+                {comments?.map((c, i) => (
+                    < li className={'comment'} key={c?.i}>
+                        comment  {c}
                     </li>
                 ))}
             </ul>
