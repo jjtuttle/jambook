@@ -19,6 +19,10 @@ const PostForm = () => {
     const postsObj = useSelector(state => state?.posts);
     const posts = Object.values(postsObj);
 
+    const comment = useSelector((state) => state?.commentReducer);
+    
+    console.log("COMMENTS in POST from REDUCER.........>>>", comment);
+
     const { postId } = useParams();
 
     const sessionUser = useSelector(state => state?.session?.user);
@@ -118,7 +122,7 @@ const PostForm = () => {
                                     <DeletePostButton post={post} />
                                 </div>
                                 <div className="comments-container">
-                                    <Comments post={post} />
+                                    <Comments comment={comment} post={posts} />
                                 </div>
                             </li>
                         ))}
