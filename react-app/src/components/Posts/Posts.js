@@ -45,14 +45,9 @@ const PostForm = () => {
     }, [ body ])
     // todo ————————————————————————————————————————————————————————————————————————
 
-
     useEffect(() => {
         dispatch(getPosts(postId))
     }, [ dispatch, postId ]);
-
-
-
-
 
     //!CREATE
     const handleSubmit = async (e) => {
@@ -71,12 +66,11 @@ const PostForm = () => {
         await dispatch(deletePost(postId));
     }
 
-    // console.log("POST-ID for DELETE;;;;;;;", posts[ 0 ].id);
+    console.log("POSTs in Post Comp......;;;;;;;", postId);
 
     return (
         <>
             <div>
-                <h1>** Posts **</h1>
                 {/* //! *************** Display Errors *****************/}
                 < div className="errors" style={{ color: 'red' }}>
                     {errors?.length > 0 && errors?.map((error, id) => (
@@ -87,14 +81,19 @@ const PostForm = () => {
                 <div className="form-container">
                     {/* //! *************** From Starts *****************/}
                     <form className="form" onSubmit={handleSubmit}>
-                        <input className="post"
-                            id="" cols="30" rows="2"
-                            placeholder="Start a session..."
-                            value={body}
-                            onChange={(e) => setBody(e.target.value)}
-                            style={{ borderRadius: '5px', border: 'none' }}
-                        />
-                        <div className="button">
+                        <div className="form--top">
+                            <input className="post"
+                                id="" cols="30" rows="2"
+                                placeholder="What's on your mind?"
+                                value={body}
+                                onChange={(e) => setBody(e.target.value)}
+                                style={{
+                                    borderRadius: '5px', border: 'none',
+                                    outlineWidth: '0', width: '260px', height: '30px'
+                                }}
+                            />
+                        </div>
+                        <div className="form--bottom">
                             <button className="btn btn-post" type="submit">
                                 Post
                             </button>
@@ -105,8 +104,10 @@ const PostForm = () => {
 
                 <div className="posts-container">
                     <h1>Posts Wall</h1>
+
                     <ul>
                         {posts?.map((post) => (
+
                             <li className={"posted-posts"} key={post?.id}>
                                 <div className="avatar">
                                     <img src={avatar} alt='avatar' style={{ width: '30px' }} />
@@ -115,6 +116,7 @@ const PostForm = () => {
                                 <div className="post-body">
                                     {post?.body}
                                 </div>
+
                                 < div className="edit-delete-post-wrapper">
                                     <EditPostsModal post={post} postsId={post.id} />
                                     <DeletePostButton post={post} />
