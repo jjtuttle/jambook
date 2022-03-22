@@ -15,9 +15,13 @@ import { Avatar, IconButton } from "@material-ui/core";
 const PostForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
-    
+
     const postsObj = useSelector(state => state?.posts);
     const posts = Object.values(postsObj);
+
+    const comment = useSelector((state) => state?.commentReducer);
+    
+    console.log("COMMENTS in POST from REDUCER.........>>>", comment);
 
     const { postId } = useParams();
 
@@ -30,7 +34,7 @@ const PostForm = () => {
 
     // todo ————————————————————————————————————————————————————————————————————————
     //! NEED TO GAVE ERROR HANDLING FOR SUBMIT POST **
-    console.log('TEST BODY in post', body);
+    // console.log('TEST BODY in post', body);
 
     useEffect(() => {
         const errors = [];
@@ -112,7 +116,7 @@ const PostForm = () => {
                                     <DeletePostButton post={post} />
                                 </div>
                                 <div className="comments-container">
-                                    <Comments post={posts} />
+                                    <Comments comment={comment} post={posts} />
                                 </div>
                             </li>
                         ))}
