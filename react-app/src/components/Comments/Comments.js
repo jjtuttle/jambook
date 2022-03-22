@@ -11,7 +11,7 @@ import './Comments.css';
 // todo ————————————————————————————————————————————————————————————————————————
 const Comments = ({ post }) => {
     const dispatch = useDispatch();
-    // const commentsObj = useSelector((state) => Object.values(state?.commentReducer));
+
     const comments = [''];
 
     // console.log("COMMENTSSSSS________------->>", commentsObj);
