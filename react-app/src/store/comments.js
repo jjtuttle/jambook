@@ -94,7 +94,7 @@ const commentReducer = (state = {}, action) => {
         };
         case GET_ALL_COMMENT: {
             const newState = { ...state };
-            action.posts[ 'all_comments' ].forEach((comment) => newState[ comment.id ] = comment);
+            action.comment[ 'all_comments' ].forEach((comment) => newState[ comment.id ] = comment);
             return newState;
         };
         case GET_ONE_COMMENT: {

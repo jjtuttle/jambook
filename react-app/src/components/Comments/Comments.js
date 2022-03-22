@@ -5,37 +5,43 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createComment, getComment, deleteComment } from '../../store/comments';
 import match from '../../utils/match';
 import './Comments.css';
+import { CommentOutlined } from '@material-ui/icons';
 
 
 
 // todo ————————————————————————————————————————————————————————————————————————
-const Comments = (posts) => {
+const Comments = ({ post }) => {
     const dispatch = useDispatch();
-    const commentsObj = useSelector((state) => state?.commentReducer);
-    const comments = [ '' ];
+    const sessionUser = useSelector(state => state?.session?.user);
 
-    const p = Object.values(posts)
+    const commentsObj = useSelector(state => state?.comments);
+    const comments = Object.values(commentsObj)
 
-    useEffect(() => {
-        dispatch(getComment(posts))
-    }, [ dispatch, posts ])
 
-    const [ comment, setComment ] = useState('')
 
-    console.log("POSTsssss in Comments Comp....", p);
-    // console.log("COMMENTSSSSS________------->>", posts);
+    // const filteredComments = comments.filter((comment) => )
 
-    return (
-        <div className="post-comment-container">
-            <ul className="post-comment">
-                {comments?.map(comment => (
-                    < li className={'comment'} key={comment?.id}>
-                        [comment]  {comment?.comment}
-                    </li>
-                ))}
-            </ul>
-        </div >
-    );
+// console.log('FILTERED CMTsssssssssss', comments);
+
+useEffect(() => {
+    dispatch(getComment(post.id))
+}, [ dispatch, post.id ])
+
+const [comment, setComment ] = useState(post?.comments)
+
+console.log("POSTsssss in Comments Comp....", post);
+
+return (
+    <div className="post-comment-container">
+        <ul className="post-comment">
+            {comments?.map((c) => (
+                < li className={'comment'} key={c?.id}>
+                    comment  {c.id}
+                </li>
+            ))}
+        </ul>
+    </div >
+);
 };
 
 export default Comments;
