@@ -7,9 +7,10 @@
     border: solid 1px grey;
     border-radius:15px;
     width: 300px;
+    height: 400px;
     margin-left:200px;
     background-color: lightgrey;
-    padding-left: 70px;
+    /* padding-left: 70px; */
 
 }
 
@@ -41,12 +42,14 @@
 
 }
 
-.signup-btn {
-    
-}
+
 
 .log-out-btn {
 
+}
+
+.signup-btn-container {
+    margin-top: 60px;
 }
 
 .btn-create-new {
@@ -54,7 +57,7 @@
     background-color: #42B72A;
     color:#fff;
     padding: 5px 5px;
-    margin-top:25px;
+    /* margin-top:5px; */
 }
 
 .btn-create-new:hover {

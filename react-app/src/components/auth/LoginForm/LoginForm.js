@@ -49,7 +49,7 @@ const LoginForm = () => {
           {/*********  ERROR HANDLING DIV *********************/}
           <div className='display-errors'>
             {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
+              <ul key={ind}><li>{error}</li></ul>
             ))}
           </div>
 
@@ -85,8 +85,9 @@ const LoginForm = () => {
                 Demo User Login
               </button>
             </div>
+            <hr />
             {/***********  TAKE USER TO SIGNUP PAGE  ****************/}
-            <div className="signup-btn">
+            <div className="signup-btn-container">
               <a href="/sign-up" exact={true} className="btn-create-new">
                 Create new account
               </a>

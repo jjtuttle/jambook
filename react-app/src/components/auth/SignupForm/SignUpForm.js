@@ -75,7 +75,7 @@ const SignUpForm = () => {
 
           <div className="display-errors">
             {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
+              <ul key={ind}><li>{error}</li></ul>
             ))}
           </div>
 
