@@ -10,34 +10,29 @@ import { CommentOutlined } from '@material-ui/icons';
 
 
 // todo ————————————————————————————————————————————————————————————————————————
-const Comments = ({post}) => {
+const Comments = ({ post }) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state?.session?.user);
 
-    // const commentsObj = useSelector(state => state?.commentReducer);
-    // const comments = Object.values(commentsObj)
+    const commentsObj = useSelector(state => state?.comments);
+    const comments = Object.values(commentsObj)
     // const comments = [''];
 
 
     useEffect(() => {
         dispatch(getComment(post.id))
-      
-        // if(comment) {
-        //     console.log("GETTER for Comments......----->>>", comment);
-        // }
     }, [ dispatch, post.id ])
 
-    const [ comments, setComments ] = useState([1,2,3])  // current comments for DB
-    const [comment, setComment] = useState('');         // create a new comment
-    
+
+
     console.log("POSTsssss in Comments Comp....", post);
 
     return (
         <div className="post-comment-container">
             <ul className="post-comment">
-                {comments?.map((c, i) => (
-                    < li className={'comment'} key={c?.i}>
-                        comment  {c}
+                {comments?.map((c) => (
+                    < li className={'comment'} key={c?.id}>
+                        comment  {c.id}
                     </li>
                 ))}
             </ul>
