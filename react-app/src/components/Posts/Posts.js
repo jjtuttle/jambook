@@ -45,14 +45,9 @@ const PostForm = () => {
     }, [ body ])
     // todo ————————————————————————————————————————————————————————————————————————
 
-
     useEffect(() => {
         dispatch(getPosts(postId))
     }, [ dispatch, postId ]);
-
-
-
-
 
     //!CREATE
     const handleSubmit = async (e) => {
@@ -71,12 +66,11 @@ const PostForm = () => {
         await dispatch(deletePost(postId));
     }
 
-    // console.log("POST-ID for DELETE;;;;;;;", posts[ 0 ].id);
+    console.log("POSTs in Post Comp......;;;;;;;", posts);
 
     return (
         <>
             <div>
-                <h1>** Posts **</h1>
                 {/* //! *************** Display Errors *****************/}
                 < div className="errors" style={{ color: 'red' }}>
                     {errors?.length > 0 && errors?.map((error, id) => (
@@ -89,12 +83,14 @@ const PostForm = () => {
                     <form className="form" onSubmit={handleSubmit}>
                         <input className="post"
                             id="" cols="30" rows="2"
-                            placeholder="Start a session..."
+                            placeholder="What's on your mind?"
                             value={body}
                             onChange={(e) => setBody(e.target.value)}
-                            style={{ borderRadius: '5px', border: 'none' }}
+                            style={{ borderRadius: '5px', border: 'none',
+                            outlineWidth:'0', width:'260px', height:'30px'
+                         }}
                         />
-                        <div className="button">
+                        <div className="form-submit-btn-container">
                             <button className="btn btn-post" type="submit">
                                 Post
                             </button>

@@ -2,10 +2,16 @@
     
 }
 
+.form-container {
+    margin:35px;
+
+}
+
 .posted-posts {
     width:50%;
     max-width:300px;
     min-width: 300px;
+    height: 300px;
     border: 1px solid grey;
     border-radius: 8px;
     padding: 5px;
