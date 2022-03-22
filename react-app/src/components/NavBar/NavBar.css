@@ -1,5 +1,5 @@
 .nav-container {
-    background-color: #2F3841;
+    background-color: #2f3841;
     box-shadow: 0px 5px 17px -7px rgba(0,0,0,0.75);
     border-radius: 5px;
     width:100%;
@@ -11,12 +11,21 @@
 
 }
 
+.log-out-btn {
+    background-color: transparent;
+    color:white;
+    border:1px solid white;
+    font-weight: 600;
+    margin: 60px;
+}
+
 .profile-dropdown {
     position: absolute;
     color:white;
-    height: 20vh;
-    width: 30vw;
-    background-color: pink;
+    /* height: 20vh;
+    width: 30vw; */
+    right: 10px;
+    top: 50px;
 
 }
 
@@ -25,7 +34,7 @@
     border-radius: 20px;
 }
 .nav-logout-btn {
-    
+   
 }
 
 .nav-profile-btn {
@@ -44,12 +53,6 @@ ul li {
 .login-signup-links{
 
 }
-
-/* .nav-container {
-    background-color: #2F3841;
-    height:60px;
-
-} */
 
 .nav {
 

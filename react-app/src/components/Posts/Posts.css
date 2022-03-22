@@ -17,11 +17,13 @@
     background-color:#2F3841 ; */
     background-color: white;
     box-shadow: 0px 5px 17px -7px rgba(0,0,0,0.75);
+    border:solid 1px lightgrey ;
 }
 
 .avatar > img{
     background-color: #F0F2F5;
     border-radius: 999px;
+    opacity: .4;
 }
 
 .post {
