@@ -12,16 +12,16 @@ import './Comments.css';
 const Comments = ({ post }) => {
     const dispatch = useDispatch();
 
-    const comments = [''];
-
-    // console.log("COMMENTSSSSS________------->>", commentsObj);
+    const comments = [ '' ];
+    const comment = useSelector((state) => state?.commentReducer);
+    console.log("COMMENTSSSSS________------->>", comment);
 
     return (
         <div className="post-comment-container">
             <ul className="post-comment">
                 {comments?.map(comment => (
                     < li className={'comment'} key={comment?.id}>
-                        {comment?.comment}
+                        [comments]{comment?.comment}
                     </li>
                 ))}
             </ul>
