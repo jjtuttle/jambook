@@ -76,22 +76,22 @@ def get_comment(postId):
 def update_comment(id):
     data = request.json
 
-    # form = CommentForm()
-    # form['csrf_token'].data = request.cookies['csrf_token']
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
     comment = Comment.query.get(id)
     comment.comment = data['comment']
 
-    # if form.validate_on_submit():
-    #     post = Post.query.get(postId)
-    #     post.owner_id = form.data['owner_id']
-    #     post.body = form.data['body']
-    #     post.updated_at = datetime.now()
+    if form.validate_on_submit():
+        comment = Comment.query.get(id)
 
-    # db.session.commit()
+        comment.owner_id = form.data['owner_id']
+        comment.comment = form.data['comment']
+        comment.updated_at = datetime.now()
+
     db.session.commit()
-    # return {**post.to_dict()}
-    return {'comment': comment.to_dict()}
-    # return {'errors': validation_errors_to_error_messages(form.errors)}
+    return {**comment.to_dict()}
+    # return {'comment': comment.to_dict()}
+    return {'errors': validation_errors_to_error_messages(form.errors)}
 
 # //todo ——————————————————————————————————————————————————————————————————————
 # DELETE

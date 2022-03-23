@@ -20,15 +20,19 @@ const EditCommentsForm = ({ closeModal, comments }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await dispatch(updateComment({
-            id,
-            writer_id: +sessionUser.id,
-            comment,
-        }));
+        if (comment !== "") {
+            await dispatch(updateComment({
+                id,
+                writer_id: +sessionUser.id,
+                comment,
+            }));
 
-        await dispatch(getAllComments(commentId));
-        closeModal();
-        // return history.push(`/`);
+            await dispatch(getAllComments(commentId));
+            closeModal();
+            // return history.push(`/`);
+        } else {
+            alert("Please enter something.")
+        }
     }
 
     return (

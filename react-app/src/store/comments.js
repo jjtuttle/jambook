@@ -88,6 +88,7 @@ export const updateComment = (payload) => async (dispatch) => {
 
 // Delete comments
 export const deleteComment = (commentId) => async (dispatch) => {
+    console.log("THUNK delete comment ID:::::::::::::",commentId);
     const response = await fetch(`/api/comments/${commentId}`, { method: 'DELETE' });
 
     if (response.ok) {

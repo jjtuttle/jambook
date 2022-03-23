@@ -1,6 +1,9 @@
 
 
-
+.comment-body {
+    padding: 8px;
+    
+}
 
 .comment {
     border: 1px solid lightgrey;
@@ -10,4 +13,17 @@
     margin-top: 10px;
     height: auto;
     width: auto;
+}
+
+.add-comment-btn-modal {
+    border:none;
+    background: transparent
+}
+
+.add-comment-btn-modal:hover {
+    border:none;
+    background: transparent;
+    cursor: pointer;
+    background-color: #eff2f5;
+    border-radius: 20px;
 }
