@@ -1,0 +1,13 @@
+
+
+
+
+.comment {
+    border: 1px solid lightgrey;
+    border-radius: 8px;
+    margin-left: -40px;
+    padding: 5px;
+    margin-top: 10px;
+    height: auto;
+    width: auto;
+}

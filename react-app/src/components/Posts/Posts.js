@@ -65,14 +65,14 @@ const PostForm = () => {
     const handleDelete = async (postId) => {
         await dispatch(deletePost(postId));
     }
-   
 
-  
+
+
 
     return (
         <>
             <div>
-               
+
                 {/* //! *************** Display Errors *****************/}
                 < div className="errors" style={{ color: 'red' }}>
                     {errors?.length > 0 && errors?.map((error, id) => (
@@ -85,6 +85,7 @@ const PostForm = () => {
                     <form className="form" onSubmit={handleSubmit}>
                         <div className="form--top">
                             <input className="post"
+                                isRequired={true}
                                 id="" cols="30" rows="2"
                                 placeholder="What's on your mind?"
                                 value={body}
@@ -93,6 +94,7 @@ const PostForm = () => {
                                     borderRadius: '5px', border: 'none',
                                     outlineWidth: '0', width: '260px', height: '30px'
                                 }}
+
                             />
                         </div>
                         <div className="form--bottom">
@@ -119,7 +121,7 @@ const PostForm = () => {
                                 </div>
 
                                 < div className="edit-delete-post-wrapper">
-                                    <EditPostsModal post={post} postsId={post.id} />
+                                    {/* <EditPostsModal post={post} postsId={post.id} /> */}
                                     <DeletePostButton post={post} />
                                 </div>
                                 <div className="comments-container">
