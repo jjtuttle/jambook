@@ -17,8 +17,6 @@ const Comments = ({ post }) => {
     const commentsObj = useSelector(state => state?.comments);
     const comments = Object.values(commentsObj)
 
-
-
     // const filteredComments = comments.filter((comment) => )
 
 // console.log('FILTERED CMTsssssssssss', comments);
@@ -29,7 +27,18 @@ useEffect(() => {
 
 // const [comment, setComment ] = useState(post?.comments)
 
-    console.log("POSTsssss in Comments Comp....", post);
+    // const filteredComments = comments.filter((comment) => )
+
+
+// console.log('FILTERED CMTsssssssssss', comments);
+
+useEffect(() => {
+    dispatch(getComment(post.id))
+}, [ dispatch, post.id ])
+
+const [comment, setComment ] = useState(post?.comments)
+
+console.log("POSTsssss in Comments Comp....", post);
 
 return (
     <div className="post-comment-container">
@@ -37,6 +46,7 @@ return (
             {comments?.map((c) => (
                 < li className={'comment'} key={c?.id}>
                     comment:  {c.id}
+
                 </li>
             ))}
         </ul>

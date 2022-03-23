@@ -21,7 +21,8 @@ const PostForm = () => {
 
     const comment = useSelector((state) => state?.commentReducer);
     
-    // console.log("COMMENTS in POST from REDUCER.........>>>", comment);
+
+    console.log("COMMENTS in POST from REDUCER.........>>>", comment);
 
     const { postId } = useParams();
 
@@ -122,6 +123,7 @@ const PostForm = () => {
                                 </div>
                                 <div className="comments-container">
                                     <Comments comment={comment} postId={postId} />
+
                                 </div>
                             </li>
                         ))}
