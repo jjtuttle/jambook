@@ -14,6 +14,7 @@ import DeleteCommentButton from './DeleteCommentButton';
 // todo ————————————————————————————————————————————————————————————————————————
 const Comments = ({ postId }) => {
     const dispatch = useDispatch();
+    
 
     useEffect(() => {
         dispatch(getPosts())
@@ -33,7 +34,7 @@ const Comments = ({ postId }) => {
     const posts = Object.values(postsObj)
 
     console.log('Comments from USESELCTOR--------------------------', comments);
-    // console.log('Posts from USESELCTOR,,,,,,,,,,,,,,,,,,,,,,,,,,,,,', posts);
+    // console.log('Posts from USESELCTOR,,,,,,,,,,,,,,,,,,,,,,,,,,,,,', postId);
 
     // const result = comments.filter((comment) => comment.post_id === posts.id)
 
@@ -68,3 +69,4 @@ const Comments = ({ postId }) => {
 
 export default Comments;
 
+//! latest branch for comment-per-post-issue::: <wed-fix-comment-per-post>
