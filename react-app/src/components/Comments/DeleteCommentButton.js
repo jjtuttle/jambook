@@ -9,11 +9,11 @@ import './Comments.css';
 const DeleteCommentButton = ({ comment }) => { // singular props arg...
     const dispatch = useDispatch();
     const sessionId = useSelector(state => state?.session?.user?.id);
-    const owner_id = comment.owner_id;
+    const owner_id = comment.writer;
 
     const matchingToSessionUser = match(sessionId, owner_id);
 
-    console.log("DELETE COMMENT BUTTON USER & OWNER. .. . . . . . ..  ..", sessionId, owner_id  );
+    // console.log("DELETE COMMENT BUTTON USER & OWNER. .. . . . . . ..  ..", sessionId, comment );
 
     //! DELETE
     const handleDelete = async (commentId) => {

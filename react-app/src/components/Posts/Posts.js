@@ -10,8 +10,11 @@ import DeletePostButton from './DeletePostButton';
 import Comments from '../Comments/Comments'
 import avatar from '../../images/profile-icon.png';
 
-
 import { Avatar, IconButton } from "@material-ui/core";
+import AddComment from '../Comments/AddComment';
+import Timestamp from 'react-timestamp';
+
+
 
 const PostForm = () => {
     const dispatch = useDispatch();
@@ -21,7 +24,7 @@ const PostForm = () => {
     const posts = Object.values(postsObj);
 
     const comment = useSelector((state) => state?.commentReducer);
-
+    // console.log("Post Comp for commentID................", comment);
 
     const { postId } = useParams();
 
@@ -36,13 +39,13 @@ const PostForm = () => {
     //! NEED TO GAVE ERROR HANDLING FOR SUBMIT POST **
     // console.log('TEST BODY in post', body);
 
-    useEffect(() => {
-        const errors = [];
-        if (body === null) errors.push("Cannot submit an empty post.");
-        // more error handling for Post Component
+    // useEffect(() => {
+    //     const errors = [];
+    //     if (body === null) errors.push("Cannot submit an empty post.");
+    //     // more error handling for Post Component
 
-        setErrors(errors);
-    }, [ body ])
+    //     setErrors(errors);
+    // }, [ body ])
     // todo ————————————————————————————————————————————————————————————————————————
 
     useEffect(() => {
@@ -53,12 +56,17 @@ const PostForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const payload = {
-            owner_id: sessionUser.id,
-            body
+        if (body !== "") {
+            const payload = {
+                owner_id: sessionUser.id,
+                body
+            }
+            dispatch(createPost(payload))
+            setBody('');
+
+        } else {
+            alert("Please enter something.")
         }
-        dispatch(createPost(payload))
-        setBody('');
     }
 
     //! DELETE
@@ -97,9 +105,9 @@ const PostForm = () => {
                             />
                         </div>
                         <div className="form--bottom">
-                            <button className="btn btn-post" type="submit">
+                            {/* <button className="btn btn-post" type="submit">
                                 Post
-                            </button>
+                            </button> */}
                         </div>
                     </form>
                     {/* //! *************** From Ends & Start Post Displays  *****************/}
@@ -111,9 +119,11 @@ const PostForm = () => {
                         {posts?.map((post) => (
 
                             <li className={"posted-posts"} key={post?.id}>
+
                                 <div className="avatar">
                                     <img src={avatar} alt='avatar' style={{ width: '30px' }} />
-                                    <span style={{ marginLeft: '10px', marginBottom: '25px' }}> {post?.owner}</span>
+                                    <span style={{ marginLeft: '10px', marginBottom: '25px' }}>{post?.owner} </span>
+                                    <span style={{ marginLeft: '150px', fontSize: 'x-small' }}><Timestamp relative date={post?.created_at} /></span>
                                 </div>
                                 <div className="post-body">
                                     {post?.body}
@@ -122,6 +132,8 @@ const PostForm = () => {
                                 < div className="edit-delete-post-wrapper">
                                     <EditPostsModal post={post} postsId={post.id} />
                                     <DeletePostButton post={post} />
+                                    <AddComment postId={post.id} commentId={comment} />
+                                    {/* Add Comment */}
                                 </div>
                                 <div className="comments-container">
                                     <Comments comment={comment} postId={post.id} />
@@ -129,11 +141,9 @@ const PostForm = () => {
                                 </div>
                             </li>
                         ))}
+
                     </ul>
                 </div>
-
-
-
             </div >
         </>
     );

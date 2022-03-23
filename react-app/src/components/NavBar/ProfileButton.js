@@ -39,7 +39,8 @@ function ProfileButton({ user }) {
           fontWeight: '700',
           fontSize: '14px',
           height:'20px',
-          width:'80px'
+          width:'80px',
+          cursor:'pointer'
         }}
       > Click Me
         <i className="fas fa-user-circle" />

@@ -34,6 +34,7 @@
     border:solid 1px lightgrey ;
     height: auto !important;
     width: auto !important;
+
 }
 
 .avatar > img{
@@ -48,6 +49,7 @@
 
 .post-body {
     /* background-color: lightgrey; */
+    padding:8px;
 }
 
 .edit-delete-post-wrapper {

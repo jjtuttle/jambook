@@ -20,22 +20,29 @@ const EditPostsForm = ({ closeModal, posts }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        await dispatch(updatePost({
-            id,
-            owner_id: +sessionUser.id,
-            body,
-        }));
+        if (body !== "") {
 
-        await dispatch(getPosts(postsId));
-        closeModal();
-        // return history.push(`/`);
+            await dispatch(updatePost({
+                id,
+                owner_id: +sessionUser.id,
+                body,
+            }));
+
+            await dispatch(getPosts(postsId));
+            closeModal();
+            // return history.push(`/`);
+        } else {
+            alert("Please enter something.")
+        }
     }
 
+    
     return (
         <div>
             <h1>Edit Posts</h1>
             <form className="edit-posts-form" onSubmit={handleSubmit}>
                 <input name="post"
+                    autoFocus
                     id="" cols="30" rows="2"
                     placeholder="Start a session..."
                     value={body}

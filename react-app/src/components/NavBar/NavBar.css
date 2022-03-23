@@ -17,6 +17,7 @@
     border:1px solid white;
     font-weight: 600;
     margin: 60px;
+    cursor: pointer;
 }
 
 .profile-dropdown {
@@ -26,12 +27,13 @@
     width: 30vw; */
     right: 10px;
     top: 50px;
-
+    cursor: pointer;
 }
 
 .fa .fa-user-circle {
     color:white;
     border-radius: 20px;
+    cursor: pointer;
 }
 .nav-logout-btn {
    
@@ -42,6 +44,7 @@
     height: 20px;
     background-color: pink;
     color: white;
+    cursor: pointer;
 }
 
 

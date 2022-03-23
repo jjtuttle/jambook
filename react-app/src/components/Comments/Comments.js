@@ -10,6 +10,8 @@ import './Comments.css';
 import avatar from '../../images/profile-icon.png';
 import EditCommentsModal from '../EditPosts/EditPostsModal';
 import DeleteCommentButton from './DeleteCommentButton';
+import Timestamp from 'react-timestamp';
+
 
 // todo ————————————————————————————————————————————————————————————————————————
 const Comments = ({ postId }) => {
@@ -33,7 +35,7 @@ const Comments = ({ postId }) => {
     // const postsObj = useSelector(state => state?.posts);
     // const posts = Object.values(postsObj)
 
-
+    // console.log("POst ID in Post Comp..........", postId);
 
     return (
         <div className="post-comment-container">
@@ -45,17 +47,18 @@ const Comments = ({ postId }) => {
                         <div className="avatar">
                             <img src={avatar} alt='avatar' style={{ width: '20px' }} />
                             <span style={{ marginLeft: '10px', marginBottom: '25px' }}> {c?.owner}</span>
+                            <span style={{ marginLeft: '150px', fontSize: 'x-small' }}><Timestamp relative date={c?.created_at} /></span>
                         </div>
 
                         <div className="comment-body">
                             <li>
-                                comment:  {c?.comment}
+                                {c?.comment}
                             </li>
                         </div>
 
                         < div className="edit-delete-post-wrapper">
-                            {/* <EditCommentsModal comment={c} commentId={c.id} />
-                            <DeleteCommentButton comment={c} /> */}
+                            {/* <EditCommentsModal comment={c} commentId={c.id} /> */}
+                            <DeleteCommentButton comment={c} />
                         </div>
                     </li>
                 ))}
