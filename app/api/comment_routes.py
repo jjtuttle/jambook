@@ -51,11 +51,8 @@ def create_comment():
 @comment_routes.route('/<int:postId>', methods=['GET'])
 def get_comments(postId):
     all_comments = Comment.query.filter(Comment.post_id == int(postId)).all()
-<<<<<<< HEAD
     print("\nget comments BE API.....................", all_comments)
-=======
-    # print("\nget comments BE API.....................", all_comments)
->>>>>>> 6699ea2975b3ec94db4302460c4349b84eff631f
+
     return {'all_comments': [comment.to_dict() for comment in all_comments]}
 
 

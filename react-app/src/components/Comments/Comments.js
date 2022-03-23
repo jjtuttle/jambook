@@ -10,35 +10,25 @@ import './Comments.css';
 
 
 // todo ————————————————————————————————————————————————————————————————————————
-const Comments = ({ post }) => {
+const Comments = ({ postId }) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state?.session?.user);
 
     const commentsObj = useSelector(state => state?.comments);
     const comments = Object.values(commentsObj)
 
-    // const filteredComments = comments.filter((comment) => )
+   //! need a filter() for post_id === postID
 
-// console.log('FILTERED CMTsssssssssss', comments);
+    console.log('FILTERED CMTsssssssssss', comments);
+
 
 useEffect(() => {
-    dispatch(getComment(post))
-}, [ dispatch, post ])
+    dispatch(getComment(postId))
+}, [ dispatch, postId ])
 
 // const [comment, setComment ] = useState(post?.comments)
 
-    // const filteredComments = comments.filter((comment) => )
 
-
-// console.log('FILTERED CMTsssssssssss', comments);
-
-useEffect(() => {
-    dispatch(getComment(post.id))
-}, [ dispatch, post.id ])
-
-const [comment, setComment ] = useState(post?.comments)
-
-console.log("POSTsssss in Comments Comp....", post);
 
 return (
     <div className="post-comment-container">
@@ -56,4 +46,3 @@ return (
 
 export default Comments;
 
-//! git branch: render-comments-on-posts
