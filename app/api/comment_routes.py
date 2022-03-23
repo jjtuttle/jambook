@@ -19,7 +19,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 # //todo —————————————————————————————————————————————————————————————————————— NEW COMMENT
 # Create a new comment
-# //! NEED TO LOOK INTO COMMENT CREATION TO POST_ID???? ******************
+
 @comment_routes.route('/new', methods=['POST'])
 @login_required
 def create_comment():
@@ -40,20 +40,31 @@ def create_comment():
         db.session.add(new_comment)
         db.session.commit()
 
-        return {**new_comment.to_dict()}  # //! SPLAT NEEDED???? *************
+        return {**new_comment.to_dict()}
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 # //todo ——————————————————————————————————————————————————————————————————————
-# get comment for postId
+
+# get ALLcomments
+
+
+@comment_routes.route('/', methods=['GET'])
+def GET_ALL_COMMENT_BY_IDs():
+    all_comments = Comment.query.all()
+    print("\n\nget comments BE API.....................\n", all_comments)
+    print("\n\n")
+
+    return {'all_comments': [comment.to_dict() for comment in all_comments]}
+
+# get comment by ID
 
 
 @comment_routes.route('/<int:postId>', methods=['GET'])
-def get_comments(postId):
-    all_comments = Comment.query.filter(Comment.post_id == int(postId)).all()
-    print("\nget comments BE API.....................", all_comments)
+def get_comment(postId):
+    all_comment = Comment.query.filter(Comment.post_id == int(postId)).all()
 
-    return {'all_comments': [comment.to_dict() for comment in all_comments]}
+    return {'all_comment': [comment.to_dict() for comment in all_comment]}
 
 
 # //todo ——————————————————————————————————————————————————————————————————————

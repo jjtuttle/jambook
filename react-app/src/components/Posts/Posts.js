@@ -10,6 +10,7 @@ import DeletePostButton from './DeletePostButton';
 import Comments from '../Comments/Comments'
 import avatar from '../../images/profile-icon.png';
 
+
 import { Avatar, IconButton } from "@material-ui/core";
 
 const PostForm = () => {
@@ -20,9 +21,7 @@ const PostForm = () => {
     const posts = Object.values(postsObj);
 
     const comment = useSelector((state) => state?.commentReducer);
-    
 
-    // console.log("COMMENTS in POST from REDUCER.........>>>", comment);
 
     const { postId } = useParams();
 
@@ -66,12 +65,14 @@ const PostForm = () => {
     const handleDelete = async (postId) => {
         await dispatch(deletePost(postId));
     }
+   
 
-    // console.log("POSTs in Post Comp......;;;;;;;", postId);
+  
 
     return (
         <>
             <div>
+               
                 {/* //! *************** Display Errors *****************/}
                 < div className="errors" style={{ color: 'red' }}>
                     {errors?.length > 0 && errors?.map((error, id) => (
