@@ -42,7 +42,7 @@ export const createComment = (payload) => async (dispatch) => {
 // Get comments
 export const getComment = (id) => async (dispatch) => {
     const response = await fetch(`/api/comments/${id}`, { method: 'GET' });
-
+console.log("id................", id);
     if (response.ok) {
         const comment = await response.json();
         dispatch(getAll(comment));

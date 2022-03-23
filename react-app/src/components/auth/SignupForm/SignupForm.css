@@ -1,6 +1,10 @@
-.display-errors {
+/* .display-errors {
     color: red;
-    
+}  */
+
+.display-errors > ul > li {
+    color: red;
+    list-style-type:circle;
 }
 
 .signup-container {

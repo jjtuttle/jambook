@@ -19,6 +19,10 @@ const PostForm = () => {
     const postsObj = useSelector(state => state?.posts);
     const posts = Object.values(postsObj);
 
+    const comment = useSelector((state) => state?.commentReducer);
+    
+    // console.log("COMMENTS in POST from REDUCER.........>>>", comment);
+
     const { postId } = useParams();
 
     const sessionUser = useSelector(state => state?.session?.user);
@@ -62,7 +66,7 @@ const PostForm = () => {
         await dispatch(deletePost(postId));
     }
 
-    console.log("POSTs in Post Comp......;;;;;;;", postId);
+    // console.log("POSTs in Post Comp......;;;;;;;", postId);
 
     return (
         <>
@@ -99,7 +103,6 @@ const PostForm = () => {
                 </div>
 
                 <div className="posts-container">
-                    <h1>Posts Wall</h1>
 
                     <ul>
                         {posts?.map((post) => (
@@ -118,7 +121,7 @@ const PostForm = () => {
                                     <DeletePostButton post={post} />
                                 </div>
                                 <div className="comments-container">
-                                    <Comments post={post} />
+                                    <Comments comment={comment} postId={postId} />
                                 </div>
                             </li>
                         ))}
