@@ -85,7 +85,6 @@ const PostForm = () => {
                     <form className="form" onSubmit={handleSubmit}>
                         <div className="form--top">
                             <input className="post"
-                                isRequired={true}
                                 id="" cols="30" rows="2"
                                 placeholder="What's on your mind?"
                                 value={body}
@@ -121,11 +120,11 @@ const PostForm = () => {
                                 </div>
 
                                 < div className="edit-delete-post-wrapper">
-                                    {/* <EditPostsModal post={post} postsId={post.id} /> */}
+                                    <EditPostsModal post={post} postsId={post.id} />
                                     <DeletePostButton post={post} />
                                 </div>
                                 <div className="comments-container">
-                                    <Comments comment={comment} postId={postId} />
+                                    <Comments comment={comment} postId={post.id} />
 
                                 </div>
                             </li>

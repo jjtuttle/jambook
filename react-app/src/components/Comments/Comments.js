@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createComment, getComment, deleteComment, getAllComments } from '../../store/comments';
-import {getPosts } from '../../store/posts';
+import { getPosts } from '../../store/posts';
 // import match from '../../utils/match';
 import './Comments.css';
 // import { CommentOutlined } from '@material-ui/icons';
@@ -14,7 +14,7 @@ import DeleteCommentButton from './DeleteCommentButton';
 // todo ————————————————————————————————————————————————————————————————————————
 const Comments = ({ postId }) => {
     const dispatch = useDispatch();
-    
+
 
     useEffect(() => {
         dispatch(getPosts())
@@ -33,7 +33,19 @@ const Comments = ({ postId }) => {
     const postsObj = useSelector(state => state?.posts);
     const posts = Object.values(postsObj)
 
-    console.log('Comments from USESELCTOR--------------------------', comments);
+    const comment = comments
+        .filter((c) => {
+            return c.post_id === postId;
+        }).map((c) => {
+            return c.comment;
+        });
+
+
+            
+    console.log("TEST Filter & Map **************************", comment.comment);
+
+
+    // console.log('Comments from USESELCTOR--------------------------', comments);
     // console.log('Posts from USESELCTOR,,,,,,,,,,,,,,,,,,,,,,,,,,,,,', postId);
 
     // const result = comments.filter((comment) => comment.post_id === posts.id)
@@ -44,8 +56,8 @@ const Comments = ({ postId }) => {
         <div className="post-comment-container">
             <ul className="post-comment">
 
-                {comments?.map((c) => (
-                    < li className={'comment'} key={c?.id}>
+                {/* {comments?.filter(c => c.post_id === postId).comments?.map((com) => ( */}
+                    < li className={'comment'} key={comment?.id}>
 
                         <div className="avatar">
                             <img src={avatar} alt='avatar' style={{ width: '20px' }} />
@@ -53,7 +65,7 @@ const Comments = ({ postId }) => {
                         </div>
 
                         <div className="comment-body">
-                            comment:  {c.comment}
+                            comment:  {comment}
                         </div>
 
                         < div className="edit-delete-post-wrapper">
@@ -61,7 +73,7 @@ const Comments = ({ postId }) => {
                             <DeleteCommentButton comment={c} /> */}
                         </div>
                     </li>
-                ))}
+                {/* ))} */}
             </ul>
         </div >
     );
