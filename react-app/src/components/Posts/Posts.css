@@ -32,6 +32,8 @@
     background-color: white;
     box-shadow: 0px 5px 17px -7px rgba(0,0,0,0.75);
     border:solid 1px lightgrey ;
+    height: auto !important;
+    width: auto !important;
 }
 
 .avatar > img{
@@ -46,4 +48,11 @@
 
 .post-body {
     /* background-color: lightgrey; */
+}
+
+.edit-delete-post-wrapper {
+    display: flex;
+    flex-direction: row;
+    padding:5px;
+    justify-content: flex-start;
 }

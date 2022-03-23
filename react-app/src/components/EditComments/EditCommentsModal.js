@@ -2,28 +2,26 @@ import { Modal } from '../../context/Modal';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import match from '../../utils/match';
-import EditPostsForm from './index';
-import '../Posts/Posts.css';
-import { useParams } from "react-router-dom";
+import EditCommentsForm from './index';
+import '../Comments/Comments.css';
 
 
-function EditPosts({ post }) {
+function EditComments({ comment }) {
     const [ showModal, setShowModel ] = useState(false);
 
-    const userId = useParams();
 
     const sessionId = useSelector(state => state?.session?.user?.id);
-    const writerId = post.owner_id;
+    const writerId = comment.writer_id;
     const matchingSessionToUser = match(sessionId, writerId);
 
 
     return (
         matchingSessionToUser && (
-            <div className="edit-posts-modal-btn-wrapper">
-                <button className="btn btn-edit-post" onClick={(e) => setShowModel(true)}>Edit</button>
+            <div className="edit-comment-modal-btn-wrapper">
+                <button className="btn btn-edit-comment" onClick={(e) => setShowModel(true)}>Edit</button>
                 {showModal && (
                     <Modal onClose={() => setShowModel(false)}>
-                        <EditPostsForm closeModal={() => setShowModel(false)} posts={post} />
+                        <EditCommentsForm closeModal={() => setShowModel(false)} comment={comment} />
                     </Modal>
                 )}
             </div>
@@ -31,4 +29,4 @@ function EditPosts({ post }) {
     );
 }
 
-export default EditPosts;
+export default EditComments;
