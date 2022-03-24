@@ -96,13 +96,10 @@ def update_comment(id):
         comment.comment = data['comment']
         comment.updated_at = datetime.now()
 
-        db.session.add(comment)
+        # db.session.add(comment)
 
         db.session.commit()
-        return {comment.to_dict()}
-
-    print("\n Did THIS PASS YTHROUGH OT STOP,,,,,,,,,,,,,,")
-    print("\n")
+        return comment.to_dict()
 
     # return {'comment': comment.to_dict()}
     return {'errors': validation_errors_to_error_messages(form.errors)}

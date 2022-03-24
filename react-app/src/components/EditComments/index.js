@@ -6,10 +6,7 @@ import { updateComment, getAllComments, createComment } from '../../store/commen
 const EditCommentsForm = ({ closeModal, postId, comment }) => {
 
     const dispatch = useDispatch();
-    const history = useHistory;
-
-
-    console.log("Comment EditFtrom```````````````````", comment);
+    const history = useHistory();
 
     const sessionUser = useSelector(state => state?.session?.user);
 
@@ -17,17 +14,16 @@ const EditCommentsForm = ({ closeModal, postId, comment }) => {
     const [ context, setContext ] = useState(comment.comment); // comments.comment
 
     //! EDIT
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
         if (comment !== "") {
-            await dispatch(updateComment({
+            dispatch(updateComment({
                 id,
-                // writer_id: +sessionUser.id,
-                comment,
+                comment: context,
             }));
 
-            await dispatch(getAllComments());
+            dispatch(getAllComments());
             closeModal();
             // return history.push(`/`);
         } else {
