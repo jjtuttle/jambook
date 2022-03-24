@@ -15,12 +15,12 @@
     width: auto;
 }
 
-.add-comment-btn-modal {
+/* .add-comment-btn-modal {
     border:none;
     background: transparent
-}
+} */
 
-.add-comment-btn-modal:hover {
+/* .add-comment-btn-modal:hover {
     border:none;
     background: transparent;
     cursor: pointer;
@@ -33,4 +33,18 @@
     flex-direction: row;
     padding:5px;
     justify-content: flex-start;
+} */
+
+.btn-edit-comment {
+    background: transparent;
+    color: grey;
+    margin-left:180px;
+}
+
+.btn-edit-comment:hover {
+    border:none;
+    background: transparent;
+    cursor: pointer;
+    background-color: #eff2f5;
+    border-radius: 20px;
 }

@@ -2,11 +2,11 @@ import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {createComment, updateComment, deleteComment} from '../../store/comments';
+import { createComment, updateComment, deleteComment } from '../../store/comments';
 import match from '../../utils/match';
 import EditCommentsModal from '../EditComments/EditCommentsModal';
 
-import './Comments.css';
+import './AddComments.css';
 // Avatar?
 // Icons
 
@@ -16,7 +16,7 @@ const AddComment = ({ postId, closeModal }) => {
 
     const sessionUser = useSelector(state => state?.session?.user);
 
-
+    console.log("Add Comment POst_id......................................", postId);
     const [ comment, setComment ] = useState('');
     const [ errors, setErrors ] = useState([]);
     const [ showModal, setShowModel ] = useState(false);
@@ -29,6 +29,7 @@ const AddComment = ({ postId, closeModal }) => {
 
         if (comment !== "") {
             const payload = {
+                // post_id,
                 owner_id: sessionUser.id,
                 comment
             }
@@ -50,12 +51,13 @@ const AddComment = ({ postId, closeModal }) => {
 
     return (
         <div>
-            <span style={{marginLeft:'100px', fontSize:'small'}}
-            ><button className="add-comment-btn-modal" 
+            <span style={{ marginLeft: '100px', fontSize: 'small' }}
+            >
+                {/* <button className="add-comment-btn-modal" 
                     onClick={() => setShowModel(true) }
-            > Add Comment</button>
-                <EditCommentsModal />
-            
+            > Add Comment</button> */}
+                {/* <EditCommentsModal /> */}
+
             </span>
         </div>
     );

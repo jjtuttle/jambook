@@ -29,6 +29,8 @@ def create_comment():
     if form.validate_on_submit():
         data = request.json
 
+        # print('\nform validation pass??????::::::::::::::', data)
+        # print('\n')
         new_comment = Comment(
             writer_id=data['writer_id'],
             post_id=data['post_id'],
@@ -36,11 +38,14 @@ def create_comment():
             created_at=datetime.now(),
             updated_at=datetime.now()
         )
+        # print(f'\nform:::::::::::::: {new_comment}')
+        # print('\n')
 
-        db.session.add(new_comment)
-        db.session.commit()
+    db.session.add(new_comment)
+    db.session.commit()
 
-        return {**new_comment.to_dict()}
+    print("\nBE for POST Comment-----------------------------", data)
+    return {**new_comment.to_dict()}
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
