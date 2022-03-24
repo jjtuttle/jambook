@@ -4,6 +4,8 @@
     max-width:600px;
     min-width: 300px;
     background-color: #FFF;
+    z-index: 100;
+    top: 0;
     box-shadow: 0px 5px 17px -7px rgba(0,0,0,0.75);
     border-radius: 5px;
     width:100%;
@@ -13,6 +15,42 @@
     align-items: center;
     height: 60px;
     /* border:solid 1px black; */
+}
+
+.nav__left {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav__center {
+    display: flex;
+    flex: 1;
+    justify-content: center
+}
+
+.nav__right {
+    display: flex;
+}
+
+
+.nav-container > .MuiSvgIcon-root {
+    color: gray;
+}
+
+/* .nav-container:hover > .MuiSvgIcon-root {
+    color: #2e81f4;
+} */
+
+.link-github:hover {
+    color: #2e81f4;
+}
+
+.link-linkedin:hover {
+    color: #2e81f4;
+}
+
+.nav-container:hover > .MuiSvgIcon-root { 
+    color: #2e81f4;
 }
 
 .nav-circle-logo {

@@ -5,6 +5,8 @@ import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css';
 import ProfileButton from './ProfileButton';
 import circleLogoLightM from '../../images/circle-logo-lightmode.png';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 
 const NavBar = () => {
@@ -15,9 +17,21 @@ const NavBar = () => {
   if (sessionUser) {
     sessionLinks = (
       <div className="nav-container">
-        <img className="nav-circle-logo" src={circleLogoLightM} alt="circle logo" />
-        <LogoutButton  className=" btn nav-logout-btn"/>
-        <ProfileButton user={sessionUser} className="btn nav-profile-btn "/>
+
+        <div className="nav__left">
+          <img className="nav-circle-logo" src={circleLogoLightM} alt="circle logo" />
+        </div>
+
+        <div className="nav__center">
+          <a className='link-github' href='https://github.com/jjtuttle' target='_blank' rel='noreferrer'><GitHubIcon /></a>
+          <a className='link-linkedin' href='https://www.linkedin.com/in/jamesjtuttle/' target='_blank' rel='noreferrer'><LinkedInIcon /></a>
+        </div>
+
+        <div className="nav__right">
+          <LogoutButton className=" btn nav-logout-btn" />
+          <ProfileButton user={sessionUser} className="btn nav-profile-btn " />
+        </div>
+
       </div>
     )
 
