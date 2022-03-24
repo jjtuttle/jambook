@@ -18,6 +18,7 @@ const AddComment = ({ postId }) => {
 
     const [ comment, setComment ] = useState('');
     const [ errors, setErrors ] = useState([]);
+    const [ showModal, setShowModel ] = useState(false);
 
     const matchUserToOwner = match(sessionUser, postId);
 
@@ -38,11 +39,17 @@ const AddComment = ({ postId }) => {
         }
     }
 
+    const handleAddComment = async (e) => {
+        console.log("HELLO from clicking the editComment")
+    }
+
 
     return (
         <div>
             <span style={{marginLeft:'100px', fontSize:'small'}}
-            ><button className="add-comment-btn-modal" > Add Comment</button>
+            ><button className="add-comment-btn-modal" 
+                    onClick={(e) => handleAddComment()}
+            > Add Comment</button>
             
             </span>
         </div>

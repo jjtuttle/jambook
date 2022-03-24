@@ -4,6 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { updatePost, getPosts } from '../../store/posts';
 
 const EditPostsForm = ({ closeModal, posts }) => {
+    
     const dispatch = useDispatch();
     const history = useHistory;
     const { postsId } = useParams();

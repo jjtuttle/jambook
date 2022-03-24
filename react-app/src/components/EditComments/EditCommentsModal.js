@@ -11,14 +11,14 @@ function EditComments({ comment }) {
 
 
     const sessionId = useSelector(state => state?.session?.user?.id);
-    const writerId = comment.writer_id;
-    const matchingSessionToUser = match(sessionId, writerId);
+    const writerId = comment?.writer_id;
+    const matchingSessionToUser = match(sessionId, +writerId);
 
 
     return (
         matchingSessionToUser && (
             <div className="edit-comment-modal-btn-wrapper">
-                <button className="btn btn-edit-comment" onClick={(e) => setShowModel(true)}>Edit</button>
+                <button className="btn btn-edit-comment" onClick={(e) => setShowModel(true)}>Add Comment</button>
                 {showModal && (
                     <Modal onClose={() => setShowModel(false)}>
                         <EditCommentsForm closeModal={() => setShowModel(false)} comment={comment} />

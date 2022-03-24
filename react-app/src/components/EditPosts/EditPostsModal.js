@@ -13,11 +13,11 @@ function EditPosts({ post }) {
     // const userId = useParams();
 
     const sessionId = useSelector(state => state?.session?.user?.id);
-    const writerId = post.owner_id;
+    const writerId = post?.owner_id;
     const matchingSessionToUser = match(sessionId, +writerId);
 
-// console.log("EDIT Post Modal Vcomp,,,,,,,,,,,,,,,,,,,,", post.owner_id);
-
+// console.log("EDIT Post Modal Vcomp,,,,,,,,,,,,,,,,,,,,", typeof(post.owner_id));
+// typeof(post.owner_id) - number
 
     return (
         matchingSessionToUser && (
