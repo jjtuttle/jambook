@@ -22,7 +22,7 @@ const destroy = (comment) => ({ type: DELETE_COMMENT, comment });
 // Create a comment
 export const createComment = (payload) => async (dispatch) => {
     // console.log("create Comment PAYLOAD......", payload); // ok
-    const response = await fetch('/api/comments/new/', {
+    const response = await fetch('/api/comments/new', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

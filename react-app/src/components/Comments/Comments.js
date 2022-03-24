@@ -8,7 +8,7 @@ import match from '../../utils/match';
 import './Comments.css';
 // import { CommentOutlined } from '@material-ui/icons';
 import avatar from '../../images/profile-icon.png';
-import EditCommentsModal from '../EditPosts/EditPostsModal';
+import EditCommentsModal from '../EditComments/EditCommentsModal';
 import DeleteCommentButton from './DeleteCommentButton';
 import Timestamp from 'react-timestamp';
 import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
@@ -58,7 +58,7 @@ const Comments = ({ postId }) => {
                         </div>
 
                         < div className="edit-delete-post-wrapper">
-                            x<EditCommentsModal comment={c}/>
+                            <EditCommentsModal comment={c}/>
                             <DeleteCommentButton comment={c} />
 
                         </div>
