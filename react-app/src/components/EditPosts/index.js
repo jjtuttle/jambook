@@ -4,16 +4,14 @@ import { useParams, useHistory } from 'react-router-dom';
 import { updatePost, getPosts } from '../../store/posts';
 
 const EditPostsForm = ({ closeModal, posts }) => {
-    
+
     const dispatch = useDispatch();
     const history = useHistory;
-    const { postsId } = useParams();
 
     const sessionUser = useSelector(state => state?.session?.user);
 
-    // console.log("POstsEditFtrom```````````````````", sessionUser.id);
+    // console.log("POstsEditFtrom```````````````````", posts.id);
     const id = posts.id
-
 
     const [ body, setBody ] = useState(posts.body);
 
@@ -29,7 +27,7 @@ const EditPostsForm = ({ closeModal, posts }) => {
                 body,
             }));
 
-            await dispatch(getPosts(postsId));
+            await dispatch(getPosts()); // posts.id
             closeModal();
             // return history.push(`/`);
         } else {
@@ -37,21 +35,23 @@ const EditPostsForm = ({ closeModal, posts }) => {
         }
     }
 
-    
+
     return (
         <div>
             <h1>Edit Posts</h1>
             <form className="edit-posts-form" onSubmit={handleSubmit}>
                 <input name="post"
                     autoFocus
-                    id="" cols="30" rows="2"
+                    // id="" cols="30" rows="2"
                     placeholder="Start a session..."
                     value={body}
                     onChange={(e) => setBody(e.target.value)}
                     style={{ borderRadius: '5px' }}
                 />
                 <div>
-                    <button type='submit' className='btn edit-post-submit'>
+                    <button type='submit' className='btn edit-post-submit'
+                        // disabled={!body}
+                    >
                         Update Post
                     </button>
                 </div>

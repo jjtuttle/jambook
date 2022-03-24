@@ -21,7 +21,7 @@ const destroy = (comment) => ({ type: DELETE_COMMENT, comment });
 // ===========================================================================
 // Create a comment
 export const createComment = (payload) => async (dispatch) => {
-
+    // console.log("create Comment PAYLOAD......", payload); // ok
     const response = await fetch('/api/comments/new', {
         method: 'POST',
         headers: {
@@ -29,7 +29,7 @@ export const createComment = (payload) => async (dispatch) => {
         },
         body: JSON.stringify(payload)
     });
-
+    // console.log("create Comment PAYLOAD......", response); // fail
     if (response.ok) {
         const newComment = await response.json();
         dispatch(create(newComment));
@@ -88,7 +88,7 @@ export const updateComment = (payload) => async (dispatch) => {
 
 // Delete comments
 export const deleteComment = (commentId) => async (dispatch) => {
-    console.log("THUNK delete comment ID:::::::::::::",commentId);
+    console.log("THUNK delete comment ID:::::::::::::", commentId);
     const response = await fetch(`/api/comments/${commentId}`, { method: 'DELETE' });
 
     if (response.ok) {
@@ -107,7 +107,8 @@ const commentReducer = (state = {}, action) => {
     switch (action.type) {
         case CREATE_COMMENT: {
             const newState = { ...state };
-            newState[ action.comment.id ] = action.comment;
+            // newState[ action.comment.id ] = action.comment;
+            newState.comment = { ...state.comment, [ action.comment.id ]: action.comment }
             return newState;
         };
         case GET_ALL_COMMENT_BY_ID: {

@@ -33,14 +33,15 @@ function ProfileButton({ user }) {
       <button onClick={openMenu}
         style={{
           backgroundColor: 'transparent',
-          color: 'white',
+          color: '#808080',
           border: '1px solid white',
           borderRadius: '8px',
           fontWeight: '700',
           fontSize: '14px',
-          height:'20px',
-          width:'80px',
-          cursor:'pointer'
+          height: '20px',
+          width: '80px',
+          cursor: 'pointer',
+          border: '1px solid #808080'
         }}
       > Click Me
         <i className="fas fa-user-circle" />
@@ -54,8 +55,8 @@ function ProfileButton({ user }) {
               style={{
                 position: 'absolute',
                 backgroundColor: 'transparent',
-                color: 'white',
-                border: '1px solid white',
+                color: '#808080',
+                border: '1px solid #808080',
                 borderRadius: '5px',
                 fontWeight: '700',
                 fontSize: '14px'

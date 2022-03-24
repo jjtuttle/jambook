@@ -2,12 +2,12 @@ import { Modal } from '../../context/Modal';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import match from '../../utils/match';
-import EditCommentsForm from './index';
-import '../Comments/Comments.css';
+import AddCommentsForm from './index';
+import './AddComments.css';
 
 
 
-function EditCommentsModal({ comment, postId }) {
+function AddCommentsModal({ comment, post_id }) {
 
     const [ showModal, setShowModel ] = useState(false);
 
@@ -16,7 +16,7 @@ function EditCommentsModal({ comment, postId }) {
     const writerId = comment?.writer_id;
     const matchingSessionToUser = match(sessionId, +writerId);
 
-    console.log(showModal);
+    // console.log("Add Comments Modal post_id -______-________----______--", post_id);
 
     return (
         <div>
@@ -26,7 +26,7 @@ function EditCommentsModal({ comment, postId }) {
                     <button className="btn btn-edit-comment" onClick={(e) => setShowModel(true)}>Add Comment</button>
                     {showModal && (
                         <Modal onClose={() => setShowModel(false)}>
-                            <EditCommentsForm closeModal={() => setShowModel(false)} comment={comment} />
+                            <AddCommentsForm closeModal={() => setShowModel(false)} comment={comment} post_id={post_id} />
                         </Modal>
                     )}
                 </div>
@@ -37,7 +37,7 @@ function EditCommentsModal({ comment, postId }) {
                 <button className="btn btn-edit-comment" onClick={(e) => setShowModel(true)}>Add Comment</button>
                 {showModal && (
                     <Modal onClose={() => setShowModel(false)}>
-                        <EditCommentsForm closeModal={() => setShowModel(false)} comment={comment} />
+                        <AddCommentsForm closeModal={() => setShowModel(false)} comment={comment} post_id={post_id}/>
                     </Modal>
                 )}
             </div>
@@ -45,4 +45,4 @@ function EditCommentsModal({ comment, postId }) {
     );
 }
 
-export default EditCommentsModal;
+export default AddCommentsModal;

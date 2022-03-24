@@ -6,13 +6,13 @@ import React from 'react';
 import match from '../../utils/match';
 import './Posts.css';
 import EditPostsModal from '../EditPosts/EditPostsModal';
-import EditCommentsModal from '../EditComments/EditCommentsModal';
+import AddCommentsModal from '../AddComments/AddCommentsModal';
 import DeletePostButton from './DeletePostButton';
 import Comments from '../Comments/Comments'
 import avatar from '../../images/profile-icon.png';
+// import logo_blue from '../../images/jambook-logo-blue.png';
 
-import { Avatar, IconButton } from "@material-ui/core";
-import AddComment from '../Comments/AddComment';
+import AddComment from '../AddComments/AddComment';
 import Timestamp from 'react-timestamp';
 
 
@@ -80,8 +80,7 @@ const PostForm = () => {
 
     return (
         <>
-            <div>
-
+            <div className="post-div-container">
                 {/* //! *************** Display Errors *****************/}
                 < div className="errors" style={{ color: 'red' }}>
                     {errors?.length > 0 && errors?.map((error, id) => (
@@ -89,22 +88,27 @@ const PostForm = () => {
                     ))
                     }
                 </div>
-                <div className="form-container">
-                    {/* //! *************** From Starts *****************/}
-                    <form className="form" onSubmit={handleSubmit}>
-                        <div className="form--top">
-                            <input className="post-input"
-                                placeholder="What's on your mind?"
-                                value={body}
-                                onChange={(e) => setBody(e.target.value)}
-                            />
-                        </div>
-                        <div className="form--bottom">
-                            {/* <button className="btn btn-post" type="submit">
-                                Post
+
+                <div className="message-sender-container">
+                    <div className="form-container">
+                        {/* //! *************** From Starts *****************/}
+                        <form  onSubmit={handleSubmit}>
+                            <div className="form--top">
+                                <input className="post-input"
+                                    placeholder="What's on your mind?"
+                                    value={body}
+                                    onChange={(e) => setBody(e.target.value)}
+                                    autoFocus
+                                    style={{cursor:'pointer'}}
+                                />
+                            </div>
+
+                            {/* <button className="btn-post" type="submit">
+                                Hidden Post
                             </button> */}
-                        </div>
-                    </form>
+
+                        </form>
+                    </div>
                     {/* //! *************** From Ends & Start Post Displays  *****************/}
                 </div>
 
@@ -125,17 +129,17 @@ const PostForm = () => {
                                 </div>
 
                                 < div className="edit-delete-post-wrapper">
-                                    <EditPostsModal post={post} postsId={post?.id} />
+                                    <EditPostsModal post={post} posts_id={post?.id} />
                                     <DeletePostButton post={post} />
-                                    <AddComment />
-                                    {/* <EditCommentsModal postId={post?.id} commentId={comment} /> */}
+
+                                    <AddCommentsModal post_id={post?.id} commentId={comment} />
                                 </div>
 
                                 <div className="comments-container">
                                     <Comments comment={comment} postId={post?.id} />
 
                                 </div>
-                                <EditPostsModal postId={post?.id} commentId={comment} />
+                                {/* <EditPostsModal postId={post?.id} commentId={comment} /> */}
                             </li>
                         ))}
 

@@ -11,6 +11,9 @@ import avatar from '../../images/profile-icon.png';
 import EditCommentsModal from '../EditPosts/EditPostsModal';
 import DeleteCommentButton from './DeleteCommentButton';
 import Timestamp from 'react-timestamp';
+import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
+import AddIcon from "@material-ui/icons/Add";
+
 
 
 // todo ————————————————————————————————————————————————————————————————————————
@@ -51,15 +54,13 @@ const Comments = ({ postId }) => {
                         </div>
 
                         <div className="comment-body">
-                            {/* <li> */}
-                                {c?.comment}
-                            {/* </li> */}
+                            {c?.comment}
                         </div>
 
                         < div className="edit-delete-post-wrapper">
-                            edit<EditCommentsModal  />
+                            edit<EditCommentsModal />
                             <DeleteCommentButton comment={c} />
-                            
+
                         </div>
                     </li>
                 ))}

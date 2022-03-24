@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { updateComment, getAllComments, createComment } from '../../store/comments';
 
-const EditCommentsForm = ({ closeModal, postId }) => {
+const AddCommentsForm = ({ closeModal, post_id }) => {
 
     const dispatch = useDispatch();
     const history = useHistory;
-    
-   
-    console.log("Comment EditFtrom```````````````````", postId);
+
+    // postId undefined....
+    // console.log("Comment AddCommentsForm post_idddddd```````````````````", post_id);
 
     const sessionUser = useSelector(state => state?.session?.user);
 
@@ -22,7 +22,7 @@ const EditCommentsForm = ({ closeModal, postId }) => {
 
         if (comment !== "") {
             await dispatch(createComment({
-                // id,
+                post_id,
                 writer_id: +sessionUser.id,
                 comment,
             }));
@@ -57,4 +57,4 @@ const EditCommentsForm = ({ closeModal, postId }) => {
 
 }
 
-export default EditCommentsForm;
+export default AddCommentsForm;

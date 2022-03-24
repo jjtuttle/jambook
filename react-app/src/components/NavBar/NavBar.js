@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css';
 import ProfileButton from './ProfileButton';
+import circleLogoLightM from '../../images/circle-logo-lightmode.png';
 
 
 const NavBar = () => {
@@ -14,6 +15,7 @@ const NavBar = () => {
   if (sessionUser) {
     sessionLinks = (
       <div className="nav-container">
+        <img className="nav-circle-logo" src={circleLogoLightM} alt="circle logo" />
         <LogoutButton  className=" btn nav-logout-btn"/>
         <ProfileButton user={sessionUser} className="btn nav-profile-btn "/>
       </div>
@@ -38,7 +40,8 @@ const NavBar = () => {
   }
   // todo ————————————————————————————————————————————————————————————————————————
   return (
-    <nav className="nav-container">
+    // className="nav-container"
+    <nav >
       <ul className="nav navbar">
         {/* <li className="home">
           <NavLink to='/' exact={true} activeClassName='active'>
