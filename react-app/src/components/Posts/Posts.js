@@ -92,14 +92,14 @@ const PostForm = () => {
                 <div className="message-sender-container">
                     <div className="form-container">
                         {/* //! *************** From Starts *****************/}
-                        <form  onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit}>
                             <div className="form--top">
                                 <input className="post-input"
                                     placeholder="What's on your mind?"
                                     value={body}
                                     onChange={(e) => setBody(e.target.value)}
                                     autoFocus
-                                    style={{cursor:'pointer'}}
+                                    style={{ cursor: 'pointer' }}
                                 />
                             </div>
 
@@ -137,7 +137,7 @@ const PostForm = () => {
 
                                 <div className="comments-container">
                                     <Comments comment={comment} postId={post?.id} />
-                                    <EditCommentsModal comment={comment} />
+
                                 </div>
                             </li>
                         ))}

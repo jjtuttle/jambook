@@ -82,19 +82,28 @@ def update_comment(id):
     data = request.json
 
     form = CommentForm()
+
     form['csrf_token'].data = request.cookies['csrf_token']
-    comment = Comment.query.get(id)
-    comment.comment = data['comment']
+
+    # comment = Comment.query.get(id)
+
+    # comment.comment = data['comment']
 
     if form.validate_on_submit():
         comment = Comment.query.get(id)
 
-        comment.owner_id = form.data['owner_id']
-        comment.comment = form.data['comment']
+        # comment.owner_id = form.data['owner_id']
+        comment.comment = data['comment']
         comment.updated_at = datetime.now()
 
-    db.session.commit()
-    return {**comment.to_dict()}
+        db.session.add(comment)
+
+        db.session.commit()
+        return {comment.to_dict()}
+
+    print("\n Did THIS PASS YTHROUGH OT STOP,,,,,,,,,,,,,,")
+    print("\n")
+
     # return {'comment': comment.to_dict()}
     return {'errors': validation_errors_to_error_messages(form.errors)}
 

@@ -124,7 +124,7 @@ const commentReducer = (state = {}, action) => {
         };
         case UPDATE_COMMENT: {
             const newState = { ...state };
-            newState[ action.comment.id ] = action.comment;
+            newState[ action.comment.id ] = action.comment.comment;
             return newState;
         };
         case DELETE_COMMENT: {

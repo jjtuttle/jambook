@@ -11,13 +11,15 @@ function EditCommentsModal({ comment }) {
 
     const [ showModal, setShowModel ] = useState(false);
 
-        console.log("Edit Comment Modal Comment id????????", comment);
+        // console.log("Edit Comment Modal Comment id????????", comment);
 
     const sessionId = useSelector(state => state?.session?.user?.id);
     const writerId = comment?.writer_id;
     const matchingSessionToUser = match(sessionId, +writerId);
 
-    console.log(showModal);
+    // console.log(showModal);
+
+    const [context, setContext] = useState(comment.comment)
 
     return (
         <div>
