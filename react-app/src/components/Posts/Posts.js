@@ -137,7 +137,7 @@ const PostForm = () => {
 
                                 <div className="comments-container">
                                     <Comments comment={comment} postId={post?.id} />
-                                    {/* edit<EditCommentsModal comment={comment} /> */}
+                                    <EditCommentsModal comment={comment} />
                                 </div>
                             </li>
                         ))}

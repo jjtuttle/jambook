@@ -22,7 +22,7 @@ function EditCommentsModal({ comment }) {
     return (
         <div>
 {/* User has a comment tied to post, need to call edit  */}
-            {/* {matchingSessionToUser && */}
+            {matchingSessionToUser &&
                 <div className="edit-comment-modal-btn-wrapper">
                     <button className="btn btn-edit-comment" onClick={(e) => setShowModel(true)}>Edit Comment</button>
                     {showModal && (
@@ -31,7 +31,7 @@ function EditCommentsModal({ comment }) {
                         </Modal>
                     )}
                 </div>
-            {/* } */}
+            }
 
 {/* User has no comments, need to call add new comment */}
             <div className="edit-comment-modal-btn-wrapper">
