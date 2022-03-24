@@ -41,24 +41,25 @@ const Comments = ({ postId }) => {
         <div className="post-comment-container">
             <ul className="post-comment">
 
-                {comments?.filter(c => c.post_id === postId).map((c) => (
+                {comments?.filter(c => c?.post_id === postId).map((c) => (
                     < li className={'comment'} key={c?.id}>
 
                         <div className="avatar">
                             <img src={avatar} alt='avatar' style={{ width: '20px' }} />
-                            <span style={{ marginLeft: '10px', marginBottom: '25px' }}> {c?.owner}</span>
+                            <span style={{ marginLeft: '10px', marginBottom: '25px', fontSize: 'x-small' }}> {c?.owner}</span>
                             <span style={{ marginLeft: '150px', fontSize: 'x-small' }}><Timestamp relative date={c?.created_at} /></span>
                         </div>
 
                         <div className="comment-body">
-                            <li>
+                            {/* <li> */}
                                 {c?.comment}
-                            </li>
+                            {/* </li> */}
                         </div>
 
                         < div className="edit-delete-post-wrapper">
-                            {/* <EditCommentsModal comment={c} commentId={c.id} /> */}
+                            edit<EditCommentsModal  />
                             <DeleteCommentButton comment={c} />
+                            
                         </div>
                     </li>
                 ))}
@@ -69,4 +70,3 @@ const Comments = ({ postId }) => {
 
 export default Comments;
 
-//! latest branch for comment-per-post-issue::: <wed-fix-comment-per-post>

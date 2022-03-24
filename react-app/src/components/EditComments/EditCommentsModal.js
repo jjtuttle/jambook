@@ -6,19 +6,20 @@ import EditCommentsForm from './index';
 import '../Comments/Comments.css';
 
 
-function EditComments({ comment }) {
+function EditCommentsModal({ comment }) {
     const [ showModal, setShowModel ] = useState(false);
 
 
     const sessionId = useSelector(state => state?.session?.user?.id);
-    const writerId = comment.writer_id;
-    const matchingSessionToUser = match(sessionId, writerId);
+    const writerId = comment?.writer_id;
+    const matchingSessionToUser = match(sessionId, +writerId);
 
+    console.log(showModal);
 
     return (
         matchingSessionToUser && (
             <div className="edit-comment-modal-btn-wrapper">
-                <button className="btn btn-edit-comment" onClick={(e) => setShowModel(true)}>Edit</button>
+                <button className="btn btn-edit-comment" onClick={(e) => setShowModel(true)}>Add Comment</button>
                 {showModal && (
                     <Modal onClose={() => setShowModel(false)}>
                         <EditCommentsForm closeModal={() => setShowModel(false)} comment={comment} />
@@ -29,4 +30,4 @@ function EditComments({ comment }) {
     );
 }
 
-export default EditComments;
+export default EditCommentsModal;

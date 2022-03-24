@@ -6,6 +6,7 @@ import React from 'react';
 import match from '../../utils/match';
 import './Posts.css';
 import EditPostsModal from '../EditPosts/EditPostsModal';
+import EditCommentsModal from '../EditComments/EditCommentsModal';
 import DeletePostButton from './DeletePostButton';
 import Comments from '../Comments/Comments'
 import avatar from '../../images/profile-icon.png';
@@ -92,16 +93,10 @@ const PostForm = () => {
                     {/* //! *************** From Starts *****************/}
                     <form className="form" onSubmit={handleSubmit}>
                         <div className="form--top">
-                            <input className="post"
-                                id="" cols="30" rows="2"
+                            <input className="post-input"
                                 placeholder="What's on your mind?"
                                 value={body}
                                 onChange={(e) => setBody(e.target.value)}
-                                style={{
-                                    borderRadius: '5px', border: 'none',
-                                    outlineWidth: '0', width: '260px', height: '30px'
-                                }}
-
                             />
                         </div>
                         <div className="form--bottom">
@@ -122,7 +117,7 @@ const PostForm = () => {
 
                                 <div className="avatar">
                                     <img src={avatar} alt='avatar' style={{ width: '30px' }} />
-                                    <span style={{ marginLeft: '10px', marginBottom: '25px' }}>{post?.owner} </span>
+                                    <span style={{ marginLeft: '10px', marginBottom: '25px', fontSize: 'x-small' }}>{post?.owner} </span>
                                     <span style={{ marginLeft: '150px', fontSize: 'x-small' }}><Timestamp relative date={post?.created_at} /></span>
                                 </div>
                                 <div className="post-body">
@@ -130,15 +125,17 @@ const PostForm = () => {
                                 </div>
 
                                 < div className="edit-delete-post-wrapper">
-                                    <EditPostsModal post={post} postsId={post.id} />
+                                    <EditPostsModal post={post} postsId={post?.id} />
                                     <DeletePostButton post={post} />
-                                    <AddComment postId={post.id} commentId={comment} />
-                                    {/* Add Comment */}
+                                    <AddComment />
+                                    {/* <EditCommentsModal postId={post?.id} commentId={comment} /> */}
                                 </div>
+
                                 <div className="comments-container">
-                                    <Comments comment={comment} postId={post.id} />
+                                    <Comments comment={comment} postId={post?.id} />
 
                                 </div>
+                                <EditPostsModal postId={post?.id} commentId={comment} />
                             </li>
                         ))}
 
