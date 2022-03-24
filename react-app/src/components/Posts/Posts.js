@@ -10,7 +10,7 @@ import AddCommentsModal from '../AddComments/AddCommentsModal';
 import DeletePostButton from './DeletePostButton';
 import Comments from '../Comments/Comments'
 import avatar from '../../images/profile-icon.png';
-// import logo_blue from '../../images/jambook-logo-blue.png';
+import EditCommentsModal from '../EditComments/EditCommentsModal';
 
 import AddComment from '../AddComments/AddComment';
 import Timestamp from 'react-timestamp';
@@ -137,9 +137,8 @@ const PostForm = () => {
 
                                 <div className="comments-container">
                                     <Comments comment={comment} postId={post?.id} />
-
+                                    {/* edit<EditCommentsModal comment={comment} /> */}
                                 </div>
-                                {/* <EditPostsModal postId={post?.id} commentId={comment} /> */}
                             </li>
                         ))}
 

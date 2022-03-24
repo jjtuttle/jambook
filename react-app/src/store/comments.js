@@ -88,7 +88,7 @@ export const updateComment = (payload) => async (dispatch) => {
 
 // Delete comments
 export const deleteComment = (commentId) => async (dispatch) => {
-    console.log("THUNK delete comment ID:::::::::::::", commentId);
+    // console.log("THUNK delete comment ID:::::::::::::", commentId);
     const response = await fetch(`/api/comments/${commentId}`, { method: 'DELETE' });
 
     if (response.ok) {
@@ -129,7 +129,8 @@ const commentReducer = (state = {}, action) => {
         };
         case DELETE_COMMENT: {
             const newState = { ...state };
-            delete newState[ action.comment.id ];
+            // console.log("Action ..... ", action.comment.id);
+            delete newState[ action.comment.commentId ];
             return newState;
         };
         default:

@@ -58,7 +58,7 @@ const Comments = ({ postId }) => {
                         </div>
 
                         < div className="edit-delete-post-wrapper">
-                            edit<EditCommentsModal />
+                            x<EditCommentsModal comment={c}/>
                             <DeleteCommentButton comment={c} />
 
                         </div>

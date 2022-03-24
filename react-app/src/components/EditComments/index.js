@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { updateComment, getAllComments, createComment } from '../../store/comments';
 
-const EditCommentsForm = ({ closeModal, postId }) => {
+const EditCommentsForm = ({ closeModal, postId, comments }) => {
 
     const dispatch = useDispatch();
     const history = useHistory;
     
    
-    console.log("Comment EditFtrom```````````````````", postId);
+    console.log("Comment EditFtrom```````````````````", comments);
 
     const sessionUser = useSelector(state => state?.session?.user);
 
@@ -37,7 +37,7 @@ const EditCommentsForm = ({ closeModal, postId }) => {
 
     return (
         <div>
-            <h1>Add Comment</h1>
+            <h1>Edit Comment</h1>
             <form className="add-comments-form" onSubmit={handleSubmit}>
                 <input name="input-add-comments"
                     // id="" cols="30" rows="2"
@@ -48,7 +48,7 @@ const EditCommentsForm = ({ closeModal, postId }) => {
                 />
                 <div>
                     <button type='submit' className='btn edit-comment-submit'>
-                        Add Comment
+                        Edit Comment
                     </button>
                 </div>
             </form>

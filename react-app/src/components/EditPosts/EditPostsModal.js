@@ -4,13 +4,12 @@ import { useSelector } from 'react-redux';
 import match from '../../utils/match';
 import EditPostsForm from './index';
 import '../Posts/Posts.css';
-import { useParams } from "react-router-dom";
+
 
 
 function EditPosts({ post }) {
     const [ showModal, setShowModel ] = useState(false);
 
-    // const userId = useParams();
 
     const sessionId = useSelector(state => state?.session?.user?.id);
     const writerId = post?.owner_id;
