@@ -4,6 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { updateComment, getAllComments } from '../../store/comments';
 
 const EditCommentsForm = ({ closeModal, comments }) => {
+    
     const dispatch = useDispatch();
     const history = useHistory;
     const { commentId } = useParams();

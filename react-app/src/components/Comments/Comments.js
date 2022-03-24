@@ -51,14 +51,15 @@ const Comments = ({ postId }) => {
                         </div>
 
                         <div className="comment-body">
-                            <li>
+                            {/* <li> */}
                                 {c?.comment}
-                            </li>
+                            {/* </li> */}
                         </div>
 
                         < div className="edit-delete-post-wrapper">
-                            <EditCommentsModal comment={c} commentId={c?.id} />
+                            edit<EditCommentsModal  />
                             <DeleteCommentButton comment={c} />
+                            
                         </div>
                     </li>
                 ))}

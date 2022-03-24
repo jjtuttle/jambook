@@ -4,13 +4,14 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {createComment, updateComment, deleteComment} from '../../store/comments';
 import match from '../../utils/match';
+import EditCommentsModal from '../EditComments/EditCommentsModal';
 
 import './Comments.css';
 // Avatar?
 // Icons
 
 
-const AddComment = ({ postId }) => {
+const AddComment = ({ postId, closeModal }) => {
     const dispatch = useDispatch();
 
     const sessionUser = useSelector(state => state?.session?.user);
@@ -43,13 +44,17 @@ const AddComment = ({ postId }) => {
         console.log("HELLO from clicking the editComment")
     }
 
+    const addCommentModal = (e) => {
+
+    }
 
     return (
         <div>
             <span style={{marginLeft:'100px', fontSize:'small'}}
             ><button className="add-comment-btn-modal" 
-                    onClick={(e) => handleAddComment()}
+                    onClick={() => setShowModel(true) }
             > Add Comment</button>
+                <EditCommentsModal />
             
             </span>
         </div>

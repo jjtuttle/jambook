@@ -75,7 +75,7 @@ const PostForm = () => {
         await dispatch(deletePost(postId));
     }
 
-   
+
 
 
     return (
@@ -94,15 +94,9 @@ const PostForm = () => {
                     <form className="form" onSubmit={handleSubmit}>
                         <div className="form--top">
                             <input className="post-input"
-                                // id="" cols="30" rows="2"
                                 placeholder="What's on your mind?"
                                 value={body}
                                 onChange={(e) => setBody(e.target.value)}
-                                style={{
-                                    borderRadius: '5px', border: 'none',
-                                    outlineWidth: '0', width: '260px', height: '30px'
-                                }}
-
                             />
                         </div>
                         <div className="form--bottom">
@@ -133,12 +127,15 @@ const PostForm = () => {
                                 < div className="edit-delete-post-wrapper">
                                     <EditPostsModal post={post} postsId={post?.id} />
                                     <DeletePostButton post={post} />
-                                    ECM<EditCommentsModal postId={post?.id} commentId={comment} />
+                                    <AddComment />
+                                    {/* <EditCommentsModal postId={post?.id} commentId={comment} /> */}
                                 </div>
+
                                 <div className="comments-container">
                                     <Comments comment={comment} postId={post?.id} />
 
                                 </div>
+                                <EditPostsModal postId={post?.id} commentId={comment} />
                             </li>
                         ))}
 

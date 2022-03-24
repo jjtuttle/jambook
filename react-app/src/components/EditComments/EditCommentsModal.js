@@ -6,7 +6,7 @@ import EditCommentsForm from './index';
 import '../Comments/Comments.css';
 
 
-function EditComments({ comment }) {
+function EditCommentsModal({ comment }) {
     const [ showModal, setShowModel ] = useState(false);
 
 
@@ -14,6 +14,7 @@ function EditComments({ comment }) {
     const writerId = comment?.writer_id;
     const matchingSessionToUser = match(sessionId, +writerId);
 
+    console.log(showModal);
 
     return (
         matchingSessionToUser && (
@@ -29,4 +30,4 @@ function EditComments({ comment }) {
     );
 }
 
-export default EditComments;
+export default EditCommentsModal;
