@@ -1,10 +1,18 @@
 /* TODO Add site wide styles */
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  /* height: 80vh; */
 }
 
 .btn {
@@ -22,6 +30,7 @@ body {
     cursor: pointer;
     background-color: #eff2f5;
     border-radius: 20px;
+    
 }
 
 a {
@@ -40,4 +49,15 @@ body {
 
 h1 {
     color:#666;
+}
+
+@media screen and (max-width:1114px) {
+    .left_side{
+        left:30px;
+        margin-right:22vw;
+    }
+
+    .right_side {
+        right: 70px;
+    }
 }

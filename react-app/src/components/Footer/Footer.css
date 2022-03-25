@@ -1,0 +1,47 @@
+.footer_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100px;
+    width: 100vw;
+    padding: 20px;
+    /* left:10vw; */
+    top: 60vh;
+    background-color: #fff;
+    color:#a6a8aa;
+    position: absolute;
+    bottom: 0;
+ 
+    margin-top: 100px;
+}
+.hr {
+    display: flex;
+    flex-direction: row; 
+}
+
+.footer__text {
+    display: flex;
+    align-items:center;
+    flex-direction: row;
+    padding:0;
+    width: 100%;
+    word-spacing: 20px;
+    justify-content:space-evenly;
+}
+
+
+.footer__copyright {
+    display: flex;
+    flex-direction: row;
+
+    width: 100%;
+    justify-content:space-evenly;
+    align-items:center;
+    color:#757575;
+    font-size: small;
+    padding: 10px;
+}
+
+.link-github:hover {
+    
+}
