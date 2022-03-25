@@ -1,4 +1,4 @@
-
+/* Whole container ********************************* */
 .display_errors {
     color: red;
 }
@@ -16,6 +16,33 @@
     flex-basis: 50%;
 }
 
+/* Left Side ********************************* */
+.left__text {
+    display:flex;
+    position: relative;
+    left:20vw;
+    top: 13vh;
+    font-size: 24px;
+}
+
+.login__logo-container {
+    display:flex;
+    position: relative;
+    left:20vw;
+    top: 13vh;
+    /* margin-right: 30vw; */
+    width:198px;
+    height:70px;
+}
+
+#login__logo {
+    width:198px;
+    height:70px;
+    margin: -20px;
+}
+
+
+/* Right Side ********************************* */
 .login__form {
     /* display:block; */
     display:flex;
@@ -50,36 +77,6 @@
 }
 
 
-.login__logo-container {
-    display:flex;
-    position: relative;
-    left:20vw;
-    top: 13vh;
-    margin-right: 30vw;
-}
-
-#login__logo {
-    width:198px;
-    height:70px;
-    margin: -20px;
-}
-
-
-
-.form_container {
-    /* display:flex;
-    flex-direction: column;
-    position: relative;
-    flex-direction: column; */
-}
-
-.login__form {
-
-}
-.email-input-wrapper {
-
-}
-
 .email__inputL:focus,
 .password__inputL:focus {
     outline: none;
@@ -103,16 +100,12 @@
     font-size: 17px;
 }
 
-.password-input-wrapper {
-    
-}
-
 .password__inputL {
     font-size: 17px;
     width: 350px;
     display: inline-block;
     border: none;
-    margin: auto;
+    margin: 8px 0;
     padding: 16px 14px;
     border-radius: 5px;
     border: .5px solid rgb(164, 164, 164);
@@ -128,49 +121,56 @@
     font-size: 20px;
     line-height: 48px;
     padding: 0 16px;
-    width: 350px;
-    margin:5px;
+    width: 380px;
+    margin:10px;
+}
+
+.btn__loginL:hover {
+    background-color: #166fe5;
+    cursor: pointer;
 }
 
 .demo__loginL {
     background-color: transparent;
     border: 1px solid #1877f2;
-    color: #1877f2;
+    color: #013375;
     border-radius: 5px;
     font-size: 20px;
     line-height: 48px;
     padding: 0 16px;
-    width: 350px;
+    width: 380px;
     margin:5px;
+    color: #8A8D91;
 }
 
+.demo__loginL:hover {
+    border: 1px solid #085dcd;
+    color: #085dcd;
+    background-color: #fff;
+    cursor: pointer;
+    /* border: none; */
+}
 
 .signup-btn-container {
     margin-top: 60px;
 }
 
 .signup__btnL{
-    /* text-decoration: none;
-    background-color: #42B72A;
-    color:#fff;
-    padding: 5px 5px;
-    width:350px; */
-    /* margin-top:5px; */
     background: none;
-    background-color: #00a400;
+    background-color: #42b72a;
     border: none;
     border-radius: 5px;
     box-shadow: none;
     color: #fff;
     font-size: 18px;
     font-weight: 600;
-    height: 36px;
     overflow: hidden;
     padding: 0 32px;
     text-shadow: none;
+    line-height: 48px;
 }
 
-.signup__btn:hover {
-    background-color: #389a24;
+.signup__btnL:hover {
+    background-color: #36a420;
     cursor: pointer;
 }

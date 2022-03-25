@@ -33,13 +33,13 @@
 }
 
 
-.nav-container > .MuiSvgIcon-root {
+.MuiSvgIcon-root {
     color: gray;
 }
 
-/* .nav-container:hover > .MuiSvgIcon-root {
+.MuiSvgIcon-root:hover {
     color: #2e81f4;
-} */
+}
 
 .link-github:hover {
     color: #2e81f4;

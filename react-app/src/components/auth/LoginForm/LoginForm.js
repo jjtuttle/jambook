@@ -57,6 +57,9 @@ const LoginForm = () => {
               style={{ width: '150px', height: '60px' }}
             />
           </div>
+          <div className="left__text">
+            <p>Connect with musicians and the world around you on Jambook.</p>
+          </div>
         </div>
 
         {/* //! Right side *************************/}

@@ -12,7 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
-  height: 115vh;
+  /* height: 80vh; */
 }
 
 .btn {
@@ -49,4 +49,15 @@ body {
 
 h1 {
     color:#666;
+}
+
+@media screen and (max-width:1114px) {
+    .left_side{
+        left:30px;
+        margin-right:22vw;
+    }
+
+    .right_side {
+        right: 70px;
+    }
 }
