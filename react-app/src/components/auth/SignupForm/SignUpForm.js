@@ -64,23 +64,31 @@ const SignUpForm = () => {
   }
 
   return (
-    <div className="signup-container">
-      <div className="signup-header">
-        <h1 className="signup-title">Sign Up</h1>
-        <span className="signup-text">It's quick and easy</span>
-      </div>
-      <hr className="signup-hr"></hr>
-      <div className="signup-form-container">
-        <form className="signup-form" onSubmit={onSignUp}>
+    <div className="signup_container">
+      <div className="header__wrap">
+        <a href="/">
+          <img className="x-img" src="https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/TdCEremeWv5.png"
+            alt="x"
+            style={{ width: "24px", height: "24px" }}
+          />
+        </a>
+        <div className="signup__header">
+          <div className="signup__title">Sign Up</div>
+          <div className="signup__text">It's quick and easy</div>
 
-          <div className="display-errors">
+        </div>
+      </div>
+      <div className="signup_form">
+        <form className="signup__form" onSubmit={onSignUp}>
+
+          <div className="display__errors">
             {errors.map((error, ind) => (
               <ul key={ind}><li>{error}</li></ul>
             ))}
           </div>
 
           <div>
-            <input className="signup-username-input"
+            <input className="username__input"
               type='text'
               name='username'
               placeholder="Username"
@@ -90,7 +98,7 @@ const SignUpForm = () => {
           </div>
 
           <div>
-            <input className="signup-email-input"
+            <input className="email__input"
               type='text'
               name='email'
               placeholder="Email"
@@ -100,7 +108,7 @@ const SignUpForm = () => {
           </div>
 
           <div>
-            <input className="signup-password-input"
+            <input className="password__input"
               type='password'
               name='password'
               placeholder="Password"
@@ -110,7 +118,7 @@ const SignUpForm = () => {
           </div>
 
           <div>
-            <input className="signup-confirm-password-input"
+            <input className="confirm__password__input"
               type='password'
               name='repeat_password'
               placeholder="Confirm Password"
@@ -119,19 +127,23 @@ const SignUpForm = () => {
               required={true}
             ></input>
           </div>
-          <div className="signup-terms-container">
+          <div className="terms__container">
             <span className="signup-terms-text">
               By clicking Sign Up, you agree to our Terms, Data Policy and Cookies Policy. You may receive SMS Notifications from us and can opt out any time.
             </span>
           </div>
 
-          <div className="signup-btn">
-            <button type='submit'>Sign Up</button>
+          <div className="signup__bottom">
+            <button className="signup__btn"
+              type='submit'>
+              Sign Up
+            </button>
           </div>
 
         </form>
       </div>
     </div>
+
   );
 };
 

@@ -1,24 +1,34 @@
 
-.display-errors {
+.display_errors {
     color: red;
 }
 
-.login-container {
-    border: solid 1px grey;
-    border-radius:15px;
-    width: 300px;
-    height: 400px;
+.login_container {
+    display:block;
+   
+    height: 456px;
+    width: 396px;
     margin-left:200px;
-    background-color: lightgrey;
-    /* padding-left: 70px; */
+    background-color: #FFF;
+    color: #1c1e21;
+    font-size: 12px;
+    line-height: 16px;
+    align-items: center;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    box-sizing: border-box;
+    margin: 40px 0 0;
+    padding: 20px 0 28px;
+
 
 }
 
-.form-container {
+.form_container {
 
 }
 
-.login-form {
+.login__form {
 
 }
 
@@ -27,40 +37,72 @@
 }
 
 .email-input {
-
+    font-size: 17px;
+    width: 350px;
+    display: inline-block;
+    margin: auto;
+    padding: 16px 14px;
+    border-radius: 4px;
+    outline: none;
+    border: .5px solid rgb(164, 164, 164);
+    margin:5px;
+    font-size: 17px;
 }
 
 .password-input-wrapper {
-
+    
 }
 
 .password-input {
-
+    font-size: 17px;
+    width: 350px;
+    display: inline-block;
+    margin: auto;
+    padding: 16px 14px;
+    border-radius: 4px;
+    border: .5px solid rgb(164, 164, 164);
+    margin:5px;
+    font-size: 17px;
 }
 
-.login-btn {
-
+.btn__login {
+    background-color: #1877f2;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    line-height: 48px;
+    padding: 0 16px;
+    width: 350px;
+    margin:5px;
 }
 
-
-
-.log-out-btn {
-
+.demo__login {
+    background-color: transparent;
+    border: 1px solid #1877f2;
+    color: #1877f2;
+    border-radius: 6px;
+    font-size: 20px;
+    line-height: 48px;
+    padding: 0 16px;
+    width: 350px;
+    margin:5px;
 }
+
 
 .signup-btn-container {
     margin-top: 60px;
 }
 
-.btn-create-new {
+.signup__btn{
     text-decoration: none;
     background-color: #42B72A;
     color:#fff;
     padding: 5px 5px;
+    width:350px;
     /* margin-top:5px; */
 }
 
-.btn-create-new:hover {
+.signup__btn:hover {
     background-color: #389a24;
     cursor: pointer;
 }

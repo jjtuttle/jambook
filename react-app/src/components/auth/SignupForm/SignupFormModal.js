@@ -4,10 +4,20 @@ import { useState } from 'react';
 import SignUpForm from './SignUpForm';
 
 const SignupFormModal = () => {
+    const [ showModal, setShowModal ] = useState(false);
+
     return (
-        <div>
-            <h1>SIGNUP FORM MODAL</h1>
-        </div>
+        <>
+            <button className="dark-buttons" id='signup'
+                onClick={() => setShowModal(true)}>Get Started</button>
+            {
+                showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
+                        <SignUpForm setShowModal={setShowModal} />
+                    </Modal>
+                )
+            }
+        </>
     );
 };
 
