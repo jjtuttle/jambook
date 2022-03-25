@@ -1,11 +1,8 @@
-/* .display-errors {
-    color: red;
-}  */
-
-.display__errors > ul > li {
+ .display__errors > ul > li {
+ 
     color: red;
     list-style-type:circle;
-}
+} 
 
 .signup_container {
     background-color: #fff;
@@ -68,6 +65,7 @@ img {
 
 
 .username__input {
+    border: .5px solid var(--color-default);
     width: 375px;
     background: #F5F6F7;
     border-radius: 4px;
@@ -79,11 +77,11 @@ img {
     font-size: 12px;
     outline: none;
     padding: 3px;
-    border-color: #e1e1e1;
     margin:5px;
 }
 
 .email__input {
+    border: .5px solid var(--color-default);
     width: 375px;
     background: #F5F6F7;
     border-radius: 4px;
@@ -99,6 +97,7 @@ img {
 }
 
 .password__input {
+    border: .5px solid var(--color-default);
     width: 375px;
     background: #F5F6F7;
     border-radius: 4px;
@@ -114,6 +113,7 @@ img {
 }
 
 .confirm__password__input {
+   border: .5px solid var(--color-default);
     width: 375px;
     background: #F5F6F7;
     border-radius: 4px;

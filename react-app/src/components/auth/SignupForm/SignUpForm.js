@@ -66,10 +66,12 @@ const SignUpForm = () => {
   return (
     <div className="signup_container">
       <div className="header__wrap">
-        <img className="x-img" src="https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/TdCEremeWv5.png"
-          alt="x"
-          style={{ width: "24px", height: "24px" }}
-        />
+        <a href="/">
+          <img className="x-img" src="https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/TdCEremeWv5.png"
+            alt="x"
+            style={{ width: "24px", height: "24px" }}
+          />
+        </a>
         <div className="signup__header">
           <div className="signup__title">Sign Up</div>
           <div className="signup__text">It's quick and easy</div>
