@@ -5,7 +5,8 @@ import { login } from '../../../store/session';
 import './LoginForm.css';
 import SignUpForm from '../SignupForm/SignUpForm';
 import { Modal } from '../../../context/Modal';
-
+import Footer from '../../Footer/Footer';
+import blueLogo from '../../../images/jambook-logo-blue.png'
 
 const LoginForm = () => {
   const [ errors, setErrors ] = useState([]);
@@ -46,72 +47,92 @@ const LoginForm = () => {
   }
 
   return (
-    <div className="login_container">
+    <>
+      {/* //! Left side *****************  */}
+      <section className="login_container">
 
-      <div className="form_container">
-        <form className="login__form" onSubmit={onLogin}>
-
-          {/*********  ERROR HANDLING DIV *********************/}
-          <div className='display_errors'>
-            {errors.map((error, ind) => (
-              <ul key={ind}><li>{error}</li></ul>
-            ))}
-          </div>
-
-          <div className='email-input-wrapper'>
-            <input className='email-input'
-              name='email'
-              type='text'
-              placeholder='Email'
-              value={email}
-              onChange={updateEmail}
+        <div className="left_side">
+          <div className="login__logo-container">
+            <img src={blueLogo} alt="logo" id="login__logo"
+              style={{ width: '150px', height: '60px' }}
             />
           </div>
+        </div>
 
-          <div className='password-input-wrapper'>
-            <input className='password-input'
-              name='password'
-              type='password'
-              placeholder='Password'
-              value={password}
-              onChange={updatePassword}
-            />
-          </div>
-          <div className="login__btn">
-            <button className='btn__login'
-              type='submit'>
-              Log In
-            </button>
-          </div>
+        {/* //! Right side *************************/}
+        <div className="right_side">
+          <div className="form__container">
+            <form className="login__form" onSubmit={onLogin}>
 
-          <div className="demouser-btn">
-            <button className='demo__login'
-              onClick={() => handleDemo(demoUser)}>
-              Demo User Login
-            </button>
-          </div>
-          <hr />
-          {/***********  TAKE USER TO SIGNUP PAGE  ****************/}
-          <div className="signup-btn-container">
-            {/* <a href="/sign-up" exact={true} className="btn-create-new">
+              {/* //! *********  ERROR HANDLING DIV ******************** */}
+              <div className='display_errors'>
+                {errors.map((error, ind) => (
+                  <ul key={ind}><li>{error}</li></ul>
+                ))}
+              </div>
+
+              <div className='email-input-wrapper'>
+                <input className='email__inputL' 
+                  name='email'
+                  type='email'
+                  placeholder='Email'
+                  value={email}
+                  onChange={updateEmail}
+                />
+              </div>
+
+              <div className='password-input-wrapper'>
+                <input className='password__inputL' 
+                  name='password'
+                  type='password'
+                  placeholder='Password'
+                  value={password}
+                  onChange={updatePassword}
+                />
+              </div>
+              
+              <div className="login__btnL">
+                <button className='btn__loginL' x
+                  type='submit'>
+                  Log In
+                </button>
+              </div>
+
+              <div className="demouser-btn">
+                <button className='demo__loginL'
+                  onClick={() => handleDemo(demoUser)}>
+                  Demo User Login
+                </button>
+              </div>
+
+              <hr className="login__hr" />
+
+              {/***********  TAKE USER TO SIGNUP PAGE  ****************/}
+              <div className="signup-btn-container">
+                {/* <a href="/sign-up" exact={true} className="btn-create-new">
                 Create new account
               </a> */}
-            <button className="signup__btn" 
-              onClick={() => setShowModal(true)}>Create new account</button>
-            {
-              showModal && (
-                <Modal onClose={() => setShowModal(false)}>
-                  <SignUpForm setShowModal={setShowModal} />
-                </Modal>
-              )
-            }
+                <button className="signup__btnL"
+                  onClick={() => setShowModal(true)}>Create new account</button>
+                {
+                  showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
+                      <SignUpForm setShowModal={setShowModal} />
+                    </Modal>
+                  )
+                }
 
-          </div>
+              </div>
 
-          {/* </div> */}
-        </form>
-      </div >
-    </div >
+              {/* </div> */}
+            </form>
+          </div >
+        </div >
+
+      </section>
+      {/* //!  Footer ************************* */}
+      <Footer />
+    </>
   );
 };
 

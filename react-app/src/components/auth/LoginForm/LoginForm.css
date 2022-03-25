@@ -4,45 +4,99 @@
 }
 
 .login_container {
-    display:block;
-   
+    display:flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.left_side,
+.right_side {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 50%;
+}
+
+.login__form {
+    /* display:block; */
+    display:flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: flex-start;
+    top:18vh;
+    align-items: center;
+
     height: 456px;
     width: 396px;
-    margin-left:200px;
+    /* margin-left:200px; */
     background-color: #FFF;
     color: #1c1e21;
     font-size: 12px;
     line-height: 16px;
-    align-items: center;
     border: none;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    box-shadow: 0 5px 5px 3px gainsboro;
     box-sizing: border-box;
-    margin: 40px 0 0;
-    padding: 20px 0 28px;
+    /* margin: auto 0; */
+    padding: 10px 20px;
 
 
 }
 
-.form_container {
+.login__hr {
+    width:95%;
+    height: 0.2%;
+    background-color: rgb(194, 193, 193);
+    border: none;
+}
 
+
+.login__logo-container {
+    display:flex;
+    position: relative;
+    left:20vw;
+    top: 13vh;
+    margin-right: 30vw;
+}
+
+#login__logo {
+    width:198px;
+    height:70px;
+    margin: -20px;
+}
+
+
+
+.form_container {
+    /* display:flex;
+    flex-direction: column;
+    position: relative;
+    flex-direction: column; */
 }
 
 .login__form {
 
 }
-
 .email-input-wrapper {
 
 }
 
-.email-input {
+.email__inputL:focus,
+.password__inputL:focus {
+    outline: none;
+    border:1px solid blue;
+    box-shadow: 0 0 5px #719ece;
+    caret-color: blue;
+}
+
+.email__inputL {
     font-size: 17px;
     width: 350px;
+    height:35%;
     display: inline-block;
-    margin: auto;
+    margin: 8px 0;
     padding: 16px 14px;
-    border-radius: 4px;
+    padding-left: 10px;
+    border-radius: 5px;
     outline: none;
     border: .5px solid rgb(164, 164, 164);
     margin:5px;
@@ -53,22 +107,24 @@
     
 }
 
-.password-input {
+.password__inputL {
     font-size: 17px;
     width: 350px;
     display: inline-block;
+    border: none;
     margin: auto;
     padding: 16px 14px;
-    border-radius: 4px;
+    border-radius: 5px;
     border: .5px solid rgb(164, 164, 164);
     margin:5px;
     font-size: 17px;
 }
 
-.btn__login {
+.btn__loginL {
     background-color: #1877f2;
+    color:#FFF;
     border: none;
-    border-radius: 6px;
+    border-radius: 5px;
     font-size: 20px;
     line-height: 48px;
     padding: 0 16px;
@@ -76,11 +132,11 @@
     margin:5px;
 }
 
-.demo__login {
+.demo__loginL {
     background-color: transparent;
     border: 1px solid #1877f2;
     color: #1877f2;
-    border-radius: 6px;
+    border-radius: 5px;
     font-size: 20px;
     line-height: 48px;
     padding: 0 16px;
@@ -93,13 +149,25 @@
     margin-top: 60px;
 }
 
-.signup__btn{
-    text-decoration: none;
+.signup__btnL{
+    /* text-decoration: none;
     background-color: #42B72A;
     color:#fff;
     padding: 5px 5px;
-    width:350px;
+    width:350px; */
     /* margin-top:5px; */
+    background: none;
+    background-color: #00a400;
+    border: none;
+    border-radius: 5px;
+    box-shadow: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    height: 36px;
+    overflow: hidden;
+    padding: 0 32px;
+    text-shadow: none;
 }
 
 .signup__btn:hover {

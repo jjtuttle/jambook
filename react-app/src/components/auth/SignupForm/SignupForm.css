@@ -21,19 +21,34 @@
 
 }
 
+
 img {
     border: 0;
-    aspect-ratio: auto 24 / 24;
+    /* aspect-ratio: auto 24 / 24; */
     float:right;
+    ;
 }
 
 .x-img > img {
     position: absolute;
-    
+
     top:12px;
     z-index: 2;
     
 }
+
+/* .x-img:hover >img>a{
+    background-color: white;
+    opacity: 1.0;
+    color:rgb(194,193,193);
+    height:25px;
+    width:25px;
+    line-height:22px;
+    top:-5px;
+    left:-5px;
+    font-size:25px;
+    transition: 0.3s;
+} */
 
 .header__wrap {
     border-bottom: 1px solid lightgrey;

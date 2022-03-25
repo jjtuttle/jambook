@@ -1,0 +1,25 @@
+.footer_container {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    width: 100%;
+    padding: 20px;
+    
+}
+.hr {
+    display: flex;
+    flex-direction: row; 
+}
+
+.footer__text {
+    display: flex;
+    flex-direction: row;
+    padding:0;
+    width: 100%;
+}
+
+.footer__copyright {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
