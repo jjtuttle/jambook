@@ -31,7 +31,7 @@ const SignUpForm = () => {
     const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
     if (!username) errors.push('Please provide a username');
     if (username.length > 40) errors.push('Please provide a shorter username (40 chars or less).');
-    if (username.length < 3) errors.push('Please provide a longer username (between 5 and 255 chars).')
+    if (username.length < 4) errors.push('Please provide a longer username (between 4 and 40 chars).')
     if (emailRegex.exec(email) === null) errors.push('Please provide a valid email.');
     if (password.length < 8) errors.push('Please provide a password with 8 characters or more.');
     // PASSWORD MAX IS 255 <------------

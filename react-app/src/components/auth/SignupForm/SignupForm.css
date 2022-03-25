@@ -37,19 +37,6 @@ img {
     
 }
 
-/* .x-img:hover >img>a{
-    background-color: white;
-    opacity: 1.0;
-    color:rgb(194,193,193);
-    height:25px;
-    width:25px;
-    line-height:22px;
-    top:-5px;
-    left:-5px;
-    font-size:25px;
-    transition: 0.3s;
-} */
-
 .header__wrap {
     border-bottom: 1px solid lightgrey;
 }
@@ -128,7 +115,7 @@ img {
 }
 
 .confirm__password__input {
-   border: .5px solid var(--color-default);
+    border: .5px solid var(--color-default);
     width: 375px;
     background: #F5F6F7;
     border-radius: 4px;
@@ -171,5 +158,18 @@ img {
     
 }
 
+.signup__btn:hover {
+    background-color: #669759;
+}
 
+.username__input:focus,
+.email__input:focus,
+.email__input:focus,
+.password__input:focus,
+.confirm__password__input:focus {
+    outline: none;
+    border:1px solid blue;
+    box-shadow: 0 0 5px #719ece;
+    caret-color: blue;
+}
 
