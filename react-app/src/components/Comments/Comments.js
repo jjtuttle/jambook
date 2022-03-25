@@ -48,9 +48,9 @@ const Comments = ({ postId }) => {
                     < li className={'comment'} key={c?.id}>
 
                         <div className="avatar">
-                            <img src={avatar} alt='avatar' style={{ width: '20px' }} />
-                            <span style={{ marginLeft: '10px', marginBottom: '25px', fontSize: 'x-small' }}> {c?.owner}</span>
-                            <span style={{ marginLeft: '150px', fontSize: 'x-small' }}><Timestamp relative date={c?.created_at} /></span>
+                            <img src={avatar} alt='avatar' style={{ marginRight: '530px', width: '20px', height:'20px' }} />
+                            <span style={{ marginLeft: '5px', marginBottom: '25px', fontSize: 'x-small', color: '#777', fontWeight: 'bold' }}> {c?.owner}</span>
+                            <span style={{ marginLeft: '30px', fontSize: 'x-small' }}>Posted: <Timestamp relative date={c?.created_at} /></span>
                         </div>
 
                         <div className="comment-body">

@@ -9,14 +9,16 @@
     
 }
 
-/* .form-container {
-    margin:35px;
+.avatar {
+    height: 50px;
+}
 
-} */
 .avatar > img{
     background-color: #F0F2F5;
     border-radius: 999px;
     opacity: .4;
+    width:20px;
+    height:20px;
 }
 
 .posted-posts {
@@ -91,6 +93,13 @@
     height: 30px;
     flex: 1;
     background-color: #eff2f5;
+}
+
+.post-input:focus {
+    outline: none;
+    border:1px solid blue;
+    box-shadow: 0 0 5px #719ece;
+    caret-color: blue;
 }
 
 .post {
