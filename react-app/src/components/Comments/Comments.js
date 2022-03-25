@@ -35,10 +35,6 @@ const Comments = ({ postId }) => {
     const commentsObj = useSelector(state => state?.comments);
     const comments = Object.values(commentsObj)
 
-    // const postsObj = useSelector(state => state?.posts);
-    // const posts = Object.values(postsObj)
-
-    // console.log("POst ID in Post Comp..........", postId);
 
     return (
         <div className="post-comment-container">
@@ -47,18 +43,27 @@ const Comments = ({ postId }) => {
                 {comments?.filter(c => c?.post_id === postId).map((c) => (
                     < li className={'comment'} key={c?.id}>
 
-                        <div className="avatar">
-                            <img src={avatar} alt='avatar' style={{ marginRight: '530px', width: '20px', height:'20px' }} />
-                            <span style={{ marginLeft: '5px', marginBottom: '25px', fontSize: 'x-small', color: '#777', fontWeight: 'bold' }}> {c?.owner}</span>
-                            <span style={{ marginLeft: '30px', fontSize: 'x-small' }}>Posted: <Timestamp relative date={c?.created_at} /></span>
+                        <div className="comment_top">
+                            <div className="comment__top-img">
+                                <img src={avatar} alt='avatar' />
+                            </div>
                         </div>
+                        <div className="comments__top-info">
+                            <div className="comment__top-user">
+                                <span> {c?.owner}</span>
+                            </div>
+                            <div className="comment__top-time">
+                                <span >Posted: <Timestamp relative date={c?.created_at} /></span>
+                            </div>
+                        </div>
+
 
                         <div className="comment-body">
                             {c?.comment}
                         </div>
 
                         < div className="edit-delete-post-wrapper">
-                            <EditCommentsModal comment={c}/>
+                            <EditCommentsModal comment={c} />
                             <DeleteCommentButton comment={c} />
 
                         </div>

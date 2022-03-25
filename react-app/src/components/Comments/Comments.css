@@ -48,3 +48,40 @@
     background-color: #eff2f5;
     border-radius: 20px;
 }
+
+.comment_top {
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.comment__top-img {
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.comments__top-info {
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.comment__top-user {
+    display: flex;
+    font-size: x-small;
+    font-weight: bold;
+    color: #777;
+}
+
+.comment__top-time {
+    display:flex;
+    font-size: x-small;
+}
+
+.comment__top-img > img{
+    background-color: #b8d5ffc7;
+    border-radius: 999px;
+    opacity: .4;
+    width:20px;
+    height:20px;
+}

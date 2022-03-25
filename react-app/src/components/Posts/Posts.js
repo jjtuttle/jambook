@@ -119,11 +119,20 @@ const PostForm = () => {
 
                             <li className={"posted-posts"} key={post?.id}>
 
-                                <div className="avatar">
-                                    <img src={avatar} alt='avatar' style={{ marginRight: '530px', width: '30px', height: '30px' }} />
-                                    <span style={{ marginLeft: '5px', marginBottom: '25px', fontSize: 'small', fontWeight:'bold', color:'#777'}}>{post?.owner} </span>
-                                    <span style={{ marginLeft: '30px', fontSize: 'x-small' }}>Posted: <Timestamp relative date={post?.created_at} /></span>
+                                <div className="post__top">
+                                    <div className="post__top-img">
+                                        <img src={avatar} alt='avatar'  />
+                                    </div>
                                 </div>
+                                <div className="post__top-info">
+                                    <div className="top__info-user">
+                                        <span >{post?.owner} </span>
+                                    </div>
+                                    <div className="top__info-time">
+                                        <span >Posted: <Timestamp relative date={post?.created_at} /></span>
+                                    </div>
+                                </div>
+
                                 <div className="post-body">
                                     {post?.body}
                                 </div>
