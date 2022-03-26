@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../../store/session';
@@ -18,6 +18,20 @@ const LoginForm = () => {
   const demoUser = { email: 'demo@aa.io', password: 'password' };
 
   const [ showModal, setShowModal ] = useState(false);
+
+
+  useEffect(() => {
+    const errors = [];
+    const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+    if (!email) errors.push('Please provide a valid email');
+    // if (username.length > 40) errors.push('Please provide a shorter username (40 chars or less).');
+    // if (username.length < 4) errors.push('Please provide a longer username (between 4 and 40 chars).')
+    if (emailRegex.exec(email) === null) errors.push('Please provide a valid email.');
+    if (password.length < 8) errors.push('Please provide a password with 8 characters or more.');
+
+
+    setErrors(errors);
+  }, [ email, password ])
 
   const handleDemo = (demo) => {
     const { email, password } = demo;
@@ -46,93 +60,94 @@ const LoginForm = () => {
     return <Redirect to='/' />;
   }
 
+
   return (
     <>
       {/* //! Left side *****************  */}
-      <section className="login_container">
+      <div className="main_container">
+        <div className="outer__container">
 
-        <div className="left_side">
-          <div className="login__logo-container">
+          <div className="inner__left-container col">
+
             <img src={blueLogo} alt="logo" id="login__logo"
               style={{ width: '150px', height: '60px' }}
             />
-          </div>
-          <div className="left__text">
             <p>Connect with musicians and the world around you on Jambook.</p>
           </div>
-        </div>
 
-        {/* //! Right side *************************/}
-        <div className="right_side">
-          <div className="form__container">
-            <form className="login__form" onSubmit={onLogin}>
 
-              {/* //! *********  ERROR HANDLING DIV ******************** */}
-              <div className='display_errors'>
-                {errors.map((error, ind) => (
-                  <ul key={ind}><li>{error}</li></ul>
-                ))}
-              </div>
+          {/* //! Right side *************************/}
+          <div className="inner__right-container col">
+            <div className="form__box">
 
-              <div className='email-input-wrapper'>
-                <input className='email__inputL' 
-                  name='email'
-                  type='email'
-                  placeholder='Email'
-                  value={email}
-                  onChange={updateEmail}
-                />
-              </div>
+              <form onSubmit={onLogin}>
 
-              <div className='password-input-wrapper'>
-                <input className='password__inputL' 
-                  name='password'
-                  type='password'
-                  placeholder='Password'
-                  value={password}
-                  onChange={updatePassword}
-                />
-              </div>
-              
-              <div className="login__btnL">
-                <button className='btn__loginL' x
-                  type='submit'>
-                  Log In
-                </button>
-              </div>
+                {/* //! *********  ERROR HANDLING DIV ******************** */}
+                <div className='display__errorsL'>
+                  {errors.map((error, ind) => (
+                    <ul key={ind}><li>{error}</li></ul>
+                  ))}
+                </div>
 
-              <div className="demouser-btn">
-                <button className='demo__loginL'
-                  onClick={() => handleDemo(demoUser)}>
-                  Demo User Login
-                </button>
-              </div>
+                <div className='email__input-wrapper'>
+                  <input className='email__inputL'
+                    name='email'
+                    type='email'
+                    placeholder='Email'
+                    value={email}
+                    onChange={updateEmail}
+                  />
+                </div>
+
+                <div className='password__input-wrapper'>
+                  <input className='password__inputL'
+                    name='password'
+                    type='password'
+                    placeholder='Password'
+                    value={password}
+                    onChange={updatePassword}
+                  />
+                </div>
+
+                <div className="login__btnL">
+                  <button className='btn__loginL' x
+                    type='submit'>
+                    Log In
+                  </button>
+                </div>
+
+                <div className="demouser-btnL">
+                  <button className='btn__demo__loginL'
+                    onClick={() => handleDemo(demoUser)}>
+                    Demo User Login
+                  </button>
+                </div>
+              </form>
 
               <hr className="login__hr" />
 
               {/***********  TAKE USER TO SIGNUP PAGE  ****************/}
-              <div className="signup-btn-container">
-                {/* <a href="/sign-up" exact={true} className="btn-create-new">
+
+              {/* <a href="/sign-up" exact={true} className="btn-create-new">
                 Create new account
               </a> */}
-                <button className="signup__btnL"
-                  onClick={() => setShowModal(true)}>Create new account</button>
-                {
-                  showModal && (
-                    <Modal onClose={() => setShowModal(false)}>
-                      <SignUpForm setShowModal={setShowModal} />
-                    </Modal>
-                  )
-                }
-
-              </div>
-
+              <button className="signup__btnL"
+                onClick={() => setShowModal(true)}>
+                Create new account
+              </button>
+              {
+                showModal && (
+                  <Modal onClose={() => setShowModal(false)}>
+                    <SignUpForm setShowModal={setShowModal} />
+                  </Modal>
+                )
+              }
               {/* </div> */}
-            </form>
+            </div >
+            <p>Create account for celebrity, brand or business </p>
           </div >
-        </div >
-
-      </section>
+        </div>
+      </div>
       {/* //!  Footer ************************* */}
       <Footer />
     </>

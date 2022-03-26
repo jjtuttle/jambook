@@ -2,31 +2,31 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100px;
+    height: 110px;
     width: 100%;
-    padding: 20px;
+    padding: 5px;
     /* left:10vw; */
-    top: 60vh;
+    top: 90vh;
     background-color: #fff;
-    color:#a6a8aa;
+    color:#737373;
     position: absolute;
     bottom: 0;
  
     /* margin-top: 100px; */
 }
 .hr {
-    display: flex;
-    flex-direction: row; 
+    width:100%
 }
 
 .footer__text {
     display: flex;
     align-items:center;
     flex-direction: row;
-    padding:0;
+    padding:5px;
     width: 100%;
-    word-spacing: 20px;
+    word-spacing: 30px;
     justify-content:space-evenly;
+    font-size: small;
 }
 
 
@@ -37,9 +37,9 @@
     width: 100%;
     justify-content:space-evenly;
     align-items:center;
-    color:#757575;
-    font-size: small;
-    padding: 10px;
+    color:#737373;
+    font-size: x-small;
+    padding: 5px;
 }
 
 .link-github:hover {

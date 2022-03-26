@@ -1,82 +1,119 @@
-/* Whole container ********************************* */
-.display_errors {
+.display__errorsL > ul > li {
     color: red;
+    list-style-type:circle;
+    padding: 1px;
+    margin-left:5px;
+    font-size: 12px;
+} 
+
+.display__errorsL  {
+    margin: 10px;
 }
 
-.login_container {
-    display:flex;
-    flex-direction: row;
-    position: relative;
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
 }
-
-.left_side,
-.right_side {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 50%;
-}
-
 /* Left Side ********************************* */
-.left__text {
+.main_container {
+    height:700px;
     display:flex;
-    position: relative;
-    left:20vw;
-    top: 13vh;
+    justify-content:center;
+    align-items:center;
+    background-color:#f0f2f5;
+}
+
+.outer__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height:500px;
+    width:70%;
+    align-items:center;
+    
+}
+
+.inner__left-container {
+    left:0;
+    width:60%;
+    margin:0px 10px;
+    display:flex;
+    flex-direction: column;
+    flex-grow:1;
+}
+
+.inner__left-container img {
+    width: 250px;
+    margin: 10px;
+}
+
+.inner__left-container p {
     font-size: 24px;
-}
-
-.login__logo-container {
-    display:flex;
-    position: relative;
-    left:20vw;
-    top: 13vh;
-    /* margin-right: 30vw; */
-    width:198px;
-    height:70px;
-}
-
-#login__logo {
-    width:198px;
-    height:70px;
-    margin: -20px;
+    margin:10px;
+    flex:1;
 }
 
 
 /* Right Side ********************************* */
-.login__form {
-    /* display:block; */
+.inner__right-container {
+    width:50%;
     display:flex;
     flex-direction: column;
-    position: relative;
-    justify-content: flex-start;
-    top:18vh;
-    align-items: center;
-
-    height: 456px;
-    width: 396px;
-    /* margin-left:200px; */
-    background-color: #FFF;
-    color: #1c1e21;
-    font-size: 12px;
-    line-height: 16px;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 5px 5px 3px gainsboro;
-    box-sizing: border-box;
-    /* margin: auto 0; */
-    padding: 10px 20px;
-
-
+    align-items:center;
+    flex-grow:1;
 }
 
-.login__hr {
-    width:95%;
-    height: 0.2%;
-    background-color: rgb(194, 193, 193);
-    border: none;
+.form__box {
+    background-color: white;
+    border-radius:8px;
+    padding: 10px;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    width:100%;
+    box-shadow: 0px 0px 10px 5px rgb(194, 194, 194);
 }
 
+.form__box form {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    width: 100%;
+}
 
+.form__box form input {
+    font-size: 20px;
+    padding:10px;
+    margin: 5px 10px;
+    border:none;
+    border: 1px solid rgb(223,223,223);
+    border-radius:5px;
+    flex:1;
+}
+
+.form__box form button {
+    flex:1;
+}
+
+.form__box form input:focus {
+    outline: none;
+    border:1px solid #1877f2;
+    background-color:#f0f2f5;
+}
+
+.form__box hr {
+    width:100%;
+    margin:10px 10px;
+    border: 1px solid rgb(253,253,253);
+}
+
+.inner__right-container p {
+    color:black;
+    margin:10px;
+}
+
+/* *************************** INPUTS ALL BELOW ******* */
 .email__inputL:focus,
 .password__inputL:focus {
     outline: none;
@@ -84,6 +121,23 @@
     box-shadow: 0 0 5px #719ece;
     caret-color: blue;
 }
+
+.email__input-wrapper {
+    display:flex;
+}
+
+.password__input-wrapper{
+    display:flex;
+}
+
+.login__btnL {
+    display:flex;
+}
+
+.demouser-btnL {
+    display:flex;
+}
+
 
 .email__inputL {
     font-size: 17px;
@@ -129,7 +183,7 @@
     cursor: pointer;
 }
 
-.demo__loginL {
+.btn__demo__loginL {
     background-color: transparent;
     border: 1px solid #1877f2;
     color: #013375;
@@ -142,16 +196,11 @@
     color: #8A8D91;
 }
 
-.demo__loginL:hover {
+.btn__demo__loginL:hover {
     border: 1px solid #085dcd;
     color: #085dcd;
     background-color: #fff;
     cursor: pointer;
-    /* border: none; */
-}
-
-.signup-btn-container {
-    margin-top: 60px;
 }
 
 .signup__btnL{
@@ -172,4 +221,28 @@
 .signup__btnL:hover {
     background-color: #36a420;
     cursor: pointer;
+}
+
+/* if screen size goes below 900px stack as column 
+    instead of a row (default) */
+
+@media screen and (max-width:1114px) {
+    .left_side{
+        left:30px;
+        margin-right:22vw;
+    }
+
+    .right_side {
+        right: 70px;
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+
+    .outer__container {
+        flex-direction: column;
+    }
+
+
 }

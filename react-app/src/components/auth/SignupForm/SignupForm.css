@@ -1,5 +1,4 @@
- .display__errors > ul > li {
- 
+.display__errors > ul > li {
     color: red;
     list-style-type:circle;
 } 
