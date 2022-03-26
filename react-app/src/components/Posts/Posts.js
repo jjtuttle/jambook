@@ -36,7 +36,7 @@ const PostForm = () => {
 
     const matchUserToOwner = match(sessionUser, postId);
 
-    
+
     useEffect(() => {
         dispatch(getPosts(postId))
     }, [ dispatch, postId ]);
@@ -140,6 +140,7 @@ const PostForm = () => {
                                 </div>
                             </li>
                         ))}
+                        
 
                     </ul>
                 </div>
