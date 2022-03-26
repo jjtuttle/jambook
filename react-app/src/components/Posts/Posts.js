@@ -131,7 +131,7 @@ const PostForm = () => {
                                         <span >{post?.owner} </span>
                                     </div>
                                     <div className="top__info-time">
-                                        <span >Posted: <Timestamp relative date={post?.created_at} /></span>
+                                        <span style={{marginLeft:'5px'}}>Posted: <Timestamp relative date={post?.created_at} /></span>
                                     </div>
                                 </div>
 
