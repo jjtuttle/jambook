@@ -6,20 +6,18 @@ import { createComment, getComment, deleteComment, getAllComments } from '../../
 import { getPosts } from '../../store/posts';
 import match from '../../utils/match';
 import './Comments.css';
-// import { CommentOutlined } from '@material-ui/icons';
 import avatar from '../../images/profile-icon.png';
 import EditCommentsModal from '../EditComments/EditCommentsModal';
 import DeleteCommentButton from './DeleteCommentButton';
 import Timestamp from 'react-timestamp';
-import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
-import AddIcon from "@material-ui/icons/Add";
-
+// import avatarColorPicker from '../../utils/avatarColorPicker';
+import Avatar from '@mui/material/Avatar';
 
 
 // todo ————————————————————————————————————————————————————————————————————————
 const Comments = ({ postId }) => {
 
-    
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -39,6 +37,39 @@ const Comments = ({ postId }) => {
     const comments = Object.values(commentsObj)
 
 
+    // Avatar color ---------------------------
+    function stringToColor(string) {
+        let hash = 0;
+        let i;
+
+        /* eslint-disable no-bitwise */
+        for (i = 0; i < string.length; i += 1) {
+            hash = string.charCodeAt(i) + ((hash << 5) - hash);
+        }
+
+        let color = '#';
+
+        for (i = 0; i < 3; i += 1) {
+            const value = (hash >> (i * 8)) & 0xff;
+            color += `00${value.toString(16)}`.slice(-2);
+        }
+        /* eslint-enable no-bitwise */
+
+        return color;
+    }
+
+    function stringAvatar(name) {
+        return {
+            sx: {
+                bgcolor: stringToColor(name),
+            },
+            children: `${name.split(' ')[ 0 ][ 0 ]}${name.split(' ')[ 1 ][ 0 ]}`,
+        };
+    }
+
+    // -------
+
+
     return (
         <div className="post-comment-container">
             <ul className="ul_comment">
@@ -49,7 +80,8 @@ const Comments = ({ postId }) => {
 
                         <div className="comment_top">
                             <div className="comment__top-img">
-                                <img src={avatar} alt='avatar' />
+                                <Avatar className="comment__avatar" {...stringAvatar(c?.owner)} />
+                                {/* <img src={avatar} alt='avatar' /> */}
                             </div>
                         </div>
 
