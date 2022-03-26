@@ -1,7 +1,8 @@
 .nav-container {
-    width:50%;
-    max-width:600px;
-    min-width: 300px;
+    width:100%;
+    
+    /* max-width:600px;
+    min-width: 300px; */
     background-color: #FFF;
     z-index: 100;
     top: 0;
@@ -14,22 +15,24 @@
     justify-content: space-evenly;
     align-items: center;
     height: 60px;
- 
+    margin-bottom: 100px;
 }
 
 .nav__left {
     display: flex;
     justify-content: space-evenly;
+    flex:.5;
 }
 
 .nav__center {
     display: flex;
     flex: 1;
-    justify-content: center
+    justify-content:space-evenly;
 }
 
 .nav__right {
     display: flex;
+    flex:1;
 }
 
 
@@ -64,7 +67,7 @@
     color:#808080;
     border:1px solid #808080;
     font-weight: 600;
-    margin: 60px;
+    /* margin: 60px; */
     cursor: pointer;
 }
 

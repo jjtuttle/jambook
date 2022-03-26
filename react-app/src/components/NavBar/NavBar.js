@@ -56,19 +56,19 @@ const NavBar = () => {
   return (
     // className="nav-container"
     <nav >
-      <ul className="nav navbar">
+      {/* <ul className="nav navbar"> */}
         {/* <li className="home">
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
         </li> */}
 
-        <li className="session-links">
+        {/* <li className="session-links"> */}
           {sessionLinks}
           {/* <NavLink to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink> */}
-        </li>
+        {/* </li> */}
 
         {/* <li>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
@@ -83,7 +83,7 @@ const NavBar = () => {
         {/* <li>
           <LogoutButton />
         </li> */}
-      </ul>
+      {/* </ul> */}
     </nav>
   );
 }

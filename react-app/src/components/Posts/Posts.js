@@ -80,7 +80,7 @@ const PostForm = () => {
 
     return (
         <>
-            <div className="post-div-container">
+            <div className="post_container-fluid">
                 {/* //! *************** Display Errors *****************/}
                 < div className="errors" style={{ color: 'red' }}>
                     {errors?.length > 0 && errors?.map((error, id) => (

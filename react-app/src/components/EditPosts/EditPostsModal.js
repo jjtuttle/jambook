@@ -23,7 +23,7 @@ function EditPosts({ post }) {
             <div className="edit-posts-modal-btn-wrapper">
                 <button className="btn btn-edit-post" onClick={(e) => setShowModel(true)}>Edit</button>
                 {showModal && (
-                    <Modal onClose={() => setShowModel(false)}>
+                    <Modal onClose={() => setShowModel(false)} >
                         <EditPostsForm closeModal={() => setShowModel(false)} posts={post} />
                     </Modal>
                 )}
