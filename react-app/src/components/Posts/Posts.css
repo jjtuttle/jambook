@@ -13,10 +13,10 @@
 }
 
 .message_sender > img {
-    background-color: #F0F2F5;
-    border-radius: 999px;
+    /* background-color: #F0F2F5; */
+    /* border-radius: 999px; */
     opacity: .4;
-    width:35px;
+    width:49px;
     height:35px;
     padding-left:15px;
 }
@@ -129,8 +129,9 @@
 .post_body {
     padding:10px;
     border-radius: 8px;
-    border-bottom: .5px solid grey;
-    box-shadow: .5px 0px .5px .5px #719ece80;
+    border-bottom: .5px solid #719eced7;
+    border-left: .5px solid #719eced7;
+    /* box-shadow: .5px 0px .5px .5px #719ece80; */
     word-wrap: break-word;
 }
 

@@ -9,7 +9,9 @@
 .comment-body {
     padding: 8px;
     word-wrap: break-word;
-}
+     /* border-bottom: .5px solid grey;
+    border-left: .5px solid grey; */
+} 
 
 .ul_comment {
     padding-left:15%;
@@ -24,7 +26,7 @@
     margin-top: 10px;
     height: auto;
     width: auto;
-    
+
 }
 
 /* .add-comment-btn-modal {
