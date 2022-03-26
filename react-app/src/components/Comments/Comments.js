@@ -53,7 +53,7 @@ const Comments = ({ postId }) => {
                                 <span> {c?.owner}</span>
                             </div>
                             <div className="comment__top-time">
-                                <span >Posted: <Timestamp relative date={c?.created_at} /></span>
+                                <span style={{marginLeft:'5px'}}>Posted: <Timestamp relative date={c?.created_at} /></span>
                             </div>
                         </div>
 
