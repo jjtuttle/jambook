@@ -17,3 +17,21 @@ And other users can reply right inside your post. You can even comment on other 
 
 <img width="411" alt="Screen Shot 2022-03-25 at 3 20 13 PM" src="https://user-images.githubusercontent.com/2349101/160209655-8dd5a763-53b3-46fa-a930-e7f4766ae926.png">
 <br />
+
+
+## Application Architecture
+Jambook is a fullstack site built with:
+* React and Redux for frontend 
+* Flask Server & Python for the backend 
+* PostgreSQL as the database
+* Node.js
+* AlchemySQL as the ORM that works well with Python on the backend.
+
+
+
+## Next Steps and Future Features
+This is a basic and clean UI experience for getting authenticated, signing up as a user and start posting and others can log in and reply to a post in a comment. It is all logged and disaplyed by which user and how many days since the post/comment.
+
+In the next sprint:
+* Adding a seacrh feature so as a user one can easily at the top of the page type any word/phrase in and have the results displayed and the ability to click it to be taken to that post.
+* Adding a "like" feature so as a user one could like a post or a comment that they chose or unlike it.
