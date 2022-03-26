@@ -38,7 +38,7 @@ const Comments = ({ postId }) => {
 
     return (
         <div className="post-comment-container">
-            <ul className="post-comment">
+            <ul className="ul_comment">
 
                 {comments?.filter(c => c?.post_id === postId).map((c) => (
                     < li className={'comment'} key={c?.id}>

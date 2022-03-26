@@ -89,32 +89,34 @@ const PostForm = () => {
                     }
                 </div>
 
-                <div className="message-sender-container">
-                    <div className="form-container">
+                <div className="message_sender">
+                    <img src={avatar} alt='avatar' />
+                    {/* {state.session?.user} */}
+                    {/* <div className="form__container"> */}
                         {/* //! *************** From Starts *****************/}
                         <form onSubmit={handleSubmit}>
-                            <div className="form--top">
+                            {/* <div className="form--top"> */}
                                 <input className="post-input"
                                     placeholder="What's on your mind?"
                                     value={body}
                                     onChange={(e) => setBody(e.target.value)}
                                     autoFocus
-                                    style={{ cursor: 'pointer' }}
+                                    // style={{ cursor: 'pointer' }}
                                 />
-                            </div>
+                            {/* </div> */}
 
                             {/* <button className="btn-post" type="submit">
                                 Hidden Post
                             </button> */}
 
                         </form>
-                    </div>
+                    {/* </div> */}
                     {/* //! *************** From Ends & Start Post Displays  *****************/}
                 </div>
 
                 <div className="posts-container">
 
-                    <ul>
+                    <ul className="ul_posts">
                         {posts?.map((post) => (
 
                             <li className={"posted-posts"} key={post?.id}>
