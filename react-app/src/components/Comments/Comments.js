@@ -18,8 +18,9 @@ import AddIcon from "@material-ui/icons/Add";
 
 // todo ————————————————————————————————————————————————————————————————————————
 const Comments = ({ postId }) => {
-    const dispatch = useDispatch();
 
+    
+    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getPosts())
@@ -28,6 +29,8 @@ const Comments = ({ postId }) => {
     useEffect(() => {
         dispatch(getAllComments())
     }, [ dispatch ])
+
+
 
     const sessionUser = useSelector(state => state?.session?.user);
     const matchUserToOwner = match(sessionUser, postId);
@@ -41,6 +44,7 @@ const Comments = ({ postId }) => {
             <ul className="ul_comment">
 
                 {comments?.filter(c => c?.post_id === postId).map((c) => (
+
                     < li className={'comment'} key={c?.id}>
 
                         <div className="comment_top">
@@ -48,15 +52,16 @@ const Comments = ({ postId }) => {
                                 <img src={avatar} alt='avatar' />
                             </div>
                         </div>
+
                         <div className="comments__top-info">
                             <div className="comment__top-user">
                                 <span> {c?.owner}</span>
                             </div>
+
                             <div className="comment__top-time">
-                                <span style={{marginLeft:'5px'}}>Posted: <Timestamp relative date={c?.created_at} /></span>
+                                <span style={{ marginLeft: '5px' }}>Posted: <Timestamp relative date={c?.created_at} /></span>
                             </div>
                         </div>
-
 
                         <div className="comment-body">
                             {c?.comment}

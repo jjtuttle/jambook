@@ -36,19 +36,7 @@ const PostForm = () => {
 
     const matchUserToOwner = match(sessionUser, postId);
 
-    // todo ————————————————————————————————————————————————————————————————————————
-    //! NEED TO GAVE ERROR HANDLING FOR SUBMIT POST **
-    // console.log('TEST BODY in post', body);
-
-    // useEffect(() => {
-    //     const errors = [];
-    //     if (body === null) errors.push("Cannot submit an empty post.");
-    //     // more error handling for Post Component
-
-    //     setErrors(errors);
-    // }, [ body ])
-    // todo ————————————————————————————————————————————————————————————————————————
-
+    
     useEffect(() => {
         dispatch(getPosts(postId))
     }, [ dispatch, postId ]);
@@ -80,7 +68,7 @@ const PostForm = () => {
 
     return (
         <>
-            <div className="post_container-fluid">
+            <div className="post_container">
                 {/* //! *************** Display Errors *****************/}
                 < div className="errors" style={{ color: 'red' }}>
                     {errors?.length > 0 && errors?.map((error, id) => (
@@ -135,7 +123,7 @@ const PostForm = () => {
                                     </div>
                                 </div>
 
-                                <div className="post-body">
+                                <div className="post_body">
                                     {post?.body}
                                 </div>
 
