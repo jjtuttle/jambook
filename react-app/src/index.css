@@ -1,12 +1,13 @@
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  position: relative;
-
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    background-color: #f1f2f5;
+    overflow-x:hidden;
 }
 
 .btn {
@@ -35,17 +36,8 @@ li {
     list-style-type: none;
 }
 
-body {
-    background-color: #f1f2f5;
-    /* background-color: #23292F;
-    color: #F0F2F5; */
-}
 
-h1 {
-    color:#666;
-}
-
-@media screen and (max-width:1114px) {
+/* @media screen and (max-width:1114px) {
     .left_side{
         left:30px;
         margin-right:22vw;
@@ -56,15 +48,12 @@ h1 {
     }
 }
 
-/* @media screen and (max-width:900px) {
 
-    body{
-        height:150vh;
-    }
+@media screen and (max-width: 900px) {
 
-    .root {
+    .main_container {
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
     }
+
+
 } */

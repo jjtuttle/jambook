@@ -1,10 +1,10 @@
 
 
 /* Control the whole wall through the 'root' id */
-#root {
+/* #root {
     padding-left:25%;
     padding-right:25%;
-}
+} */
 
 .post_container {
     padding:5px;

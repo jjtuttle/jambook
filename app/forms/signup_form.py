@@ -25,8 +25,14 @@ def username_exists(form, field):
 
 def username_length_check(form, field):
     username = field.data
-    if len(username) > 40 or len(username) < 3:
+    if len(username) > 40 or len(username) < 4:
         raise ValidationError('Username must be between 4 to 40 characters')
+
+
+def password_char_error(form, field):
+    password = field.data
+    if len(password) < 8 or len(password) > 255:
+        raise ValidationError('Password must be between 8 and 255 characters')
 
 
 class SignUpForm(FlaskForm):
@@ -34,4 +40,5 @@ class SignUpForm(FlaskForm):
                                                    username_exists,
                                                    username_length_check])
     email = StringField('email', validators=[DataRequired(), user_exists])
-    password = StringField('password', validators=[DataRequired()])
+    password = StringField('password', validators=[
+                           DataRequired(), password_char_error])
