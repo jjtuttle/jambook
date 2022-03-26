@@ -10,7 +10,8 @@ import AddCommentsModal from '../AddComments/AddCommentsModal';
 import DeletePostButton from './DeletePostButton';
 import Comments from '../Comments/Comments'
 import avatar from '../../images/profile-icon.png';
-import EditCommentsModal from '../EditComments/EditCommentsModal';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import Avatar from '@mui/material/Avatar';
 
 import AddComment from '../AddComments/AddComment';
 import Timestamp from 'react-timestamp';
@@ -27,7 +28,7 @@ const PostForm = () => {
     posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
     const comment = useSelector((state) => state?.commentReducer);
-    // console.log("Post Comp for commentID................", comment);
+    
 
     const { postId } = useParams();
 
@@ -38,6 +39,7 @@ const PostForm = () => {
 
     const matchUserToOwner = match(sessionUser, postId);
 
+    // console.log("SESSION USER Comp for POSTS................", sessionUser.username);
 
     useEffect(() => {
         dispatch(getPosts(postId))
@@ -64,9 +66,37 @@ const PostForm = () => {
     const handleDelete = async (postId) => {
         await dispatch(deletePost(postId));
     }
+    // Avatar color ---------------------------
+    function stringToColor(string) {
+        let hash = 0;
+        let i;
 
+        /* eslint-disable no-bitwise */
+        for (i = 0; i < string.length; i += 1) {
+            hash = string.charCodeAt(i) + ((hash << 5) - hash);
+        }
 
+        let color = '#';
 
+        for (i = 0; i < 3; i += 1) {
+            const value = (hash >> (i * 8)) & 0xff;
+            color += `00${value.toString(16)}`.slice(-2);
+        }
+        /* eslint-enable no-bitwise */
+
+        return color;
+    }
+
+    function stringAvatar(name) {
+        return {
+            sx: {
+                bgcolor: stringToColor(name),
+            },
+            children: `${name.split(' ')[ 0 ][ 0 ]}${name.split(' ')[ 1 ][ 0 ]}`,
+        };
+    }
+
+    // -------
 
     return (
         <>
@@ -80,26 +110,27 @@ const PostForm = () => {
                 </div>
 
                 <div className="message_sender">
-                    <img src={avatar} alt='avatar' />
+                    <Avatar className="message__avatar" {...stringAvatar(sessionUser.username)} />
+                    {/* <img className="messenger__avatar" src={avatar} alt='avatar' /> */}
                     {/* {state.session?.user} */}
                     {/* <div className="form__container"> */}
-                        {/* //! *************** From Starts *****************/}
-                        <form onSubmit={handleSubmit}>
-                            {/* <div className="form--top"> */}
-                                <input className="post-input"
-                                    placeholder="What's on your mind?"
-                                    value={body}
-                                    onChange={(e) => setBody(e.target.value)}
-                                    autoFocus
-                                    // style={{ cursor: 'pointer' }}
-                                />
-                            {/* </div> */}
+                    {/* //! *************** From Starts *****************/}
+                    <form onSubmit={handleSubmit}>
+                        {/* <div className="form--top"> */}
+                        <input className="post-input"
+                            placeholder="What's on your mind?"
+                            value={body}
+                            onChange={(e) => setBody(e.target.value)}
+                            autoFocus
+                        // style={{ cursor: 'pointer' }}
+                        />
+                        {/* </div> */}
 
-                            {/* <button className="btn-post" type="submit">
+                        {/* <button className="btn-post" type="submit">
                                 Hidden Post
                             </button> */}
 
-                        </form>
+                    </form>
                     {/* </div> */}
                     {/* //! *************** From Ends & Start Post Displays  *****************/}
                 </div>
@@ -112,16 +143,18 @@ const PostForm = () => {
                             <li className={"posted-posts"} key={post?.id}>
 
                                 <div className="post__top">
-                                    <div className="post__top-img">
-                                        <img src={avatar} alt='avatar'  />
+                                    <div className="post__top-avatar">
+                                        {/* <img src={avatar} alt='avatar' /> */}
+                                        <Avatar className="post__avatar" {...stringAvatar(post?.owner)} />
                                     </div>
                                 </div>
+
                                 <div className="post__top-info">
                                     <div className="top__info-user">
                                         <span >{post?.owner} </span>
                                     </div>
                                     <div className="top__info-time">
-                                        <span style={{marginLeft:'5px'}}>Posted: <Timestamp relative date={post?.created_at} /></span>
+                                        <span style={{ marginLeft: '5px' }}>Posted: <Timestamp relative date={post?.created_at} /></span>
                                     </div>
                                 </div>
 
@@ -142,7 +175,7 @@ const PostForm = () => {
                                 </div>
                             </li>
                         ))}
-                        
+
 
                     </ul>
                 </div>
