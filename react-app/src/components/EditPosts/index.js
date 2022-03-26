@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { updatePost, getPosts } from '../../store/posts';
+import './EditPostModal.css';
 
 const EditPostsForm = ({ closeModal, posts }) => {
 
@@ -37,25 +38,25 @@ const EditPostsForm = ({ closeModal, posts }) => {
 
 
     return (
-        <div>
-            <h1>Edit Posts</h1>
+        <div className="edit_postM">
+            <h1 className="h1_edit_post">Edit Post</h1>
             <form className="edit-posts-form" onSubmit={handleSubmit}>
-                <input name="post"
+                <input className="post__inputM"
                     autoFocus
-                    // id="" cols="30" rows="2"
-                    placeholder="Start a session..."
+                    // placeholder="Start a session..."
                     value={body}
                     onChange={(e) => setBody(e.target.value)}
-                    style={{ borderRadius: '5px' }}
+                // style={{ borderRadius: '5px' }}
                 />
-                <div>
-                    <button type='submit' className='btn edit-post-submit'
-                        // disabled={!body}
-                    >
-                        Update Post
-                    </button>
-                </div>
             </form>
+            <div className="edit_btn_postM">
+                <button type='submit' className='edit_post_submitM'
+                // disabled={!body}
+                >
+                    Update Post
+                </button>
+            </div>
+
         </div>
     )
 

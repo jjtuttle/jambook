@@ -55,3 +55,16 @@ h1 {
         right: 70px;
     }
 }
+
+/* @media screen and (max-width:900px) {
+
+    body{
+        height:150vh;
+    }
+
+    .root {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+} */
