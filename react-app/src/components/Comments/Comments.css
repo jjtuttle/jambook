@@ -4,6 +4,10 @@
     padding-right:25%;
 } */
 
+.comment__avatar {
+    opacity: .5;
+   
+}
 
 
 .comment-body {

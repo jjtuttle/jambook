@@ -80,7 +80,9 @@ const Comments = ({ postId }) => {
 
                         <div className="comment_top">
                             <div className="comment__top-img">
-                                <Avatar className="comment__avatar" {...stringAvatar(c?.owner)} />
+                                <Avatar className="comment__avatar" {...stringAvatar(c?.owner)}
+                                    style={{height:'25px', width:'25px', fontSize:'13px'}}
+                                />
                                 {/* <img src={avatar} alt='avatar' /> */}
                             </div>
                         </div>
