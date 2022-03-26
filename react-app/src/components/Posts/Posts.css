@@ -129,8 +129,9 @@
 .post_body {
     padding:10px;
     border-radius: 8px;
-    border-bottom: .5px solid grey;
-    box-shadow: .5px 0px .5px .5px #719ece80;
+    border-bottom: .5px solid #719eced7;
+    border-left: .5px solid #719eced7;
+    /* box-shadow: .5px 0px .5px .5px #719ece80; */
     word-wrap: break-word;
 }
 

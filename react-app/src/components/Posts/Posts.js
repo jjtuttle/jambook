@@ -24,6 +24,8 @@ const PostForm = () => {
     const postsObj = useSelector(state => state?.posts);
     const posts = Object.values(postsObj);
 
+    posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
     const comment = useSelector((state) => state?.commentReducer);
     // console.log("Post Comp for commentID................", comment);
 
