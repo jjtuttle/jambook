@@ -5,18 +5,21 @@ Here you can simply login or signup, takes less than a minute and you are postin
 * *If you do not want to signup but still look around inside click the **Demo User Login** button and you are in.*
 <br />
 
-<img width="600" alt="Screen Shot 2022-03-25 at 2 50 56 PM" src="https://user-images.githubusercontent.com/2349101/160207191-2be61c13-c68c-4d8f-9170-a121f0e4ae4d.png">
-<br />
+
+<img width="600" alt="Screen Shot 2022-03-26 at 6 04 45 PM" src="https://user-images.githubusercontent.com/2349101/160262271-e6769095-4eb5-4820-b2b4-709c34659044.png">
 
 Once signed in ou can simply type you message/question in the message box up top.<br />
 
-<img width="471" alt="Screen Shot 2022-03-25 at 2 50 31 PM" src="https://user-images.githubusercontent.com/2349101/160207162-4a8e167d-5e65-403c-a54b-d375bec069ec.png">
-<br />
+<img width="471" alt="Screen Shot 2022-03-26 at 6 00 36 PM" src="https://user-images.githubusercontent.com/2349101/160262172-4194235a-21ed-4f4c-9acc-bb6f04509f9d.png">
+
+
+
+
 
 And other users can reply right inside your post. You can even comment on other users' posts since you have to be logged in to do any posting or commenting.<br />
 
-<img width="411" alt="Screen Shot 2022-03-25 at 3 20 13 PM" src="https://user-images.githubusercontent.com/2349101/160209655-8dd5a763-53b3-46fa-a930-e7f4766ae926.png">
-<br />
+
+<img width="411" alt="Screen Shot 2022-03-26 at 6 02 49 PM" src="https://user-images.githubusercontent.com/2349101/160262227-eff56234-18a1-4267-ab16-841e8b937e0f.png">
 
 
 ## Application Architecture
