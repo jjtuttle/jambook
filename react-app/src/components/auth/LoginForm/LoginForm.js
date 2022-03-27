@@ -84,9 +84,9 @@ const LoginForm = () => {
 
                 {/* //! *********  ERROR HANDLING DIV ******************** */}
                 <div className='display__errorsL'>
-                  {errors.map((error, ind) => (
+                  {/* {errors.map((error, ind) => (
                     <ul key={ind}><li>{error}</li></ul>
-                  ))}
+                  ))} */}
                 </div>
 
                 <div className='email__input-wrapper'>

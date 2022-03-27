@@ -9,11 +9,7 @@ import EditPostsModal from '../EditPosts/EditPostsModal';
 import AddCommentsModal from '../AddComments/AddCommentsModal';
 import DeletePostButton from './DeletePostButton';
 import Comments from '../Comments/Comments'
-import avatar from '../../images/profile-icon.png';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import Avatar from '@mui/material/Avatar';
-
-import AddComment from '../AddComments/AddComment';
 import Timestamp from 'react-timestamp';
 
 
@@ -118,7 +114,7 @@ const PostForm = () => {
                     <form onSubmit={handleSubmit}>
                         {/* <div className="form--top"> */}
                         <input className="post-input"
-                            placeholder="What's on your mind?"
+                            placeholder="What's on your mind - press Enter to submit"
                             value={body}
                             onChange={(e) => setBody(e.target.value)}
                             autoFocus
