@@ -1,16 +1,13 @@
 import React from 'react';
-import { useHistory, useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createComment, getComment, deleteComment, getAllComments } from '../../store/comments';
+import { getAllComments } from '../../store/comments';
 import { getPosts } from '../../store/posts';
 import match from '../../utils/match';
 import './Comments.css';
-import avatar from '../../images/profile-icon.png';
 import EditCommentsModal from '../EditComments/EditCommentsModal';
 import DeleteCommentButton from './DeleteCommentButton';
 import Timestamp from 'react-timestamp';
-// import avatarColorPicker from '../../utils/avatarColorPicker';
 import Avatar from '@mui/material/Avatar';
 
 
@@ -82,7 +79,7 @@ const Comments = ({ postId }) => {
                         <div className="comment_top">
                             <div className="comment__top-img">
                                 <Avatar className="comment__avatar" {...stringAvatar(c?.owner)}
-                                    style={{height:'25px', width:'25px', fontSize:'13px'}}
+                                    style={{ height: '25px', width: '25px', fontSize: '13px' }}
                                 />
                                 {/* <img src={avatar} alt='avatar' /> */}
                             </div>

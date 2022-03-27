@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
-import { updateComment, getAllComments, createComment } from '../../store/comments';
+import {  useHistory } from 'react-router-dom';
+import {  getAllComments, createComment } from '../../store/comments';
 
 const AddCommentsForm = ({ closeModal, post_id }) => {
     const [ errors, setErrors ] = useState([]);
