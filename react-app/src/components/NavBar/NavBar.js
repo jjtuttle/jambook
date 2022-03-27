@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css';
 import ProfileButton from './ProfileButton';
@@ -14,7 +14,7 @@ const NavBar = () => {
 
   // Sticky navbar ----
   const [ scrolled, setScrolled ] = React.useState(false);
-  
+
   const handleScroll = () => {
     const offset = window.scrollY;
     if (offset > 200) {
@@ -32,7 +32,7 @@ const NavBar = () => {
   if (scrolled) {
     navbarClasses.push('scrolled');
   }
-// ----- 
+  // ----- 
 
 
 
@@ -43,7 +43,7 @@ const NavBar = () => {
       <div className="nav-container">
 
         <div className="nav__left">
-          <NavLink to="/"><img className="nav-circle-logo" src={circleLogoLightM} alt="circle logo" /></NavLink>
+          <img className="nav-circle-logo" src={circleLogoLightM} alt="circle logo" />
         </div>
 
         <div className="nav__center">
