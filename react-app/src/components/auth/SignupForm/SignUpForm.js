@@ -54,11 +54,11 @@ const SignUpForm = () => {
   };
 
   const updateFirstName = (e) => {
-    setUsername(e.target.value);
+    setFirstName(e.target.value);
   };
 
   const updateLastName = (e) => {
-    setUsername(e.target.value);
+    setLastName(e.target.value);
   };
 
   const updateEmail = (e) => {

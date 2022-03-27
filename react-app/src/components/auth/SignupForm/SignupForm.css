@@ -64,34 +64,17 @@ img {
     padding: 10px 16px;
 }
 
-
-.username__input {
-    border: .5px solid var(--color-default);
-    width: 375px;
-    background: #F5F6F7;
-    border-radius: 4px;
-    height:20px;
-    border: .5px solid rgb(164, 164, 164);
-    display: inline-block;
-    position: relative;
-    text-align: left;
-    font-size: 12px;
-    outline: none;
-    padding: 3px;
-    margin:5px;
-}
-
 .fName__input {
     border: .5px solid var(--color-default);
-    width: 150px;
+    width: 180px;
     background: #F5F6F7; 
     border-radius: 4px;
-    height:20px;
+    height:35%;
     border: .5px solid rgb(164, 164, 164);
     display: inline-block;
     position: relative;
     text-align: left;
-    font-size: 12px;
+    font-size: 15px;
     outline: none;
     padding: 3px;
     margin:5px;
@@ -99,15 +82,31 @@ img {
 
 .lName__input {
     border: .5px solid var(--color-default);
-    width: 150px;
+    width: 180px;
     background: #F5F6F7;
     border-radius: 4px;
-    height:20px;
+    height:35%;
     border: .5px solid rgb(164, 164, 164);
     display: inline-block;
     position: relative;
     text-align: left;
-    font-size: 12px;
+    font-size: 15px;
+    outline: none;
+    padding: 3px;
+    margin:5px;
+}
+
+.username__input {
+    border: .5px solid var(--color-default);
+    width: 375px;
+    background: #F5F6F7;
+    border-radius: 4px;
+    height:35%;
+    border: .5px solid rgb(164, 164, 164);
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    font-size: 15px;
     outline: none;
     padding: 3px;
     margin:5px;
@@ -119,11 +118,11 @@ img {
     background: #F5F6F7;
     border-radius: 4px;
     border: .5px solid rgb(164, 164, 164);
-    height:20px;
+    height:35%;
     display: inline-block;
     position: relative;
     text-align: left;
-    font-size: 12px;
+    font-size: 15px;
     outline: none;
     padding: 3px;
     margin:5px;
@@ -135,11 +134,11 @@ img {
     background: #F5F6F7;
     border-radius: 4px;
     border: .5px solid rgb(164, 164, 164);
-    height:20px;
+    height:35%;
     display: inline-block;
     position: relative;
     text-align: left;
-    font-size: 12px;
+    font-size: 15px;
     outline: none;
     padding: 3px;
     margin:5px;
@@ -151,11 +150,11 @@ img {
     background: #F5F6F7;
     border-radius: 4px;
     border: .5px solid rgb(164, 164, 164);
-    height:20px;
+    height:35%;
     display: inline-block;
     position: relative;
     text-align: left;
-    font-size: 12px;
+    font-size: 17px;
     outline: none;
     padding: 3px;
     margin:5px;

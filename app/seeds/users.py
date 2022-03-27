@@ -4,17 +4,17 @@ from app.models import db, User
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', f_name='Demo', l_name='User', email='demo@aa.io', password='password')  # Owner_id 1
+        username='Demo', first='Demo', last='User', email='demo@aa.io', password='password')  # Owner_id 1
     rock = User(
-        username='Rock', f_name='Rock', l_name='Roll', email='rock@aa.io', password='password')   # Owner_id 2
+        username='Rock', first='Rock', last='Roll', email='rock@aa.io', password='password')   # Owner_id 2
     r_b = User(
-        username='R_B', f_name='Rhythm', l_name='Blues', email='r_b@aa.io', password='password')  # Owner_id 3
+        username='R_B', first='Rhythm', last='Blues', email='r_b@aa.io', password='password')  # Owner_id 3
     troll = User(
-        username='Metal Head', f_name='Metal', l_name='Head', email='troll@aa.io', password='password')   # Owner_id 4
+        username='Metal Head', first='Metal', last='Head', email='troll@aa.io', password='password')   # Owner_id 4
     metal = User(
-        username='Troller', f_name='The', l_name='Troller', email='metal@aa.io', password='password')  # Owner_id 5
+        username='Troller', first='The', last='Troller', email='metal@aa.io', password='password')  # Owner_id 5
     top = User(
-        username='Top 40', f_name='Top', l_name='40', email='top40@aa.io', password='password')   # Owner_id 6
+        username='Top 40', first='Top', last='40', email='top40@aa.io', password='password')   # Owner_id 6
 
     db.session.add(demo)
     
