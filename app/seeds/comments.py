@@ -13,6 +13,11 @@ def seed_comments():
         post_id=1,
         comment="I would just git one off craigslist, just make sure to fully play on it through an amp to make sure there are no hidden issues."
     )
+    second_guitar_comment_3 = Comment(
+        writer_id=5,
+        post_id=1,
+        comment="Nam quis nulla. Integer malesuada. In in enim a arcu imperdiet malesuada. Sed vel lectus. Donec odio urna, tempus molestie, porttitor ut, iaculis quis, sem. Phasellus rhoncus. Aenean id metus id velit ullamcorper pulvinar. Vestibulum fermentum tortor"
+    )
     bass_player_comment_1 = Comment(
         writer_id=1,
         post_id=2,
@@ -21,6 +26,7 @@ def seed_comments():
 
     db.session.add(second_guitar_comment_1)
     db.session.add(second_guitar_comment_2)
+    db.session.add(second_guitar_comment_3)
     db.session.add(bass_player_comment_1)
 
     db.session.commit()

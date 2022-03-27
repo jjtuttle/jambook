@@ -21,6 +21,7 @@ const PostForm = () => {
     const postsObj = useSelector(state => state?.posts);
     const posts = Object.values(postsObj);
 
+    // Sort Posts ASC by date
     posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
     const comment = useSelector((state) => state?.commentReducer);
@@ -62,37 +63,41 @@ const PostForm = () => {
     const handleDelete = async (postId) => {
         await dispatch(deletePost(postId));
     }
-    // Avatar color ---------------------------
-    function stringToColor(string) {
-        let hash = 0;
-        let i;
 
-        /* eslint-disable no-bitwise */
-        for (i = 0; i < string.length; i += 1) {
-            hash = string.charCodeAt(i) + ((hash << 5) - hash);
-        }
+    // ===========================================================================
+    // Avatar color
+    // ===========================================================================
+    // 
+    // function stringToColor(string) {
+    //     let hash = 0;
+    //     let i;
 
-        let color = '#';
+    //     /* eslint-disable no-bitwise */
+    //     for (i = 0; i < string.length; i += 1) {
+    //         hash = string.charCodeAt(i) + ((hash << 5) - hash);
+    //     }
 
-        for (i = 0; i < 3; i += 1) {
-            const value = (hash >> (i * 8)) & 0xff;
-            color += `00${value.toString(16)}`.slice(-2);
-        }
-        /* eslint-enable no-bitwise */
+    //     let color = '#';
 
-        return color;
-    }
+    //     for (i = 0; i < 3; i += 1) {
+    //         const value = (hash >> (i * 8)) & 0xff;
+    //         color += `00${value.toString(16)}`.slice(-2);
+    //     }
+    //     /* eslint-enable no-bitwise */
 
-    function stringAvatar(name) {
-        return {
-            sx: {
-                bgcolor: stringToColor(name),
-            },
-            children: `${name.split(' ')[ 0 ][ 0 ]}${name.split(' ')[ 1 ][ 0 ]}`,
-        };
-    }
+    //     return color;
+    // }
 
-    // -------
+    // function stringAvatar(name) {
+    //     return {
+    //         sx: {
+    //             bgcolor: stringToColor(name),
+    //         },
+    //         children: `${name.split(' ')[ 0 ][ 0 ]}${name.split(' ')[ 1 ][ 0 ]}`,
+    //     };
+    // }
+    function stringAvatar(){};
+    // ----------------------------------------------------------------------
 
     return (
         <>

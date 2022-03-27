@@ -81,6 +81,38 @@ img {
     margin:5px;
 }
 
+.fName__input {
+    border: .5px solid var(--color-default);
+    width: 150px;
+    background: #F5F6F7; 
+    border-radius: 4px;
+    height:20px;
+    border: .5px solid rgb(164, 164, 164);
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    font-size: 12px;
+    outline: none;
+    padding: 3px;
+    margin:5px;
+}
+
+.lName__input {
+    border: .5px solid var(--color-default);
+    width: 150px;
+    background: #F5F6F7;
+    border-radius: 4px;
+    height:20px;
+    border: .5px solid rgb(164, 164, 164);
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    font-size: 12px;
+    outline: none;
+    padding: 3px;
+    margin:5px;
+}
+
 .email__input {
     border: .5px solid var(--color-default);
     width: 375px;
@@ -162,6 +194,8 @@ img {
 }
 
 .username__input:focus,
+.fName__input:focus,
+.lName__input:focus,
 .email__input:focus,
 .email__input:focus,
 .password__input:focus,
