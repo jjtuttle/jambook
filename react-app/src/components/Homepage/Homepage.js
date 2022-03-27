@@ -1,12 +1,10 @@
 import React from 'react';
-import {useEffect} from 'react';
-import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import NavBar from '../NavBar/NavBar';
 import './Homepage.css';
 import Post from '../Posts/Posts';
 import ProfileButton from '../NavBar/ProfileButton';
-import { getPost } from '../../store/posts';
+import blueLogo from '../../images/jambook-logo-blue.png';
+
 
 // =============================================================
 // import { withStyles } from "@material-ui/core/styles";
@@ -33,8 +31,8 @@ const Homepage = () => {
 
 
     return (
-        <>  
-        {/* // {sessionUser?.id === post?.owner.id && (<> 
+        <>
+            {/* // {sessionUser?.id === post?.owner.id && (<> 
         //     <button>Edit</button>
         // </>)} */}
 
@@ -42,7 +40,14 @@ const Homepage = () => {
                 <ProfileButton />
             </NavBar>
 
- 
+            <div className="hompage_logo_blue">
+                <img className="homepage__logo-img" src={blueLogo} alt="jambook logo"
+                    style={{
+                        width: '150px', height: '60px', position: 'absolute',
+                        top:'7vh', right:'45vw'
+                    }}
+                />
+            </div>
 
             <div>
                 <div className="create-post">

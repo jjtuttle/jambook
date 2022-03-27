@@ -14,6 +14,7 @@
 
 .message__avatar{
     margin-left:10px;
+     /* opacity: .4; */
 }
 
 .message_sender > img {
