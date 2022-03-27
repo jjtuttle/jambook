@@ -36,6 +36,7 @@ const Comments = ({ postId }) => {
     const commentsObj = useSelector(state => state?.comments);
     const comments = Object.values(commentsObj)
 
+    comments.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
     // Avatar color ---------------------------
     function stringToColor(string) {
