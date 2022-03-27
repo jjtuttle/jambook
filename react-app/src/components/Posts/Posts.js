@@ -11,7 +11,7 @@ import DeletePostButton from './DeletePostButton';
 import Comments from '../Comments/Comments'
 import Avatar from '@mui/material/Avatar';
 import Timestamp from 'react-timestamp';
-
+import BackToTopButton from '../NavBar/BackToTopButton';
 
 
 const PostForm = () => {
@@ -24,7 +24,7 @@ const PostForm = () => {
     posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
     const comment = useSelector((state) => state?.commentReducer);
-    
+
 
     const { postId } = useParams();
 
@@ -172,7 +172,7 @@ const PostForm = () => {
                             </li>
                         ))}
 
-
+                        <BackToTopButton />
                     </ul>
                 </div>
             </div >

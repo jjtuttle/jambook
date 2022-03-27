@@ -16,7 +16,14 @@
     align-items: center;
     height: 60px;
     margin-bottom: 100px;
+
+    transition: all .1s linear;
+    z-index: 2000;
+    position: fixed;
 }
+
+
+
 
 .nav__left {
     display: flex;
