@@ -22,7 +22,7 @@ function EditCommentsModal({ comment }) {
     return (
         matchingSessionToUser && (
             <div className="edit-comment-modal-btn-wrapper">
-                <button className="btn btn-edit-comment" onClick={(e) => setShowModel(true)}>Edit Comment</button>
+                <button className="btn btn-edit-comment" onClick={(e) => setShowModel(true)} style={{ marginLeft:'10px' }}>Edit</button>
                 {showModal && (
                     <Modal onClose={() => setShowModel(false)}>
                         <EditCommentsForm closeModal={() => setShowModel(false)} comment={comment} />

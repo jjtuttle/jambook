@@ -21,7 +21,7 @@ function EditPosts({ post }) {
     return (
         matchingSessionToUser && (
             <div className="edit-posts-modal-btn-wrapper">
-                <button className="btn btn-edit-post" onClick={(e) => setShowModel(true)}>Edit Post</button>
+                <button className="btn btn-edit-post" onClick={(e) => setShowModel(true)} style={{ marginRight: '10px' }}>Edit</button>
                 {showModal && (
                     <Modal onClose={() => setShowModel(false)} >
                         <EditPostsForm closeModal={() => setShowModel(false)} posts={post} />
