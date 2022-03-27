@@ -33,39 +33,54 @@ const Comments = ({ postId }) => {
     const commentsObj = useSelector(state => state?.comments);
     const comments = Object.values(commentsObj)
 
+    // console.log("Comments data in comments comp. ###############################>>", comments);
+
     comments.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
+    // const x = comments.map((c) =>  c.last)
+    // console.log("SESSION USER Comp for POSTS................", x);
+
+
     // Avatar color ---------------------------
-    // function stringToColor(string) {
-    //     let hash = 0;
-    //     let i;
+    function stringToColor(string) {
+        let hash = 0;
+        let i;
 
-    //     /* eslint-disable no-bitwise */
-    //     for (i = 0; i < string.length; i += 1) {
-    //         hash = string.charCodeAt(i) + ((hash << 5) - hash);
-    //     }
+        /* eslint-disable no-bitwise */
+        for (i = 0; i < string.length; i += 1) {
+            hash = string.charCodeAt(i) + ((hash << 5) - hash);
+        }
 
-    //     let color = '#';
+        let color = '#';
 
-    //     for (i = 0; i < 3; i += 1) {
-    //         const value = (hash >> (i * 8)) & 0xff;
-    //         color += `00${value.toString(16)}`.slice(-2);
-    //     }
-    //     /* eslint-enable no-bitwise */
+        for (i = 0; i < 3; i += 1) {
+            const value = (hash >> (i * 8)) & 0xff;
+            color += `00${value.toString(16)}`.slice(-2);
+        }
+        /* eslint-enable no-bitwise */
 
-    //     return color;
-    // }
+        return color;
+    }
 
-    // function stringAvatar(name) {
-    //     return {
-    //         sx: {
-    //             bgcolor: stringToColor(name),
-    //         },
-    //         children: `${name.split(' ')[ 0 ][ 0 ]}${name.split(' ')[ 1 ][ 0 ]}`,
-    //     };
-    // }
+    function stringAvatar(name) {
+        // console.log("String array name COMMENTS =====================", name)
+        return {
+            sx: {
+                bgcolor: stringToColor(name),
+            },
+            children: `${name.split(' ')[ 0 ][ 0 ]}${name.split(' ')[ 1 ][ 0 ]}`,
+        };
+    }
     // -------
-    function stringAvatar() { };
+    // function stringAvatar() { };
+
+
+    // comments?.filter(c => c?.post_id === postId).map((c) => {
+    //     return console.log("C forst & last ^^^^^^^^^^^^^^^^^^", c.first, c.last);
+    // }
+    // 
+    // comments?.filter((c => c?.post_id === postId).c.map((c) => c.comment) )
+
 
     return (
         <div className="post-comment-container">
@@ -77,7 +92,7 @@ const Comments = ({ postId }) => {
 
                         <div className="comment_top">
                             <div className="comment__top-img">
-                                <Avatar className="comment__avatar" {...stringAvatar(c?.owner)}
+                                <Avatar className="comment__avatar" {...stringAvatar(c?.first.concat(' ', c?.last))}
                                     style={{ height: '25px', width: '25px', fontSize: '13px' }}
                                 />
                                 {/* <img src={avatar} alt='avatar' /> */}

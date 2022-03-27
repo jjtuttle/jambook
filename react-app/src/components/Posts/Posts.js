@@ -36,7 +36,9 @@ const PostForm = () => {
 
     const matchUserToOwner = match(sessionUser, postId);
 
-    // console.log("SESSION USER Comp for POSTS................", sessionUser.username);
+
+    // const x = posts.map((p) =>  p.last)
+    // console.log("SESSION USER Comp for POSTS................", x);
 
     useEffect(() => {
         dispatch(getPosts(postId))
@@ -67,36 +69,37 @@ const PostForm = () => {
     // ===========================================================================
     // Avatar color
     // ===========================================================================
-    // 
-    // function stringToColor(string) {
-    //     let hash = 0;
-    //     let i;
+    
+    function stringToColor(string) {
+        let hash = 0;
+        let i;
 
-    //     /* eslint-disable no-bitwise */
-    //     for (i = 0; i < string.length; i += 1) {
-    //         hash = string.charCodeAt(i) + ((hash << 5) - hash);
-    //     }
+        /* eslint-disable no-bitwise */
+        for (i = 0; i < string.length; i += 1) {
+            hash = string.charCodeAt(i) + ((hash << 5) - hash);
+        }
 
-    //     let color = '#';
+        let color = '#';
 
-    //     for (i = 0; i < 3; i += 1) {
-    //         const value = (hash >> (i * 8)) & 0xff;
-    //         color += `00${value.toString(16)}`.slice(-2);
-    //     }
-    //     /* eslint-enable no-bitwise */
+        for (i = 0; i < 3; i += 1) {
+            const value = (hash >> (i * 8)) & 0xff;
+            color += `00${value.toString(16)}`.slice(-2);
+        }
+        /* eslint-enable no-bitwise */
 
-    //     return color;
-    // }
+        return color;
+    }
 
-    // function stringAvatar(name) {
-    //     return {
-    //         sx: {
-    //             bgcolor: stringToColor(name),
-    //         },
-    //         children: `${name.split(' ')[ 0 ][ 0 ]}${name.split(' ')[ 1 ][ 0 ]}`,
-    //     };
-    // }
-    function stringAvatar(){};
+    function stringAvatar(name) {
+        // console.log("String array name =====================", name)
+        return {
+            sx: {
+                bgcolor: stringToColor(name),
+            },
+            children: `${name.split(' ')[ 0 ][ 0 ]}${name.split(' ')[ 1 ][ 0 ]}`,
+        };
+    }
+    // function stringAvatar(){};
     // ----------------------------------------------------------------------
 
     return (
@@ -111,7 +114,7 @@ const PostForm = () => {
                 </div>
 
                 <div className="message_sender">
-                    <Avatar className="message__avatar" {...stringAvatar(sessionUser.username)} />
+                    <Avatar className="message__avatar" {...stringAvatar(sessionUser.first.concat(' ',sessionUser.last))} />
                     {/* <img className="messenger__avatar" src={avatar} alt='avatar' /> */}
                     {/* {state.session?.user} */}
                     {/* <div className="form__container"> */}
@@ -146,7 +149,7 @@ const PostForm = () => {
                                 <div className="post__top">
                                     <div className="post__top-avatar">
                                         {/* <img src={avatar} alt='avatar' /> */}
-                                        <Avatar className="post__avatar" {...stringAvatar(post?.owner)} style={{ opacity: '.6' }} />
+                                        <Avatar className="post__avatar" {...stringAvatar(post?.first.concat(' ', post?.last))} style={{ opacity: '.6' }} />
                                     </div>
                                 </div>
 

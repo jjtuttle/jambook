@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField
-from wtforms.validators import DataRequired, ValidationError   # , Email
+from wtforms.validators import DataRequired, ValidationError, Email, Length, EqualTo
 from app.models import User
 
 
@@ -18,9 +18,6 @@ def username_exists(form, field):
     user = User.query.filter(User.username == username).first()
     if user:
         raise ValidationError('Username is already in use.')
-
-# //todo ——————————————————————————————————————————————————————————————————————
-# todo BE error validate message other than 'An error occurred. Please try again.
 
 
 def username_length_check(form, field):
@@ -48,13 +45,21 @@ def l_name_length_check(form, field):
 
 
 class SignUpForm(FlaskForm):
-    username = StringField('username', validators=[DataRequired(),
+    username = StringField('Username', validators=[DataRequired("Please enter Username"), Length(min=3, max=40, message="Username must be 3-40 characters long"),
                                                    username_exists,
                                                    username_length_check])
-    first = StringField('first', validators=[
-        DataRequired(), f_name_length_check])
-    last = StringField('last', validators=[
-        DataRequired(), f_name_length_check])
-    email = StringField('email', validators=[DataRequired(), user_exists])
-    password = StringField('password', validators=[
-        DataRequired(), password_char_error])
+
+    first = StringField('First Name', validators=[
+        DataRequired("First Name: Please enter a first name"), Length(min=3, max=50, message="First name must be between 3 to 50 characters")])
+
+    last = StringField('Last Name', validators=[
+        DataRequired("Last Name: Please enter a last name"), Length(min=3, max=50, message="Last name must be between 3 to 50 characters")])
+
+    email = StringField('Email', validators=[DataRequired("Email: Please enter an email"), Email(
+        "Email must be valid"), user_exists, Length(min=6, max=40, message="Email must be between 6 and 40 characters")])
+
+    password = StringField('Password', validators=[
+        DataRequired("Password: Please enter a password"), Length(min=6, max=50, message="Password must be 6-50 characters long"), EqualTo("confirm_password", message="Passwords must match")])
+
+    confirm_password = StringField('Confirm Password', validators=[
+        DataRequired("Confirm Password: Please confirm password")])
