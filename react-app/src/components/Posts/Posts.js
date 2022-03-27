@@ -145,7 +145,7 @@ const PostForm = () => {
                                 <div className="post__top">
                                     <div className="post__top-avatar">
                                         {/* <img src={avatar} alt='avatar' /> */}
-                                        <Avatar className="post__avatar" {...stringAvatar(post?.owner)} />
+                                        <Avatar className="post__avatar" {...stringAvatar(post?.owner)} style={{ opacity: '.6' }} />
                                     </div>
                                 </div>
 
