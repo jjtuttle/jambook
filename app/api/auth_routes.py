@@ -61,12 +61,20 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
     if form.validate_on_submit():
+        # print("bBEFORE User - user form;;;;;;;")
+        # global user
+        data = request.json
         user = User(
-            username=form.data['username'],
-            email=form.data['email'],
-            password=form.data['password']
+            username=data['username'],
+            first=data['first'],
+            last=data['last'],
+            email=data['email'],
+            password=data['password']
         )
+        # print('\nsignup form data...........', user)
+
         db.session.add(user)
         db.session.commit()
         login_user(user)

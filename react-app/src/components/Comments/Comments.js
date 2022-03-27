@@ -33,7 +33,13 @@ const Comments = ({ postId }) => {
     const commentsObj = useSelector(state => state?.comments);
     const comments = Object.values(commentsObj)
 
+    // console.log("Comments data in comments comp. ###############################>>", comments);
+
     comments.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+    // const x = comments.map((c) =>  c.last)
+    // console.log("SESSION USER Comp for POSTS................", x);
+
 
     // Avatar color ---------------------------
     function stringToColor(string) {
@@ -57,6 +63,7 @@ const Comments = ({ postId }) => {
     }
 
     function stringAvatar(name) {
+        // console.log("String array name COMMENTS =====================", name)
         return {
             sx: {
                 bgcolor: stringToColor(name),
@@ -64,8 +71,15 @@ const Comments = ({ postId }) => {
             children: `${name.split(' ')[ 0 ][ 0 ]}${name.split(' ')[ 1 ][ 0 ]}`,
         };
     }
-
     // -------
+    // function stringAvatar() { };
+
+
+    // comments?.filter(c => c?.post_id === postId).map((c) => {
+    //     return console.log("C forst & last ^^^^^^^^^^^^^^^^^^", c.first, c.last);
+    // }
+    // 
+    // comments?.filter((c => c?.post_id === postId).c.map((c) => c.comment) )
 
 
     return (
@@ -78,7 +92,7 @@ const Comments = ({ postId }) => {
 
                         <div className="comment_top">
                             <div className="comment__top-img">
-                                <Avatar className="comment__avatar" {...stringAvatar(c?.owner)}
+                                <Avatar className="comment__avatar" {...stringAvatar(c?.first.concat(' ', c?.last))}
                                     style={{ height: '25px', width: '25px', fontSize: '13px' }}
                                 />
                                 {/* <img src={avatar} alt='avatar' /> */}

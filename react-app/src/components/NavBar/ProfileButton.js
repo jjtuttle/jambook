@@ -61,7 +61,7 @@ function ProfileButton({ user }) {
                 borderRadius: '5px',
                 fontWeight: '700',
                 fontSize: '14px',
-                
+
               }}
 
             >Log Out</button>

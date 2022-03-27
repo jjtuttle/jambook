@@ -7,6 +7,8 @@ import './SignupForm.css';
 const SignUpForm = () => {
   const [ errors, setErrors ] = useState([]);
   const [ username, setUsername ] = useState('');
+  const [ first, setFirst ] = useState('');
+  const [ last, setLast ] = useState('');
   const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
   const [ repeatPassword, setRepeatPassword ] = useState('');
@@ -17,8 +19,9 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const data = await dispatch(signUp(username, first, last, email, password, repeatPassword));
       if (data) {
+        // console.log("\ndispatch to signup@@@@@@@@@@@@@@@@@@@@@@@", username, email, password, first, last);
         setErrors(data)
       }
     }
@@ -29,6 +32,10 @@ const SignUpForm = () => {
   useEffect(() => {
     const errors = [];
     const emailRegex = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+    if (!first) errors.push('Please provide a first name')
+    if (!last) errors.push('Please provide a last name')
+    if (first.length < 3 || first.length > 50) errors.push('Please provide a first name between 3 to 50 characters')
+    if (last.length < 3 || first.length > 50) errors.push('Please provide a last name between 3 to 50 characters')
     if (!username) errors.push('Please provide a username');
     if (username.length > 40) errors.push('Please provide a shorter username (40 chars or less).');
     if (username.length < 4) errors.push('Please provide a longer username (between 4 and 40 chars).')
@@ -38,13 +45,21 @@ const SignUpForm = () => {
     if (password !== repeatPassword) errors.push('Passwords do not match');
 
     setErrors(errors);
-  }, [ username, email, password, repeatPassword ])
+  }, [ username, email, password, repeatPassword, first, last ]);
 
 
 
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
+  };
+
+  const updateFirstName = (e) => {
+    setFirst(e.target.value);
+  };
+
+  const updateLastName = (e) => {
+    setLast(e.target.value);
   };
 
   const updateEmail = (e) => {
@@ -65,6 +80,7 @@ const SignUpForm = () => {
 
   return (
     <div className="signup_container">
+
       <div className="header__wrap">
         <a href="/">
           <img className="x-img" src="https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/TdCEremeWv5.png"
@@ -85,6 +101,24 @@ const SignUpForm = () => {
             {errors.map((error, ind) => (
               <ul key={ind}><li>{error}</li></ul>
             ))}
+          </div>
+
+          <div>
+            <input className="fName__input"
+              type='text'
+              name='fName'
+              placeholder="First name"
+              onChange={updateFirstName}
+              value={first}
+            ></input>
+
+            <input className="lName__input"
+              type='text'
+              name='lName'
+              placeholder="Last name"
+              onChange={updateLastName}
+              value={last}
+            ></input>
           </div>
 
           <div>

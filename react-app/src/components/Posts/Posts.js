@@ -21,6 +21,7 @@ const PostForm = () => {
     const postsObj = useSelector(state => state?.posts);
     const posts = Object.values(postsObj);
 
+    // Sort Posts ASC by date
     posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
     const comment = useSelector((state) => state?.commentReducer);
@@ -35,7 +36,9 @@ const PostForm = () => {
 
     const matchUserToOwner = match(sessionUser, postId);
 
-    // console.log("SESSION USER Comp for POSTS................", sessionUser.username);
+
+    // const x = posts.map((p) =>  p.last)
+    // console.log("SESSION USER Comp for POSTS................", x);
 
     useEffect(() => {
         dispatch(getPosts(postId))
@@ -62,7 +65,11 @@ const PostForm = () => {
     const handleDelete = async (postId) => {
         await dispatch(deletePost(postId));
     }
-    // Avatar color ---------------------------
+
+    // ===========================================================================
+    // Avatar color
+    // ===========================================================================
+    
     function stringToColor(string) {
         let hash = 0;
         let i;
@@ -84,6 +91,7 @@ const PostForm = () => {
     }
 
     function stringAvatar(name) {
+        // console.log("String array name =====================", name)
         return {
             sx: {
                 bgcolor: stringToColor(name),
@@ -91,8 +99,8 @@ const PostForm = () => {
             children: `${name.split(' ')[ 0 ][ 0 ]}${name.split(' ')[ 1 ][ 0 ]}`,
         };
     }
-
-    // -------
+    // function stringAvatar(){};
+    // ----------------------------------------------------------------------
 
     return (
         <>
@@ -106,7 +114,7 @@ const PostForm = () => {
                 </div>
 
                 <div className="message_sender">
-                    <Avatar className="message__avatar" {...stringAvatar(sessionUser.username)} />
+                    <Avatar className="message__avatar" {...stringAvatar(sessionUser.first.concat(' ',sessionUser.last))} />
                     {/* <img className="messenger__avatar" src={avatar} alt='avatar' /> */}
                     {/* {state.session?.user} */}
                     {/* <div className="form__container"> */}
@@ -141,7 +149,7 @@ const PostForm = () => {
                                 <div className="post__top">
                                     <div className="post__top-avatar">
                                         {/* <img src={avatar} alt='avatar' /> */}
-                                        <Avatar className="post__avatar" {...stringAvatar(post?.owner)} style={{ opacity: '.6' }} />
+                                        <Avatar className="post__avatar" {...stringAvatar(post?.first.concat(' ', post?.last))} style={{ opacity: '.6' }} />
                                     </div>
                                 </div>
 

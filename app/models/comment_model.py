@@ -8,6 +8,10 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     writer_id = db.Column(
         db.Integer, db.ForeignKey("users.id"), nullable=False)
+
+    # first = db.Column(db.Integer, db.ForeignKey("users.first"), nullable=False)
+    # last = db.Column(db.Integer, db.ForeignKey("users.last"), nullable=False)
+
     post_id = db.Column(db.Integer, db.ForeignKey("posts.id"), nullable=False)
     comment = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime(), nullable=False,
@@ -29,5 +33,7 @@ class Comment(db.Model):
             "created_at": self.created_at,
             "updated_at": self.updated_at,
             # "user": {self.users.id: self.users.to_dict()},
-            "owner": self.users.username
+            "owner": self.users.username,
+            "first": self.users.first,
+            "last": self.users.last
         }
