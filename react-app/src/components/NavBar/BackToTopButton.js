@@ -31,8 +31,8 @@ const BackToTopButton = () => {
             {backToTopButton && (
                 <ArrowCircleUpIcon style={{
                     position: "fixed",
-                    bottom: "50px",
-                    right: "250px",
+                    bottom: "5vh",
+                    right: "20vw",
                     height: "50px",
                     width: "50px",
                     

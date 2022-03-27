@@ -24,7 +24,7 @@ const DeleteCommentButton = ({ comment }) => { // singular props arg...
     return (
         matchingToSessionUser && (
             <div className="delete-comment-wrapper">
-                <button className="btn btn-delete-comment"
+                <button className="btn btn-delete-comment" style={{ marginLeft: '10px' }}
                     onClick={() => handleDelete(comment?.id)} >
                     Delete
                 </button>
