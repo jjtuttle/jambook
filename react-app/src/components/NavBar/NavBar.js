@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css';
 import ProfileButton from './ProfileButton';
@@ -12,6 +12,30 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);
 
+  // Sticky navbar ----
+  const [ scrolled, setScrolled ] = React.useState(false);
+  
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    if (offset > 200) {
+      setScrolled(true);
+    }
+    else {
+      setScrolled(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+  })
+  let navbarClasses = [ 'navbar' ];
+  if (scrolled) {
+    navbarClasses.push('scrolled');
+  }
+// ----- 
+
+
+
   let sessionLinks;
 
   if (sessionUser) {
@@ -19,7 +43,7 @@ const NavBar = () => {
       <div className="nav-container">
 
         <div className="nav__left">
-          <img className="nav-circle-logo" src={circleLogoLightM} alt="circle logo" />
+          <NavLink to="/"><img className="nav-circle-logo" src={circleLogoLightM} alt="circle logo" /></NavLink>
         </div>
 
         <div className="nav__center">
@@ -57,30 +81,30 @@ const NavBar = () => {
     // className="nav-container"
     <nav >
       {/* <ul className="nav navbar"> */}
-        {/* <li className="home">
+      {/* <li className="home">
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
         </li> */}
 
-        {/* <li className="session-links"> */}
-          {sessionLinks}
-          {/* <NavLink to='/login' exact={true} activeClassName='active'>
+      {/* <li className="session-links"> */}
+      {sessionLinks}
+      {/* <NavLink to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink> */}
-        {/* </li> */}
+      {/* </li> */}
 
-        {/* <li>
+      {/* <li>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink>
         </li> */}
-        {/* <li>
+      {/* <li>
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
           </NavLink>
         </li> */}
-        {/* <li>
+      {/* <li>
           <LogoutButton />
         </li> */}
       {/* </ul> */}

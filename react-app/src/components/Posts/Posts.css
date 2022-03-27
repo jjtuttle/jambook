@@ -1,37 +1,21 @@
 
 
-/* Control the whole wall through the 'root' id */
-/* #root {
-    padding-left:25%;
-    padding-right:25%;
-} */
+.create-post {
+    padding-top:200px;
+
+}
 
 .post_container {
     padding:5px;
     padding-left:25%;
     padding-right:25%;
+  
 }
 
 .message__avatar{
     margin-left:10px;
      /* opacity: .4; */
 }
-
-.message_sender > img {
-    /* background-color: #F0F2F5; */
-    /* border-radius: 999px; */
-    /* opacity: .4;
-    width:49px;
-    height:35px;
-    padding-left:15px; */
-}
-
-/* .messenger__avatar {
-    background-color: #719ece;
-    width:49px;
-    height:35px;
-} */
-
 
 
 .message_sender {
@@ -49,6 +33,7 @@
     height:100px ;
     margin-left: 5px;
     margin-bottom: 55px;
+    top: 60vh;
 }
 
 
