@@ -43,7 +43,7 @@ function ProfileButton({ user }) {
           cursor: 'pointer',
           border: '1px solid #808080'
         }}
-      > Click Me
+      > More...
         <i className="fas fa-user-circle" />
       </button>
       {showMenu && (
