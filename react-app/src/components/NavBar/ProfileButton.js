@@ -30,7 +30,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}
+      <button onClick={openMenu} className="more-btn"
         style={{
           backgroundColor: 'transparent',
           color: '#808080',
@@ -41,10 +41,11 @@ function ProfileButton({ user }) {
           height: '20px',
           width: '80px',
           cursor: 'pointer',
-          border: '1px solid #808080'
+          border: '1px solid #808080',
+          
         }}
-      > Click Me
-        <i className="fas fa-user-circle" />
+      > More...
+        <i className="fas fa-user-circle"  style={{color:'grey'}}/>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
@@ -59,7 +60,8 @@ function ProfileButton({ user }) {
                 border: '1px solid #808080',
                 borderRadius: '5px',
                 fontWeight: '700',
-                fontSize: '14px'
+                fontSize: '14px',
+                
               }}
 
             >Log Out</button>
