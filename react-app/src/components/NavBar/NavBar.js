@@ -52,7 +52,7 @@ const NavBar = () => {
         </div>
 
         <div className="nav__right">
-          <LogoutButton className=" btn nav-logout-btn" />
+          {/* <LogoutButton className=" btn nav-logout-btn" /> */}
           <ProfileButton user={sessionUser} className="btn nav-profile-btn " />
         </div>
 
