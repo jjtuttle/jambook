@@ -12,28 +12,15 @@ function EditCommentsModal({ comment }) {
     const [ showModal, setShowModel ] = useState(false);
 
     const sessionId = useSelector(state => state?.session?.user?.id);
-    const writerId = comment?.writer_id;
+    const writerId = comment?.writer;
     const matchingSessionToUser = match(sessionId, +writerId);
 
-    // console.log(showModal);
+    // console.log(comment);
 
-    const [context, setContext] = useState(comment.comment)
+    // const [ context, setContext ] = useState(comment.comment)
 
     return (
-        <div>
-{/* User has a comment tied to post, need to call edit  */}
-            {matchingSessionToUser &&
-                <div className="edit-comment-modal-btn-wrapper">
-                    <button className="btn btn-edit-comment" onClick={(e) => setShowModel(true)}>Edit Comment</button>
-                    {showModal && (
-                        <Modal onClose={() => setShowModel(false)}>
-                            <EditCommentsForm closeModal={() => setShowModel(false)} comment={comment} />
-                        </Modal>
-                    )}
-                </div>
-            }
-
-{/* User has no comments, need to call add new comment */}
+        matchingSessionToUser && (
             <div className="edit-comment-modal-btn-wrapper">
                 <button className="btn btn-edit-comment" onClick={(e) => setShowModel(true)}>Edit Comment</button>
                 {showModal && (
@@ -42,8 +29,10 @@ function EditCommentsModal({ comment }) {
                     </Modal>
                 )}
             </div>
-        </div>
+        )
     );
 }
+
+
 
 export default EditCommentsModal;
