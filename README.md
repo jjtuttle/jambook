@@ -48,9 +48,9 @@ In the next sprint:
     * `cd react-app`
     * `npm install`
 4. Create PostgreSQL user
-    * `CREATE USER midnight_oil_dev WITH CREATEDB PASSWORD '<password>'`
+    * `CREATE USER jambook_app WITH CREATEDB PASSWORD '<password>'`
 5. Create PostgreSQL database
-    * `CREATE DATABASE midnight_oil_db WITH OWNER midnight_oil_dev`
+    * `CREATE DATABASE jambook_app_dev WITH OWNER jambook_app`
 6. Create a `.env` file in the root directory based on the `.env.example` file
 7. In `.env` file:
     * Replace 'password' in DATABASE_URL with your chosen password
