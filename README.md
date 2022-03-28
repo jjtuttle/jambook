@@ -38,3 +38,33 @@ This is a basic and clean UI experience for getting authenticated, signing up as
 In the next sprint:
 * Adding a seacrh feature so as a user one can easily at the top of the page type any word/phrase in and have the results displayed and the ability to click it to be taken to that post.
 * Adding a "like" feature so as a user one could like a post or a comment that they chose or unlike it.
+
+## Instalation Instructions
+1. Clone this repo
+    * `git clone`
+2. Install dependencies for backend
+    * `pipenv install`
+3. Install dependencies for frontend
+    * `cd react-app`
+    * `npm install`
+4. Create PostgreSQL user
+    * `CREATE USER midnight_oil_dev WITH CREATEDB PASSWORD '<password>'`
+5. Create PostgreSQL database
+    * `CREATE DATABASE midnight_oil_db WITH OWNER midnight_oil_dev`
+6. Create a `.env` file in the root directory based on the `.env.example` file
+7. In `.env` file:
+    * Replace 'password' in DATABASE_URL with your chosen password
+    * Enter a secure combination of characters for you SECRET_KEY
+*. Flask Migrate and Seed your database in root directory
+    * `pipenv shell`
+    * `flask db upgrade`
+    * `flask seed all`
+9. Start backend server in root directory
+    * `flask run`
+10. Start frontend server in `react-app` directory
+    * `npm start`
+11. In your browser go to `localhost:3000`
+12. You may use the Demo User by clicking on the **Log In** button
+    * or create a new user by clicking **Create new account**  
+13. Then you are logged in and can create a post, look at other posts, add comments to a post, edit your posts/comments 
+14. As you scroll down simply click the up arrow button <img width="30" alt="Screen Shot 2022-03-28 at 6 25 01 AM" src="https://user-images.githubusercontent.com/2349101/160407601-02458cf7-0e1f-4541-9fa5-935c1a52c1e2.png"> to be smoothly taken to the top of the page again where all posts and comments are sorted by the newest, top down.
