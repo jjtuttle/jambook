@@ -2,7 +2,22 @@
 h1, h3 {
     margin-top:5vh;
     text-align: center;
+   
 }
+
+h1 {
+    color:#666;
+}
+
+h3 {
+    color:#777;
+}
+
+.logo-page-not-found {
+    height:30px;
+
+}
+
 .image-container {
     display: flex;
     justify-content: center;
