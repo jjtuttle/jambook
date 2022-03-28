@@ -1,14 +1,14 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
-import { updateComment, getAllComments, createComment } from '../../store/comments';
+import { useDispatch } from 'react-redux';
+import {  useHistory } from 'react-router-dom';
+import { updateComment, getAllComments } from '../../store/comments';
 import './EditCommentModal.css'
 
 
 const EditCommentsForm = ({ closeModal, comment }) => { // postId,
 
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
 
     // const sessionUser = useSelector(state => state?.session?.user);
 

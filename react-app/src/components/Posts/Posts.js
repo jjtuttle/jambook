@@ -12,13 +12,15 @@ import Comments from '../Comments/Comments'
 import Avatar from '@mui/material/Avatar';
 import Timestamp from 'react-timestamp';
 import BackToTopButton from '../NavBar/BackToTopButton';
+// import CharacterCounter from 'react-character-counter'
 
 
 const PostForm = () => {
-    const [ count, setCount ] = useState(0);  // char counter
+    // const [ count, setCount ] = useState(0);  // char counter
+
 
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
 
     const postsObj = useSelector(state => state?.posts);
     const posts = Object.values(postsObj);
@@ -36,7 +38,7 @@ const PostForm = () => {
     const [ body, setBody ] = useState('');
     const [ errors, setErrors ] = useState([]);
 
-    const matchUserToOwner = match(sessionUser, postId);
+    // const matchUserToOwner = match(sessionUser, postId);
 
 
     // const x = posts.map((p) =>  p.last)
@@ -123,14 +125,17 @@ const PostForm = () => {
                     {/* //! *************** From Starts *****************/}
                     <form onSubmit={handleSubmit}>
                         {/* <div className="form--top"> */}
-                        <input className="post-input"
-                            maxLength="255"
-                            placeholder="What's on your mind - press Enter to submit"
-                            value={body}
-                            onChange={(e) => setBody(e.target.value)}
-                            autoFocus
-                        // style={{ cursor: 'pointer' }}
-                        />
+                        {/* <CharacterCounter value={count} maxLength={120} > */}
+                            <input className="post-input"
+                                maxLength="255"
+                                placeholder="What's on your mind - press Enter to submit"
+                                value={body}
+
+                                onChange={(e) => setBody(e.target.value)}
+                                autoFocus
+                            // style={{ cursor: 'pointer' }}
+                            />
+                        {/* </CharacterCounter> */}
                         <p style={{ fontSize: "x-small", paddingTop: '10px', textAlign: 'center', color: 'grey' }}>Enter up to 255 characters</p>
                         {/* </div> */}
 

@@ -6,18 +6,6 @@ import ProfileButton from '../NavBar/ProfileButton';
 import blueLogo from '../../images/jambook-logo-blue.png';
 
 
-// =============================================================
-// import { withStyles } from "@material-ui/core/styles";
-// import Typography from "@material-ui/core/Typography";
-// import Button from "@material-ui/core/Button";
-// import IconButton from "@material-ui/core/IconButton";
-// import SmileIcon from "@material-ui/icons/Mood";
-{/* <Button variant="contained" >
-    Logout
-</Button> */}
-// =============================================================
-
-// todo ————————————————————————————————————————————————————————————————————————
 const Homepage = () => {
     // const dispatch = useDispatch();
     // const { postId } = useParams();
