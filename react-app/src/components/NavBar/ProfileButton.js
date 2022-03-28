@@ -33,9 +33,9 @@ function ProfileButton({ user }) {
       <button onClick={openMenu} className="more-btn"
         style={{
           backgroundColor: 'transparent',
-          color: '#808080',
-          border: '1px solid white',
-          borderRadius: '8px',
+          color: '#1877f2',
+          // border: '1px solid white',
+          borderRadius: '5px',
           fontWeight: '700',
           fontSize: '14px',
           height: '20px',
@@ -49,8 +49,8 @@ function ProfileButton({ user }) {
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
+          <li style={{ color:'#1877f2'}}>{user.username}</li>
+          {/* <li>{user.email}</li> */}
           <li>
             <button onClick={logout}
               style={{
@@ -61,7 +61,7 @@ function ProfileButton({ user }) {
                 borderRadius: '5px',
                 fontWeight: '700',
                 fontSize: '14px',
-
+                color:'#1877f2'
               }}
 
             >Log Out</button>
