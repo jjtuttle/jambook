@@ -1,0 +1,41 @@
+
+
+
+
+
+
+
+
+
+
+
+
+.add__comment-input:focus {
+    outline: none;
+    border:1px solid blue;
+    box-shadow: 0 0 5px #719ece;
+    caret-color: blue;
+}
+
+.add_btn_comment {
+    margin-top:15px;
+    display: flex;
+    justify-content: center;
+}
+
+.add_comment_submit {
+    background-color: #1877f2;
+    color:#FFF;
+    border: none;
+    font-size: 20px;
+    line-height: 48px;
+    padding: 0 16px;
+    width: 380px;
+    margin:10px;
+   
+}
+
+.add_comment_submit:hover {
+    background-color: #166fe5;
+    cursor: pointer;
+}

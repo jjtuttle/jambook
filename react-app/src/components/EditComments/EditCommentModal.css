@@ -1,0 +1,69 @@
+/* .h1_edit_comment{
+    text-align: center;
+} */
+/*
+.edit_commentM-div {
+     background-color: #fff;
+    display:inline-block;
+    margin:20px;
+    position: relative;
+    text-align:left;
+    color: #1c1e21;
+    font-size: 12px;
+    line-height: 16px;
+    border-radius: 8px 8px 8px 8px;
+    box-sizing: border-box;
+    padding: 10px 16px;
+    width: 500px;
+    z-index: 1; 
+} */
+
+
+
+/* .edit__comments-form {
+    height: 10vh;
+    margin: 10px; 
+    width: 60vw;
+} */
+/*  */
+/* .edit__input-comments {
+    align-items: center;
+    width: 300px;
+    height:3vh;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    margin-right:5px;
+    margin-left:5px;
+    margin-top:10px;
+    font-size: 17px;
+    padding: 10px;
+} */
+
+.edit__input-comments:focus {
+    outline: none;
+    border:1px solid blue;
+    box-shadow: 0 0 5px #719ece;
+    caret-color: blue;
+}
+
+.edit_btn_commentM {
+    margin-top:15px;
+    display: flex;
+    justify-content: center;
+}
+
+.edit_comment_submitM {
+    background-color: #1877f2;
+    color:#FFF;
+    border: none;
+    font-size: 20px;
+    line-height: 48px;
+    padding: 0 16px;
+    width: 380px;
+    margin:10px;
+}
+
+.edit_comment_submitM:hover {
+    background-color: #166fe5;
+    cursor: pointer;
+}
