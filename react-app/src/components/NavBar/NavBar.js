@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from '../auth/LogoutButton';
 import './NavBar.css';
 import ProfileButton from './ProfileButton';
 import circleLogoLightM from '../../images/circle-logo-lightmode.png';
@@ -42,19 +41,22 @@ const NavBar = () => {
     sessionLinks = (
       <div className="nav-container">
 
-        <div className="nav__left">
-          <img className="nav-circle-logo" src={circleLogoLightM} alt="circle logo" />
-        </div>
+        {/* <div className="nav__left"> */}
+        <img className="nav-circle-logo" src={circleLogoLightM} alt="circle logo"
+          style={{ marginTop: '3px', width: '30px', height: '30px', }}
+          // onclick={alert('Welcome to jambook!')}
+        />
+        {/* </div> */}
 
-        <div className="nav__center">
-          <a className='link-github' href='https://github.com/jjtuttle' target='_blank' rel='noreferrer'><GitHubIcon /></a>
-          <a className='link-linkedin' href='https://www.linkedin.com/in/jamesjtuttle/' target='_blank' rel='noreferrer'><LinkedInIcon /></a>
-        </div>
+        {/* <div className="nav__center"> */}
+        <a className='link-github' href='https://github.com/jjtuttle' target='_blank' rel='noreferrer'><GitHubIcon style={{fontSize:'30'}} /></a>
+        <a className='link-linkedin' href='https://www.linkedin.com/in/jamesjtuttle/' target='_blank' rel='noreferrer'><LinkedInIcon style={{ fontSize: '30' }} /></a>
+        {/* </div> */}
 
-        <div className="nav__right">
-          {/* <LogoutButton className=" btn nav-logout-btn" /> */}
-          <ProfileButton user={sessionUser} className="btn nav-profile-btn " />
-        </div>
+        {/* <div className="nav__right"> */}
+        {/* <LogoutButton className=" btn nav-logout-btn" /> */}
+        <ProfileButton user={sessionUser} className="btn nav-profile-btn " />
+        {/* </div> */}
 
       </div>
     )

@@ -44,7 +44,7 @@ const Homepage = () => {
                 <img className="homepage__logo-img" src={blueLogo} alt="jambook logo"
                     style={{
                         width: '150px', height: '60px', position: 'absolute',
-                        top:'7vh', right:'45vw'
+                        top:'30vh', right:'45vw'
                     }}
                 />
             </div>

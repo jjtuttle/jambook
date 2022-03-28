@@ -1,10 +1,14 @@
 
 .hompage_logo_blue {
-    top: 10vh;
+    /* top: 10vh; */
 
 }
 
 .homepage__logo-img {
     top: 10vh;
 
+}
+
+.homepage__logo-img:hover {
+    transform: scale(1.5);
 }
