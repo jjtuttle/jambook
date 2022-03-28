@@ -20,12 +20,12 @@ const AddCommentsForm = ({ closeModal, post_id }) => {
     const [ comment, setComment ] = useState(''); // comments.comment
 
 
-    // useEffect(() => {
-    //     const errors = [];
-    //     if (comment.length < 5 || comment.length > 255) errors.push('Please provide a comment between 5 chars and 255 chars.');
+    useEffect(() => {
+        const errors = [];
+        if (comment.length < 5 || comment.length > 255) errors.push('Please provide a comment between 5 chars and 255 chars.');
 
-    //     setErrors(errors);
-    // }, [ comment ])
+        setErrors(errors);
+    }, [ comment ])
 
     //! EDIT
     const handleSubmit = async (e) => {

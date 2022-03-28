@@ -1,6 +1,7 @@
 
-h1 {
-    align-self: center;
+h1, h3 {
+    margin-top:5vh;
+    text-align: center;
 }
 .image-container {
     display: flex;
@@ -10,6 +11,7 @@ h1 {
 }
 
 img {
+    margin-top:-22vh;
     width: 600px;
     height:800px;
 }
