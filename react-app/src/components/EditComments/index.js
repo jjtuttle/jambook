@@ -37,23 +37,25 @@ const EditCommentsForm = ({ closeModal, comment }) => { // postId,
     return (
         <div className="edit_commentM-div">
             <h1 style={{ textAlign: 'center', color: '#719ece' }}>Edit Comment</h1>
-            <form className="edit__comments-form" onSubmit={handleSubmit}>
+            <form className="edit__comments-form" onSubmit={handleSubmit} style={{ margin: '10px' }}>
                 <input name="edit__input-comments"
                     // id="" cols="30" rows="2"
                     value={context}
+                    maxLength="255"
+
                     onChange={(e) => setContext(e.target.value)}
                     autoFocus
                     style={{
                         borderRadius: '5px', marginTop: '10px', width: '60vw',
-                        height: '3vh', fontSize: '17px', border: '1px solid blue', boxShadow: '0 0 5px #719ece',
-                        caretColor: 'blue', paddingLeft:'10px'
+                        height: '3vh', fontSize: '15px', border: '1px solid blue', boxShadow: '0 0 5px #719ece',
+                        caretColor: 'blue', paddingLeft: '10px'
                     }}
                 />
 
-                <p style={{ fontSize: 'small', textAlign: 'center', marginTop: '6px', color: 'grey' }}>Enter 1 to 255 characters and Submit</p>
+                <p style={{ fontSize: 'small', textAlign: 'center', marginTop: '6px', color: 'grey' }}>Enter 2 to 255 characters and Submit</p>
                 <div className="edit_btn_commentM">
                     <button type='submit' className='edit_comment_submitM'
-                    style={{ borderRadius: '5px' }}
+                        style={{ borderRadius: '5px' }}
                     >
                         Submit
                     </button>

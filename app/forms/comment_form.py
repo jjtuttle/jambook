@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, SubmitField
-from wtforms.validators import DataRequired, ValidationError
+from wtforms.validators import DataRequired, ValidationError, Length
 
 
 def comment_length(form, field):
@@ -13,7 +13,7 @@ def comment_length(form, field):
 class CommentForm(FlaskForm):
     writer_id = IntegerField('writer_id')
     post_id = IntegerField('post_id')
-    comment = StringField('comment', validators=[DataRequired(),
-                                                 comment_length])
+    comment = StringField('comment', validators=[DataRequired(), Length(
+        min=2, max=255, message="Comments must be between 2 and 255 characters")]),
 
     submit = SubmitField('submit')

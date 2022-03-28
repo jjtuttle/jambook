@@ -26,7 +26,7 @@ const SignUpForm = () => {
       // if (data) {
       //   setErrors(data)
       // }
-      if(data.errors){
+      if (data.errors) {
         setErrors(data.errors)
       }
     }
@@ -110,6 +110,8 @@ const SignUpForm = () => {
 
           <div>
             <input className="fName__input"
+              maxLength="50"
+              required
               type='text'
               name='fName'
               placeholder="First name"
@@ -118,6 +120,8 @@ const SignUpForm = () => {
             ></input>
 
             <input className="lName__input"
+              maxLength="50"
+              required
               type='text'
               name='lName'
               placeholder="Last name"
@@ -128,6 +132,8 @@ const SignUpForm = () => {
 
           <div>
             <input className="username__input"
+              maxLength="40"
+              required
               type='text'
               name='username'
               placeholder="Username"
@@ -138,6 +144,8 @@ const SignUpForm = () => {
 
           <div>
             <input className="email__input"
+              maxLength="255"
+              required
               type='text'
               name='email'
               placeholder="Email"
@@ -148,6 +156,8 @@ const SignUpForm = () => {
 
           <div>
             <input className="password__input"
+              maxLength="100"
+              required
               type='password'
               name='password'
               placeholder="Password"
@@ -158,12 +168,13 @@ const SignUpForm = () => {
 
           <div>
             <input className="confirm__password__input"
+              maxLength="100"
+              required
               type='password'
               name='repeat_password'
               placeholder="Confirm Password"
               onChange={updateRepeatPassword}
               value={repeatPassword}
-              required={true}
             ></input>
           </div>
           <div className="terms__container">

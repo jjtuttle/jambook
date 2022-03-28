@@ -91,6 +91,8 @@ const LoginForm = () => {
 
                 <div className='email__input-wrapper'>
                   <input className='email__inputL'
+                    maxLength="255"
+                    required
                     name='email'
                     type='email'
                     placeholder='Email'
@@ -101,6 +103,8 @@ const LoginForm = () => {
 
                 <div className='password__input-wrapper'>
                   <input className='password__inputL'
+                    maxLength="255"
+                    required
                     name='password'
                     type='password'
                     placeholder='Password'

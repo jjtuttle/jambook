@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {  useHistory } from 'react-router-dom';
-import {  getAllComments, createComment } from '../../store/comments';
+import { useHistory } from 'react-router-dom';
+import { getAllComments, createComment } from '../../store/comments';
 import './AddComments.css';
 
 
@@ -20,12 +20,12 @@ const AddCommentsForm = ({ closeModal, post_id }) => {
     const [ comment, setComment ] = useState(''); // comments.comment
 
 
-    useEffect(() => {
-        const errors = [];
-        if (comment.length < 5 || comment.length > 255) errors.push('Please provide a comment between 5 chars and 255 chars.');
+    // useEffect(() => {
+    //     const errors = [];
+    //     if (comment.length < 5 || comment.length > 255) errors.push('Please provide a comment between 5 chars and 255 chars.');
 
-        setErrors(errors);
-    }, [ comment ])
+    //     setErrors(errors);
+    // }, [ comment ])
 
     //! EDIT
     const handleSubmit = async (e) => {
@@ -48,31 +48,32 @@ const AddCommentsForm = ({ closeModal, post_id }) => {
 
     return (
         <div>
-            <h1 style={{ textAlign: 'center', color:'#719ece'}}>Add Comment</h1>
+            <h1 style={{ textAlign: 'center', color: '#719ece' }}>Add Comment</h1>
 
-            <div className="display__errors">
+            <div className="display__errors-add-comment">
                 {errors.map((error, ind) => (
                     <ul key={ind}><li>{error}</li></ul>
                 ))}
             </div>
 
             <form className="add-comments-form" onSubmit={handleSubmit}
-                style={{margin:'10px'}}
+                style={{ margin: '10px' }}
             >
 
                 <input name="add__comment-input"
                     // id="" cols="30" rows="2"
                     value={comment}
+                    maxLength="255"
                     onChange={(e) => setComment(e.target.value)}
                     autoFocus
-                    placeholder={"Enter 1 to 255 characters and press Enter to submit"}
+                    placeholder={"Enter 2 to 255 characters and press Enter to submit"}
                     style={{
                         borderRadius: '5px', marginTop: '10px', width: '60vw',
-                        height: '3vh', fontSize: '17px', border: '1px solid blue', boxShadow: '0 0 5px #719ece',
-                        caretColor: 'blue', paddingLeft:'10px'
+                        height: '3vh', fontSize: '15px', border: '1px solid blue', boxShadow: '0 0 5px #719ece',
+                        caretColor: 'blue', paddingLeft: '10px'
                     }}
                 />
-                <p style={{fontSize:'small', textAlign:'center', marginTop:'6px', color:'grey'}}>Enter 1 to 255 characters and Submit</p>
+                <p style={{ fontSize: 'small', textAlign: 'center', marginTop: '6px', color: 'grey' }}>Enter 2 to 255 characters and Submit</p>
                 <div className="add_btn_comment">
                     <button type='submit' className='add_comment_submit' style={{ borderRadius: '5px' }} >
                         Submit

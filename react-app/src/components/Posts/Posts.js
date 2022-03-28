@@ -15,6 +15,8 @@ import BackToTopButton from '../NavBar/BackToTopButton';
 
 
 const PostForm = () => {
+    const [ count, setCount ] = useState(0);  // char counter
+
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -69,7 +71,7 @@ const PostForm = () => {
     // ===========================================================================
     // Avatar color
     // ===========================================================================
-    
+
     function stringToColor(string) {
         let hash = 0;
         let i;
@@ -114,7 +116,7 @@ const PostForm = () => {
                 </div>
 
                 <div className="message_sender">
-                    <Avatar className="message__avatar" {...stringAvatar(sessionUser.first.concat(' ',sessionUser.last))} />
+                    <Avatar className="message__avatar" {...stringAvatar(sessionUser.first.concat(' ', sessionUser.last))} />
                     {/* <img className="messenger__avatar" src={avatar} alt='avatar' /> */}
                     {/* {state.session?.user} */}
                     {/* <div className="form__container"> */}
@@ -122,12 +124,14 @@ const PostForm = () => {
                     <form onSubmit={handleSubmit}>
                         {/* <div className="form--top"> */}
                         <input className="post-input"
+                            maxLength="255"
                             placeholder="What's on your mind - press Enter to submit"
                             value={body}
                             onChange={(e) => setBody(e.target.value)}
                             autoFocus
                         // style={{ cursor: 'pointer' }}
                         />
+                        <p style={{ fontSize: "x-small", paddingTop: '10px', textAlign: 'center', color: 'grey' }}>Enter up to 255 characters</p>
                         {/* </div> */}
 
                         {/* <button className="btn-post" type="submit">
