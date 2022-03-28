@@ -38,25 +38,31 @@ const EditPostsForm = ({ closeModal, posts }) => {
 
 
     return (
-        <div className="edit_postM">
-            <h1 className="h1_edit_post">Edit Post</h1>
-            <form className="edit-posts-form" onSubmit={handleSubmit}>
+        <div className="edit_postM-div">
+            <h1 style={{ textAlign: 'center', color: '#719ece' }}>Edit Post</h1>
+
+            <form className="edit__posts-form" onSubmit={handleSubmit}>
                 <input className="post__inputM"
                     autoFocus
                     // placeholder="Start a session..."
                     value={body}
                     onChange={(e) => setBody(e.target.value)}
-                // style={{ borderRadius: '5px' }}
+                    style={{
+                        borderRadius: '5px', marginTop: '10px', width: '60vw',
+                        height: '3vh', fontSize: '17px', border: '1px solid blue', boxShadow: '0 0 5px #719ece',
+                        caretColor: 'blue', paddingLeft: '10px'
+                    }}
                 />
-            </form>
-            <div className="edit_btn_postM">
-                <button type='submit' className='edit_post_submitM'
-                // disabled={!body}
-                >
-                    Update Post
-                </button>
-            </div>
 
+                <p style={{ fontSize: 'small', textAlign: 'center', marginTop: '6px', color: 'grey' }}>Enter 1 to 255 characters and press Enter to Submit</p>
+                <div className="edit_btn_postM">
+                    <button type='submit' className='edit_post_submitM'
+                        style={{ borderRadius: '5px' }}
+                    >
+                        Submit
+                    </button>
+                </div>
+            </form>
         </div>
     )
 
