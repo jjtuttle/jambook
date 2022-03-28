@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { getAllComments, createComment } from '../../store/comments';
 import './AddComments.css';
 
@@ -9,7 +9,7 @@ const AddCommentsForm = ({ closeModal, post_id }) => {
     const [ errors, setErrors ] = useState([]);
 
     const dispatch = useDispatch();
-    const history = useHistory;
+    // const history = useHistory;
 
     // postId undefined....
     // console.log("Comment AddCommentsForm post_idddddd```````````````````", post_id);
@@ -24,7 +24,7 @@ const AddCommentsForm = ({ closeModal, post_id }) => {
     //     const errors = [];
     //     if (comment.length < 5 || comment.length > 255) errors.push('Please provide a comment between 5 chars and 255 chars.');
 
-    //     setErrors(errors);
+        // setErrors(errors);
     // }, [ comment ])
 
     //! EDIT

@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useHistory } from 'react-router-dom';
+// import {  useHistory } from 'react-router-dom';
 import { updatePost, getPosts } from '../../store/posts';
 import './EditPostModal.css';
 
 const EditPostsForm = ({ closeModal, posts }) => {
 
     const dispatch = useDispatch();
-    const history = useHistory;
+    // const history = useHistory;
 
     const sessionUser = useSelector(state => state?.session?.user);
 

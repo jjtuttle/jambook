@@ -45,12 +45,3 @@ const Footer = () => {
 export default Footer;
 
 
-{/* <svg width="178px" height="44px" viewBox="0 0 178 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-family="Klavika-Bold, Klavika" font-size="48" font-weight="bold">
-        <g id="login-splash" transform="translate(-79.000000, -216.000000)" fill="#1877F2" fill-rule="nonzero">
-            <text id="jambook">
-                <tspan x="80" y="250">jambook</tspan>
-            </text>
-        </g>
-    </g>
-</svg> */}

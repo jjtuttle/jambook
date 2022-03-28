@@ -56,7 +56,7 @@ function ProfileButton({ user }) {
               style={{
                 position: 'absolute',
                 backgroundColor: 'transparent',
-                color: '#808080',
+                // color: '#808080',
                 border: '1px solid #808080',
                 borderRadius: '5px',
                 fontWeight: '700',

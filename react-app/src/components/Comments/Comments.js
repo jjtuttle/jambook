@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllComments } from '../../store/comments';
 import { getPosts } from '../../store/posts';
-import match from '../../utils/match';
+// import match from '../../utils/match';
 import './Comments.css';
 import EditCommentsModal from '../EditComments/EditCommentsModal';
 import DeleteCommentButton from './DeleteCommentButton';
@@ -28,7 +28,7 @@ const Comments = ({ postId }) => {
 
 
     const sessionUser = useSelector(state => state?.session?.user);
-    const matchUserToOwner = match(sessionUser, postId);
+    // const matchUserToOwner = match(sessionUser, postId);
 
     const commentsObj = useSelector(state => state?.comments);
     const comments = Object.values(commentsObj)
