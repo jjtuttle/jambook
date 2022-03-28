@@ -29,7 +29,7 @@ const AddCommentsForm = ({ closeModal, post_id }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // if (comment !== "") {
+        if (comment !== "") {
             await dispatch(createComment({
                 post_id,
                 writer_id: +sessionUser.id,
@@ -39,9 +39,9 @@ const AddCommentsForm = ({ closeModal, post_id }) => {
             await dispatch(getAllComments());
             closeModal();
             // return history.push(`/`);
-        // } else {
-        //     alert("Please enter something.")
-        // }
+        } else {
+            alert("Please enter something.")
+        }
     }
 
     return (
