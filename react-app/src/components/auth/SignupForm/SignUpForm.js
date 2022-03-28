@@ -23,11 +23,8 @@ const SignUpForm = () => {
 
       const data = await dispatch(signUp(username, first, last, email, password, repeatPassword));
 
-      // if (data) {
-      //   setErrors(data)
-      // }
-      if (data.errors) {
-        setErrors(data.errors)
+      if (data) {
+        setErrors(data)
       }
     }
   };
@@ -88,10 +85,11 @@ const SignUpForm = () => {
 
       <div className="header__wrap">
         <a href="/">
-          <img className="x-img" src="https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/TdCEremeWv5.png"
-            alt="x"
-            style={{ width: "24px", height: "24px" }}
-          />
+          <p style={{ fontSize: '20px', paddingLeft: '420px' }}>X</p>
+          {/* <img className="x-img" src="https://static.xx.fbcdn.net/rsrc.php/v3/yX/r/TdCEremeWv5.png" */}
+          {/* alt="x"
+            style={{ width: "24px", height: "24px" }} */}
+          {/* /> */}
         </a>
         <div className="signup__header">
           <div className="signup__title">Sign Up</div>
