@@ -1,9 +1,9 @@
-import { useHistory, useParams } from 'react-router-dom';
+
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPost, getPosts, deletePost } from '../../store/posts';
 import React from 'react';
-import match from '../../utils/match';
+// import match from '../../utils/match';
 import './Posts.css';
 import EditPostsModal from '../EditPosts/EditPostsModal';
 import AddCommentsModal from '../AddComments/AddCommentsModal';
@@ -13,6 +13,8 @@ import Avatar from '@mui/material/Avatar';
 import Timestamp from 'react-timestamp';
 import BackToTopButton from '../NavBar/BackToTopButton';
 // import CharacterCounter from 'react-character-counter'
+import { stringAvatar } from '../../utils/avatarColorPicker';
+
 
 
 const PostForm = () => {
@@ -30,9 +32,6 @@ const PostForm = () => {
 
     const comment = useSelector((state) => state?.commentReducer);
 
-
-    const { postId } = useParams();
-
     const sessionUser = useSelector(state => state?.session?.user);
 
     const [ body, setBody ] = useState('');
@@ -45,8 +44,8 @@ const PostForm = () => {
     // console.log("SESSION USER Comp for POSTS................", x);
 
     useEffect(() => {
-        dispatch(getPosts(postId))
-    }, [ dispatch, postId ]);
+        dispatch(getPosts())
+    }, [ dispatch,  ]);
 
     //!CREATE
     const handleSubmit = async (e) => {
@@ -70,42 +69,6 @@ const PostForm = () => {
         await dispatch(deletePost(postId));
     }
 
-    // ===========================================================================
-    // Avatar color
-    // ===========================================================================
-
-    function stringToColor(string) {
-        let hash = 0;
-        let i;
-
-        /* eslint-disable no-bitwise */
-        for (i = 0; i < string.length; i += 1) {
-            hash = string.charCodeAt(i) + ((hash << 5) - hash);
-        }
-
-        let color = '#';
-
-        for (i = 0; i < 3; i += 1) {
-            const value = (hash >> (i * 8)) & 0xff;
-            color += `00${value.toString(16)}`.slice(-2);
-        }
-        /* eslint-enable no-bitwise */
-
-        return color;
-    }
-
-    function stringAvatar(name) {
-        // console.log("String array name =====================", name)
-        return {
-            sx: {
-                bgcolor: stringToColor(name),
-            },
-            children: `${name.split(' ')[ 0 ][ 0 ]}${name.split(' ')[ 1 ][ 0 ]}`,
-        };
-    }
-    // function stringAvatar(){};
-    // ----------------------------------------------------------------------
-
     return (
         <>
             <div className="post_container">
@@ -126,15 +89,15 @@ const PostForm = () => {
                     <form onSubmit={handleSubmit}>
                         {/* <div className="form--top"> */}
                         {/* <CharacterCounter value={count} maxLength={120} > */}
-                            <input className="post-input"
-                                maxLength="255"
-                                placeholder="What's on your mind - press Enter to submit"
-                                value={body}
+                        <input className="post-input"
+                            maxLength="255"
+                            placeholder="What's on your mind - press Enter to submit"
+                            value={body}
 
-                                onChange={(e) => setBody(e.target.value)}
-                                autoFocus
-                            // style={{ cursor: 'pointer' }}
-                            />
+                            onChange={(e) => setBody(e.target.value)}
+                            autoFocus
+                        // style={{ cursor: 'pointer' }}
+                        />
                         {/* </CharacterCounter> */}
                         <p style={{ fontSize: "x-small", paddingTop: '10px', textAlign: 'center', color: 'grey' }}>Enter up to 255 characters</p>
                         {/* </div> */}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import './NavBar.css';
@@ -10,6 +10,13 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);
+
+
+
+
+
+
+
 
   // Sticky navbar ----
   const [ scrolled, setScrolled ] = React.useState(false);
@@ -39,24 +46,24 @@ const NavBar = () => {
 
   if (sessionUser) {
     sessionLinks = (
-      <div className="nav-container">
+      <div className="nav-container" >
 
-        {/* <div className="nav__left"> */}
+        <div className="nav__left">
         <img className="nav-circle-logo" src={circleLogoLightM} alt="circle logo"
           style={{ marginTop: '3px', width: '30px', height: '30px', }}
           // onclick={alert('Welcome to jambook!')}
         />
-        {/* </div> */}
+        </div>
 
-        {/* <div className="nav__center"> */}
+        <div className="nav__center">
         <a className='link-github' href='https://github.com/jjtuttle' target='_blank' rel='noreferrer'><GitHubIcon style={{fontSize:'30'}} /></a>
         <a className='link-linkedin' href='https://www.linkedin.com/in/jamesjtuttle/' target='_blank' rel='noreferrer'><LinkedInIcon style={{ fontSize: '30' }} /></a>
-        {/* </div> */}
+        </div>
 
-        {/* <div className="nav__right"> */}
+        <div className="nav__right">
         {/* <LogoutButton className=" btn nav-logout-btn" /> */}
         <ProfileButton user={sessionUser} className="btn nav-profile-btn " />
-        {/* </div> */}
+        </div>
 
       </div>
     )
@@ -64,7 +71,7 @@ const NavBar = () => {
 
   } else {
     sessionLinks = (
-      <div className="login-signup-links">
+      <div className="login-signup-links" >
         <div className="nav-login">
           <NavLink to="/login" exact={true} activeClassName="active">
             Login .....
