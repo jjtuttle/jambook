@@ -12,14 +12,16 @@
 
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+
     align-items: center;
     height: 60px;
     margin-bottom: 100px;
-
+    /* flex:0.75; */
     transition: all .1s linear;
     z-index: 2000;
     position: fixed;
+
 }
 
 .more-btn {
@@ -33,19 +35,24 @@
 
 .nav__left {
     display: flex;
-    justify-content: space-evenly;
-    flex:.5;
+    margin-left:20px;
+    position: relative;
+    left:5vw;
 }
 
 .nav__center {
     display: flex;
-    flex: 1;
+    flex:1;
+    padding:20px;
+    /* align-items:center; */
     justify-content:space-evenly;
 }
 
 .nav__right {
     display: flex;
-    flex:1;
+    margin-right:20px;
+    position: absolute;
+    right:5vw;
 }
 
 
