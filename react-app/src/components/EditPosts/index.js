@@ -15,6 +15,8 @@ const EditPostsForm = ({ closeModal, posts }) => {
     const id = posts.id
 
     const [ body, setBody ] = useState(posts.body);
+    const [ textCount, setTextCount ] = useState(0);
+
 
     //! EDIT
     const handleSubmit = async (e) => {
@@ -47,6 +49,7 @@ const EditPostsForm = ({ closeModal, posts }) => {
                     maxLength="255"
                     // placeholder="Start a session..."
                     value={body}
+                    onChangeText={(body) => setTextCount({ body })}
                     onChange={(e) => setBody(e.target.value)}
                     style={{
                         borderRadius: '5px', marginTop: '10px', width: '60vw',
@@ -54,8 +57,10 @@ const EditPostsForm = ({ closeModal, posts }) => {
                         caretColor: 'blue', paddingLeft: '10px'
                     }}
                 />
-
-                <p style={{ fontSize: 'small', textAlign: 'center', marginTop: '6px', color: 'grey' }}>Enter 2 to 255 characters and press Enter to Submit</p>
+                <div className='post__wordCount'>
+                    Characters: {body.length}/255
+                </div>
+                {/* <p style={{ fontSize: 'small', textAlign: 'center', marginTop: '6px', color: 'grey' }}>Enter 2 to 255 characters and press Enter to Submit</p> */}
                 <div className="edit_btn_postM">
                     <button type='submit' className='edit_post_submitM'
                         style={{ borderRadius: '5px' }}

@@ -152,3 +152,9 @@
     padding:5px;
     justify-content: flex-start;
 }
+
+.post__wordCount {
+    font-size: x-small;
+    padding-top: 10px;
+    text-align: center;
+}

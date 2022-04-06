@@ -33,9 +33,10 @@ const PostForm = () => {
     const comment = useSelector((state) => state?.commentReducer);
 
     const sessionUser = useSelector(state => state?.session?.user);
-
+    const [textCount, setTextCount] = useState(0);
     const [ body, setBody ] = useState('');
-    const [ errors, setErrors ] = useState([]);
+    // const [ errors, setErrors ] = useState([]);
+    const errors = {}
 
     // const matchUserToOwner = match(sessionUser, postId);
 
@@ -88,19 +89,18 @@ const PostForm = () => {
                     {/* //! *************** From Starts *****************/}
                     <form onSubmit={handleSubmit}>
                         {/* <div className="form--top"> */}
-                        {/* <CharacterCounter value={count} maxLength={120} > */}
                         <input className="post-input"
                             maxLength="255"
                             placeholder="What's on your mind - press Enter to submit"
                             value={body}
-
+                            onChangeText={(body) => setTextCount({body})}
                             onChange={(e) => setBody(e.target.value)}
                             autoFocus
                         // style={{ cursor: 'pointer' }}
                         />
-                        {/* </CharacterCounter> */}
-                        <p style={{ fontSize: "x-small", paddingTop: '10px', textAlign: 'center', color: 'grey' }}>Enter up to 255 characters</p>
-                        {/* </div> */}
+                        <div className='post__wordCount'>
+                        Characters: {body.length}/255
+                        </div>
 
                         {/* <button className="btn-post" type="submit">
                                 Hidden Post
