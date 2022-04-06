@@ -38,13 +38,6 @@ const PostForm = () => {
     // const [ errors, setErrors ] = useState([]);
     const errors = {}
 
-    if (body.length > 10) errors.body = true;
-
-
-    
-    
-
-
     // const matchUserToOwner = match(sessionUser, postId);
 
 
@@ -106,7 +99,7 @@ const PostForm = () => {
                         // style={{ cursor: 'pointer' }}
                         />
                         <div className='post__wordCount'>
-                            Characters left:{body.length}/255
+                        Characters: {body.length}/255
                         </div>
 
                         {/* <button className="btn-post" type="submit">

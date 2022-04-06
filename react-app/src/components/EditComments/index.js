@@ -14,6 +14,7 @@ const EditCommentsForm = ({ closeModal, comment }) => { // postId,
 
     const id = comment.id;
     const [ context, setContext ] = useState(comment.comment); // comments.comment
+    const [ textCount, setTextCount ] = useState(0);
 
     //! EDIT
     const handleSubmit = (e) => {
@@ -42,7 +43,7 @@ const EditCommentsForm = ({ closeModal, comment }) => { // postId,
                     // id="" cols="30" rows="2"
                     value={context}
                     maxLength="255"
-
+                    onChangeText={(body) => setTextCount({ context })}
                     onChange={(e) => setContext(e.target.value)}
                     autoFocus
                     style={{
@@ -51,8 +52,10 @@ const EditCommentsForm = ({ closeModal, comment }) => { // postId,
                         caretColor: 'blue', paddingLeft: '10px'
                     }}
                 />
-
-                <p style={{ fontSize: 'small', textAlign: 'center', marginTop: '6px', color: 'grey' }}>Enter 2 to 255 characters and Submit</p>
+                <div className='post__wordCount'>
+                    Characters: {context.length}/255
+                </div>
+                {/* <p style={{ fontSize: 'small', textAlign: 'center', marginTop: '6px', color: 'grey' }}>Enter 2 to 255 characters and Submit</p> */}
                 <div className="edit_btn_commentM">
                     <button type='submit' className='edit_comment_submitM'
                         style={{ borderRadius: '5px' }}

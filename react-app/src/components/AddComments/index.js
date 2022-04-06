@@ -16,7 +16,7 @@ const AddCommentsForm = ({ closeModal, post_id }) => {
 
     const sessionUser = useSelector(state => state?.session?.user);
 
-
+    const [ textCount, setTextCount ] = useState(0);
     const [ comment, setComment ] = useState(''); // comments.comment
 
 
@@ -64,16 +64,20 @@ const AddCommentsForm = ({ closeModal, post_id }) => {
                     // id="" cols="30" rows="2"
                     value={comment}
                     maxLength="255"
+                    onChangeText={(body) => setTextCount({ body })}
                     onChange={(e) => setComment(e.target.value)}
                     autoFocus
-                    placeholder={"Enter 2 to 255 characters and press Enter to submit"}
+                    placeholder={"Add your comment and press Enter to submit"}
                     style={{
                         borderRadius: '5px', marginTop: '10px', width: '60vw',
                         height: '3vh', fontSize: '15px', border: '1px solid blue', boxShadow: '0 0 5px #719ece',
                         caretColor: 'blue', paddingLeft: '10px'
                     }}
                 />
-                <p style={{ fontSize: 'small', textAlign: 'center', marginTop: '6px', color: 'grey' }}>Enter 2 to 255 characters and Submit</p>
+                <div className='post__wordCount'>
+                    Characters: {comment.length}/255
+                </div>
+                {/* <p style={{ fontSize: 'small', textAlign: 'center', marginTop: '6px', color: 'grey' }}>Enter 2 to 255 characters and Submit</p> */}
                 <div className="add_btn_comment">
                     <button type='submit' className='add_comment_submit' style={{ borderRadius: '5px' }} >
                         Submit
