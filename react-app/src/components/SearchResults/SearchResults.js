@@ -8,7 +8,7 @@ import AddCommentsModal from '../AddComments/AddCommentsModal';
 import DeletePostButton from '../Posts/DeletePostButton';
 import Comments from '../Comments/Comments'
 import { stringAvatar } from '../../utils/avatarColorPicker';
-
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import './SearchResults.css'
 
 
@@ -28,13 +28,18 @@ const SearchResults = () => {
         history.push('/pageNotFound')
     }
 
+    const handleBack = () => {
+        history.push('/')
+    }
 
 
     return (
         <div>
-            <h2 style={{ top: '180px', color:'#719ece', textAlign:'center' }}>Search results</h2>
-
-            <div className="posts_container">
+            <h2 style={{ top: '200px', color:'#719ece', textAlign:'center' }}>Search results</h2>
+            <ArrowBackIosNewIcon style={{marginLeft:'300px', width:'60px', height:'60px'}} 
+                onClick={handleBack}
+            />
+            <div className="post_container">
                 <ul className="ul_posts">
                     {posts?.map((post) => (
 
