@@ -1,0 +1,34 @@
+.search_input {
+    width: 200px;
+    height:25px;
+    border-radius: 8px;
+    border: .5px solid #719ece;
+    margin-left:10px;
+    margin-top:5px;
+    padding-left:5px;
+    cursor: pointer;
+    caret-color:blue;
+
+}
+
+.search_input:focus {
+    outline:none;
+}
+
+.search_input::placeholder {
+    color: lightgrey;
+}
+
+/* button.search-btn {
+    background-color: #719ece;
+    color: #fcfcfc;
+    padding: 5px 10px;
+    border:none;
+}
+
+.search-btn:hover {
+    background-color: #719ece;
+    color: white;
+} */
+
+

@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import session from './session';
 import posts from './posts';
 import commentReducer from './comments';
+import searchReducer from './search';
 // import likes from './likes';
 // todo ————————————————————————————————————————————————————————————————————————
 
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   session,
   posts,
   comments: commentReducer,
+  searchReducer,
   // likes,
 });
 

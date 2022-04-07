@@ -53,7 +53,7 @@ function ProfileButton({ user }) {
         }}
       > More... */}
         {/* <i className="fas fa-user-circle"  style={{color:'grey'}}/> */}
-      <i><Avatar onClick={openMenu} className="more-avatar" {...stringAvatar(sessionUser.first.concat(' ', sessionUser.last))} /></i>
+      <i><Avatar onClick={openMenu} className="more-avatar" {...stringAvatar(sessionUser.first.concat(' ', sessionUser.last))} style={{marginTop:'15PX', width:'30px', height:'30px', fontSize:'15px'}} /></i>
       {/* </button> */}
       {showMenu && (
         <ul className="profile-dropdown">
@@ -69,7 +69,7 @@ function ProfileButton({ user }) {
                 border: '1px solid #808080',
                 borderRadius: '5px',
                 fontWeight: '700',
-                fontSize: '14px',
+                fontSize: '12px',
                 color:'#1877f2'
               }}
 
