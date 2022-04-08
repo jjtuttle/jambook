@@ -88,19 +88,43 @@
     color:#808080;
     border:1px solid #808080;
     font-weight: 600;
-    /* margin: 60px; */
+    margin: 5px;
+    padding:5px;
     cursor: pointer;
 }
 
-/* .profile-dropdown {
+.profile__logoutBtn {
+    cursor: pointer;
+    padding:5px;
+    width:80px;
+}
+
+.profile_avatar {
+    display: flex;
+    padding:5px;
+}
+
+.profile__dropdown {
+    /* display:flex;   */
     position: absolute;
-    color:#808080;
-    height: 20vh;
-    width: 30vw;
-    right: 10px;
+    color:#2e81f4;
+    height: 9vh;
+    width: 10vw;
+    right: -60px;
     top: 50px;
     cursor: pointer;
-} */
+    /* background-color: rgba(145, 145, 145, 0.384); */
+    background-color: white;
+    border-radius: 8px;
+    padding:10px;
+    margin:5px;
+}
+
+.profile__logoutBtn{
+
+}
+
+
 
 /* .fa .fa-user-circle {
     color:#808080;
@@ -122,6 +146,7 @@
 
 ul li {
     text-decoration: none;
+    padding:5px;
 }
 
 

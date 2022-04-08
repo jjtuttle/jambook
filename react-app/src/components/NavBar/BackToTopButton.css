@@ -1,0 +1,53 @@
+/* .backToTopArrow:hover {
+    animation: rotation .1s infinite linear;
+} */
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* @keyframes loader {
+  0% {
+    rotate: 0deg;
+  }
+  25% {
+    rotate: y 90deg;
+    scale: 0.5;
+  }
+  50% {
+    rotate: 180deg;
+  }
+  75% {
+    rotate: x 270deg;
+    border-radius: 50%;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+@supports not (rotate: 0deg) {
+  @keyframes loader {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: scale(0.5) rotateY(90deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    75% {
+      transform: rotateX(270deg);
+      border-radius: 50%;
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+} */
