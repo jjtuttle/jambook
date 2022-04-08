@@ -29,13 +29,16 @@ const BackToTopButton = () => {
     return (
         <div>
             {backToTopButton && (
-                <ArrowCircleUpIcon style={{
+                <ArrowCircleUpIcon className='backToTopArrow'
+                style={{
                     position: "fixed",
                     bottom: "5vh",
                     right: "20vw",
                     height: "50px",
                     width: "50px",
-                    
+                        // transition: '0.5s ease-in -out',
+                    animation: "rotation 2s  linear"
+                    // animation: 'loader 5s infinite'
                 }} 
                 onClick={scrollUp}
                 />

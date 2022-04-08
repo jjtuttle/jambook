@@ -6,6 +6,7 @@ import ProfileButton from './ProfileButton';
 import circleLogoLightM from '../../images/circle-logo-lightmode.png';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import SearchBar from '../SearchBar/SearchBar';
 
 
 const NavBar = () => {
@@ -43,21 +44,25 @@ const NavBar = () => {
 
 
   let sessionLinks;
+  let searchBar;
 
   if (sessionUser) {
     sessionLinks = (
+      
       <div className="nav-container" >
 
         <div className="nav__left">
+          
         <img className="nav-circle-logo" src={circleLogoLightM} alt="circle logo"
-          style={{ marginTop: '3px', width: '30px', height: '30px', }}
+          style={{ marginTop: '15px', width: '30px', height: '30px', }}
           // onclick={alert('Welcome to jambook!')}
         />
+          <SearchBar />
         </div>
 
         <div className="nav__center">
-        <a className='link-github' href='https://github.com/jjtuttle' target='_blank' rel='noreferrer'><GitHubIcon style={{fontSize:'30'}} /></a>
-        <a className='link-linkedin' href='https://www.linkedin.com/in/jamesjtuttle/' target='_blank' rel='noreferrer'><LinkedInIcon style={{ fontSize: '30' }} /></a>
+          <a className='link-github' href='https://github.com/jjtuttle' target='_blank' rel='noreferrer'><GitHubIcon style={{ fontSize: '30', marginTop: '15px'}} /></a>
+          <a className='link-linkedin' href='https://www.linkedin.com/in/jamesjtuttle/' target='_blank' rel='noreferrer'><LinkedInIcon style={{ fontSize: '30', marginTop: '15px'}} /></a>
         </div>
 
         <div className="nav__right">

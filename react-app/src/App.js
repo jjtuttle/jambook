@@ -11,11 +11,13 @@ import { authenticate } from './store/session';
 import Homepage from './components/Homepage/Homepage';
 // import Post from './components/Posts/Posts';
 import PageNotFound from './components/PageNotFound/PageNotFound';
+import SearchResults from './components/SearchResults/SearchResults';
+
+
+
 
 function App() {
 
-
-  
   const [ loaded, setLoaded ] = useState(false);
   const dispatch = useDispatch();
 
@@ -61,6 +63,10 @@ function App() {
           <Homepage />
           {/* </NavBar> */}
         </ProtectedRoute>
+
+        <Route path='/search/:keyword' exact={true}>
+          <SearchResults />
+        </Route>
 
         <Route path="*" component={PageNotFound} />
 

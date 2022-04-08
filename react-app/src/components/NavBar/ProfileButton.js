@@ -5,7 +5,12 @@ import Avatar from '@mui/material/Avatar';
 import { stringAvatar} from '../../utils/avatarColorPicker';
 
 
+
+
+
+
 function ProfileButton({ user }) {
+  
   const dispatch = useDispatch();
   const [ showMenu, setShowMenu ] = useState(false);
 
@@ -33,6 +38,8 @@ function ProfileButton({ user }) {
     dispatch(sessionActions.logout());
   };
 
+  
+
   return (
     <>
       {/* <button onClick={openMenu} className="more-btn"
@@ -53,15 +60,16 @@ function ProfileButton({ user }) {
         }}
       > More... */}
         {/* <i className="fas fa-user-circle"  style={{color:'grey'}}/> */}
-      <i><Avatar onClick={openMenu} className="more-avatar" {...stringAvatar(sessionUser.first.concat(' ', sessionUser.last))} /></i>
+      <i><Avatar onClick={openMenu} className="profile_avatar" {...stringAvatar(sessionUser.first.concat(' ', sessionUser.last))} style={{marginTop:'15PX', width:'30px', height:'30px', fontSize:'15px'}} /></i>
       {/* </button> */}
       {showMenu && (
-        <ul className="profile-dropdown">
-          <li style={{ color:'#1877f2'}}>{user.username}</li>
+        <ul className="profile__dropdown">
+          <li className='profile__username' style={{ color:'#1877f2'}}>{user.username}</li>
           {/* <li>{user.email}</li> */}
           <li>Switch Mode</li>
           <li>
             <button onClick={logout}
+              className='profile__logoutBtn'
               style={{
                 position: 'absolute',
                 backgroundColor: 'transparent',
@@ -69,7 +77,7 @@ function ProfileButton({ user }) {
                 border: '1px solid #808080',
                 borderRadius: '5px',
                 fontWeight: '700',
-                fontSize: '14px',
+                fontSize: '12px',
                 color:'#1877f2'
               }}
 

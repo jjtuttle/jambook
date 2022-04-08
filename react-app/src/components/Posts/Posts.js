@@ -33,7 +33,7 @@ const PostForm = () => {
     const comment = useSelector((state) => state?.commentReducer);
 
     const sessionUser = useSelector(state => state?.session?.user);
-    const [textCount, setTextCount] = useState(0);
+    const [textCount, setTextCount] = useState(0); 
     const [ body, setBody ] = useState('');
     // const [ errors, setErrors ] = useState([]);
     const errors = {}
@@ -46,7 +46,7 @@ const PostForm = () => {
 
     useEffect(() => {
         dispatch(getPosts())
-    }, [ dispatch,  ]);
+    }, [ dispatch,  ]); 
 
     //!CREATE
     const handleSubmit = async (e) => {
