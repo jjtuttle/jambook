@@ -4,10 +4,6 @@ import * as sessionActions from '../../store/session';
 import Avatar from '@mui/material/Avatar';
 import { stringAvatar} from '../../utils/avatarColorPicker';
 
-import { ThemeProvider } from "styled-components";
-import { lightTheme, darkTheme, GlobalStyles } from "../../utils/theme";
-
-
 
 
 function ProfileButton({ user, theme }) {

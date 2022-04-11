@@ -12,14 +12,11 @@ import Comments from '../Comments/Comments'
 import Avatar from '@mui/material/Avatar';
 import Timestamp from 'react-timestamp';
 import BackToTopButton from '../NavBar/BackToTopButton';
-// import CharacterCounter from 'react-character-counter'
 import { stringAvatar } from '../../utils/avatarColorPicker';
 
 
 
 const PostForm = () => {
-    // const [ count, setCount ] = useState(0);  // char counter
-
 
     const dispatch = useDispatch();
     // const history = useHistory();
@@ -39,11 +36,7 @@ const PostForm = () => {
     const errors = {}
 
     // const matchUserToOwner = match(sessionUser, postId);
-
-
-    // const x = posts.map((p) =>  p.last)
-    // console.log("SESSION USER Comp for POSTS................", x);
-
+    
     useEffect(() => {
         dispatch(getPosts())
     }, [ dispatch,  ]); 
