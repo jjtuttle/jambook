@@ -4,12 +4,34 @@ import * as sessionActions from '../../store/session';
 import Avatar from '@mui/material/Avatar';
 import { stringAvatar} from '../../utils/avatarColorPicker';
 
+import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme, GlobalStyles } from "../../utils/theme";
 
 
 
 
+function ProfileButton({ user, theme }) {
 
-function ProfileButton({ user }) {
+  const [ profTheme, profSetTheme ] = useState("light");
+  const isDarkTheme = theme === "dark";
+
+  const toggleTheme = () => {
+    const updatedTheme = isDarkTheme ? "light" : "dark";
+    profSetTheme(updatedTheme);
+    localStorage.setItem("theme", updatedTheme);
+  };
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (savedTheme && [ "dark", "light" ].includes(savedTheme)) {
+      profSetTheme(savedTheme);
+    } else if (prefersDark) {
+      profSetTheme("dark");
+    }
+  }, []);
   
   const dispatch = useDispatch();
   const [ showMenu, setShowMenu ] = useState(false);
@@ -66,7 +88,17 @@ function ProfileButton({ user }) {
         <ul className="profile__dropdown">
           <li className='profile__username' style={{ color:'#1877f2'}}>{user.username}</li>
           {/* <li>{user.email}</li> */}
-          <li>Switch Mode</li>
+          <li>    <button onClick={toggleTheme}>
+            {isDarkTheme ? (
+              <span aria-label="Light mode" role="img">
+                🌞
+              </span>
+            ) : (
+              <span aria-label="Dark mode" role="img">
+                🌜
+              </span>
+            )}
+          </button></li>
           <li>
             <button onClick={logout}
               className='profile__logoutBtn'
