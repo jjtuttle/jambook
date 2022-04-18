@@ -107,9 +107,10 @@
 .profile__dropdown {
     /* display:flex;   */
     position: absolute;
-    color:#2e81f4;
-    height: 9vh;
-    width: 10vw;
+    color:#2e81f4a9;
+    height: 13vh;
+    /* min-height:13vh; */
+    width: 18vw;
     right: -60px;
     top: 50px;
     cursor: pointer;
@@ -123,8 +124,6 @@
 .profile__logoutBtn{
 
 }
-
-
 
 /* .fa .fa-user-circle {
     color:#808080;

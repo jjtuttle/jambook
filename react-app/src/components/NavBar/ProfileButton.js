@@ -3,32 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import Avatar from '@mui/material/Avatar';
 import { stringAvatar} from '../../utils/avatarColorPicker';
-
-
+import UserModal from '../Users/UserModal';
+import { NavLink } from 'react-router-dom';
 
 function ProfileButton({ user, theme }) {
 
-  const [ profTheme, profSetTheme ] = useState("light");
-  const isDarkTheme = theme === "dark";
 
-  const toggleTheme = () => {
-    const updatedTheme = isDarkTheme ? "light" : "dark";
-    profSetTheme(updatedTheme);
-    localStorage.setItem("theme", updatedTheme);
-  };
-
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (savedTheme && [ "dark", "light" ].includes(savedTheme)) {
-      profSetTheme(savedTheme);
-    } else if (prefersDark) {
-      profSetTheme("dark");
-    }
-  }, []);
-  
   const dispatch = useDispatch();
   const [ showMenu, setShowMenu ] = useState(false);
 
@@ -82,19 +62,10 @@ function ProfileButton({ user, theme }) {
       {/* </button> */}
       {showMenu && (
         <ul className="profile__dropdown">
-          <li className='profile__username' style={{ color:'#1877f2'}}>{user.username}</li>
+          <li className='profile__username' style={{ color:'#003f96'}}>Welcome, {user.username}</li>
           {/* <li>{user.email}</li> */}
-          <li>    <button onClick={toggleTheme}>
-            {isDarkTheme ? (
-              <span aria-label="Light mode" role="img">
-                🌞
-              </span>
-            ) : (
-              <span aria-label="Dark mode" role="img">
-                🌜
-              </span>
-            )}
-          </button></li>
+          <hr />
+          <li><UserModal /> </li>
           <li>
             <button onClick={logout}
               className='profile__logoutBtn'
@@ -106,7 +77,8 @@ function ProfileButton({ user, theme }) {
                 borderRadius: '5px',
                 fontWeight: '700',
                 fontSize: '12px',
-                color:'#1877f2'
+                color:'#1877f2',
+                marginTop:'20px'
               }}
 
             >Log Out</button>

@@ -4,13 +4,13 @@ import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm/LoginForm';
 import SignUpForm from './components/auth/SignupForm/SignUpForm';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+import UsersList from './components/Users/UsersList';
+import User from './components/Users/User';
 import { authenticate } from './store/session';
 import Homepage from './components/Homepage/Homepage';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 import SearchResults from './components/SearchResults/SearchResults';
-
+import UserProfile from './components/UserProfile/UserProfile';
 
 
 
@@ -56,8 +56,6 @@ function App() {
         </Route> */}
 
         <ProtectedRoute path='/' exact={true} >
-
-
           <Homepage />
           {/* </NavBar> */}
         </ProtectedRoute>
