@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import Avatar from '@mui/material/Avatar';
 import { stringAvatar} from '../../utils/avatarColorPicker';
-import UserModal from '../Users/UserModal';
+import UserModal from '../Users/UserModal.js.BAK';
 import { NavLink } from 'react-router-dom';
 
 function ProfileButton({ user, theme }) {
