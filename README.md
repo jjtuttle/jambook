@@ -67,5 +67,6 @@ This is a basic and clean UI experience for getting authenticated, signing up as
 11. In your browser go to `localhost:3000`
 12. You may use the Demo User by clicking on the **Log In** button
     * or create a new user by clicking **Create new account**  
+    
 13. Then you are logged in and can create a post, look at other posts, add comments to a post, edit your posts/comments 
 14. As you scroll down simply click the up arrow button <img width="30" alt="Screen Shot 2022-03-28 at 6 25 01 AM" src="https://user-images.githubusercontent.com/2349101/160407601-02458cf7-0e1f-4541-9fa5-935c1a52c1e2.png"> to be smoothly taken to the top of the page again where all posts and comments are sorted by the newest, top down.
